@@ -24,9 +24,10 @@ export default defineConfig({
       }
     },
     allowedHosts: [
-      "test.nmo.net.cn",
-      "www.nmo.net.cn",
-      "nmo.net.cn",
+      // "test.nmo.net.cn",
+      // "www.nmo.net.cn",
+      // "nmo.net.cn",
+      "*",
     ]
   }
 })
