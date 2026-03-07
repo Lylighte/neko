@@ -28,7 +28,7 @@ onMounted(() => {
     </div>
     <div class="intro-area">
       <h1 style="opacity: 0; animation: fade-in-down 1s ease-out forwards">
-        更多关于我们的事情...
+        Lorem ipsum dolor sit amet...
       </h1>
       <IntroItem
         v-for="(intro, index) in intros"
@@ -49,7 +49,7 @@ onMounted(() => {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  background-image: url('/background/links-background.jpg');
+  background-image: url('/background/ustcmc.jpg');
   background-size: cover;
   background-position: center;
 

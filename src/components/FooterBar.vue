@@ -17,12 +17,12 @@ onMounted(async () => {
   <div class="footer-area">
     <div class="footer-description">
       <img src="/nmo-logo-large.png" alt="logo" style="width: 5rem; user-select: none" />
-      <p style="user-select: none">南京大学 Minecraft 协会</p>
+      <p style="user-select: none">中国科学技术大学 USTCraft 像素艺术社</p>
       <text style="margin-bottom: 0.5rem">{{ slogan }}</text>
       <span id="copyright" style="user-select: none">
-        © 2025 - All rights reserved |
+        © 2026 USTCraft. |
         <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/"
-          >浙ICP备2022000762号-1</a
+          >皖ICP备xxxxxxxx号</a
         >
       </span>
       <span id="declaration" style="user-select: none">
@@ -36,17 +36,17 @@ onMounted(async () => {
     <div class="footer-links">
       <div class="link-block">
         <p>外部链接</p>
-        <a class="link-item" href="https://qm.qq.com/q/J9i2nFAFkS">
+        <a class="link-item" href="https://example.com">
           <QQIcon class="link-icon" />
-          QQ交流群
+          官网
         </a>
-        <a class="link-item" href="https://space.bilibili.com/646892894">
+        <a class="link-item" href="https://example.com">
           <BilibiliIcon class="link-icon" />
           bilibili
         </a>
         <a class="link-item" href="https://github.com/EntropyGenerator/neco">
           <GithubIcon class="link-icon" />
-          Github源码
+          Powered by Neco
         </a>
       </div>
     </div>

@@ -131,7 +131,7 @@ onMounted(async () => {
   align-items: center;
   padding-top: 5rem;
   box-sizing: border-box;
-  background-image: url('/background/list-background.jpg');
+  background-image: url('/background/ustcmc.jpg');
   background-position: center;
   background-size: cover;
 

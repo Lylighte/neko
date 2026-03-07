@@ -95,7 +95,7 @@ onMounted(() => {
   <div class="login-area">
     <div class="login-panel mc-border">
       <img class="login-logo" src="/nmo-logo-large.png" />
-      <span class="login-title">登录 NMO Ecosystem</span>
+      <span class="login-title">登录 USTCraft</span>
       <MinecraftInput
         class="login-input"
         v-model="form.username"

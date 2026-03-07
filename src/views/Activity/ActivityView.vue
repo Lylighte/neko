@@ -117,14 +117,10 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   background-color: #303030;
-  background-image: url('/background/header-bg.jpg'), url('/background/bg.jpg');
-  background-repeat: repeat-x, repeat;
-  background-position:
-    top left,
-    top left;
-  background-size:
-    auto 234px,
-    468px;
+  background-image: url('/background/ustcmc.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .activity-area p {
