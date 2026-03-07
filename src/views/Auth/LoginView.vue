@@ -94,7 +94,7 @@ onMounted(() => {
   <div id="login-bg"></div>
   <div class="login-area">
     <div class="login-panel mc-border">
-      <img class="login-logo" src="/nmo-logo-large.png" />
+      <img class="login-logo" src="/logo-320px.png" />
       <span class="login-title">登录 USTCraft</span>
       <MinecraftInput
         class="login-input"

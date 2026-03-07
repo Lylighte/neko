@@ -46,7 +46,7 @@ onUnmounted(() => {
 <template>
   <div class="management-area">
     <div class="management-menu" :type="sidebarExpand ? '' : 'shrink'">
-      <img class="management-logo" src="/nmo-logo-large.png" />
+      <img class="management-logo" src="/logo-320px.png" />
       <span class="management-title">USTCraft - 管理后台</span>
       <MinecraftButtonClassic
         class="management-nav"

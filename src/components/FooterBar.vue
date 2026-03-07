@@ -16,7 +16,7 @@ onMounted(async () => {
 <template>
   <div class="footer-area">
     <div class="footer-description">
-      <img src="/nmo-logo-large.png" alt="logo" style="width: 5rem; user-select: none" />
+      <img src="/logo-320px.png" alt="logo" style="width: 5rem; user-select: none" />
       <p style="user-select: none">中国科学技术大学 USTCraft 像素艺术社</p>
       <text style="margin-bottom: 0.5rem">{{ slogan }}</text>
       <span id="copyright" style="user-select: none">

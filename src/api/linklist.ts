@@ -9,13 +9,13 @@ export const GetLinkList = (): LinkEntity[] => {
   return [
     {
       name: 'USTCraft 官网',
-      image: '/nmo-logo.png',
+      image: '/logo.png',
       url: 'https://example.com',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     },
     {
       name: 'bilibili',
-      image: '/nmo-logo.png',
+      image: '/logo.png',
       url: 'https://example.com',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     },

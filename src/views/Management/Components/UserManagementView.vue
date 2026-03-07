@@ -73,7 +73,7 @@ const triggerUploadBase64 = (): Promise<string> => {
 
 const toast = useToast()
 
-const avatar = ref('/nmo-logo-large.png')
+const avatar = ref('/logo-320px.png')
 const username = ref(localStorage.getItem('username') || 'Undefined')
 const userGroup = ref(JSON.parse(localStorage.getItem('userGroup') || '[]'))
 const userTags = ref(
@@ -89,7 +89,7 @@ const userTags = ref(
   ),
 )
 
-const editAvatar = ref('/nmo-logo-large.png')
+const editAvatar = ref('/logo-320px.png')
 const editUsername = ref('Undefined')
 
 const editAdminSwitch = ref(true)
@@ -131,7 +131,7 @@ const saveEditUser = async () => {
 
 const loadEditUser = (user: UserEntity, index: number) => {
   editUsername.value = user.username
-  editAvatar.value = avatars.value[index] || '/nmo-logo-large.png'
+  editAvatar.value = avatars.value[index] || '/logo-320px.png'
   editAdminSwitch.value = (user.group || []).includes('admin')
   editNewsAdminSwitch.value = (user.group || []).includes('news_admin')
   editServerAdminSwitch.value = (user.group || []).includes('server_admin')
@@ -315,15 +315,15 @@ onMounted(async () => {
   if (userGroup.value.includes('admin')) {
     users.value = (await GetUserList()) || []
     for (let i = 0; i < users.value.length; i++) {
-      avatars.value.push((await GetAvatar(users.value[i].username)) || '/nmo-logo-large.png')
+      avatars.value.push((await GetAvatar(users.value[i].username)) || '/logo-320px.png')
     }
     if (!users.value) {
       toast.warning('获取用户列表失败！')
     }
   }
-  avatar.value = (await GetAvatar(username.value)) || '/nmo-logo-large.png'
+  avatar.value = (await GetAvatar(username.value)) || '/logo-320px.png'
   if (avatar.value.trim() === '') {
-    avatar.value = '/nmo-logo-large.png'
+    avatar.value = '/logo-320px.png'
   }
 })
 </script>
