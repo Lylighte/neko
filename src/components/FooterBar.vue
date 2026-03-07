@@ -22,7 +22,7 @@ onMounted(async () => {
       <span id="copyright" style="user-select: none">
         © 2026 USTCraft. |
         <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/"
-          >皖ICP备xxxxxxxx号</a
+          >豫ICP备2025158752号</a
         >
       </span>
       <span id="declaration" style="user-select: none">
@@ -35,18 +35,26 @@ onMounted(async () => {
 
     <div class="footer-links">
       <div class="link-block">
-        <p>外部链接</p>
-        <a class="link-item" href="https://example.com">
+        <p>社区</p>
+        <a class="link-item" href="https://qm.qq.com/q/GcTr6vaKEQ">
           <QQIcon class="link-icon" />
-          官网
+          MC交流群
         </a>
-        <a class="link-item" href="https://example.com">
+        <a class="link-item" href="https://space.bilibili.com/3546788017474530">
           <BilibiliIcon class="link-icon" />
           bilibili
         </a>
+      </div>
+
+      <div class="link-block">
+        <p>友链</p>
         <a class="link-item" href="https://github.com/EntropyGenerator/neco">
-          <GithubIcon class="link-icon" />
+          <!-- <GithubIcon class="link-icon" /> -->
           Powered by Neco
+        </a>
+
+        <a class="link-item" href="https://nmo.net.cn">
+          NMO
         </a>
       </div>
     </div>
@@ -115,6 +123,12 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   justify-content: left;
+}
+
+.link-block + .link-block {
+  margin-left: 1.25rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid #606266;
 }
 
 .link-item {

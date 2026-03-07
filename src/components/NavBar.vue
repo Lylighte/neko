@@ -26,9 +26,9 @@ interface NavItem {
 
 const navItems = ref<NavItem[]>([
   { name: '主页', url: '/lobby' },
-  { name: '维度', url: '/list' },
+  // { name: '维度', url: '/list' },
   { name: '活动', url: '/activity' },
-  { name: '新闻', url: '/news' },
+  // { name: '新闻', url: '/news' },
   { name: '关于', url: '/about' },
   { name: '文档', url: '/documents' },
 ])

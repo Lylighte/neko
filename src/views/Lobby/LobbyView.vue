@@ -11,10 +11,9 @@ import Intro from './IntroView.vue'
             <img src="/logo-320px.png" alt="LOGO" style="user-select: none; height: 5rem" />
           </div>
           <p>USTCraft 像素艺术社</p>
-          <span class="intro-text"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.</span
-          >
+          <span class="intro-text">
+            从 Minecraft 等优秀数字作品出发，逐步拓展至更广阔的像素艺术领域，同时与其他领域交叉发展。
+          </span>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ onMounted(() => {
     </div>
     <div class="intro-area">
       <h1 style="opacity: 0; animation: fade-in-down 1s ease-out forwards">
-        Lorem ipsum dolor sit amet...
+        关于我们
       </h1>
       <IntroItem
         v-for="(intro, index) in intros"
