@@ -2,14 +2,14 @@
 import { computed, onMounted, ref } from 'vue'
 import { onBeforeRouteUpdate, useRouter } from 'vue-router'
 
-import { useLantern } from '@/lantern/lantern'
+// import { useLantern } from '@/lantern/lantern'
 
-useLantern('lantern-wrapper', {
-  position: {
-    zIndex: 8,
-    offsetX: ['5%', '20%', '20%', '5%']
-  },
-})
+// useLantern('lantern-wrapper', {
+//   position: {
+//     zIndex: 8,
+//     offsetX: ['5%', '20%', '20%', '5%']
+//   },
+// })
 
 const soundOn = () => {
   const audio = new Audio('/button.click.ogg')
@@ -47,7 +47,7 @@ const sliderStyle = computed(() => {
   }
 })
 
-const showLantern = ref(true)
+// const showLantern = ref(true)
 
 onBeforeRouteUpdate((to) => {
   const path = '/' + to.path.split('/')[1]
@@ -56,11 +56,11 @@ onBeforeRouteUpdate((to) => {
       activeIndex.value = index
     }
   })
-  if (['/documents', '/news', '/list'].includes(path)) {
-    showLantern.value = false
-  } else {
-    showLantern.value = true
-  }
+  // if (['/documents', '/news', '/list'].includes(path)) {
+  //   showLantern.value = false
+  // } else {
+  //   showLantern.value = true
+  // }
 })
 
 onMounted(() => {
@@ -70,18 +70,18 @@ onMounted(() => {
       activeIndex.value = index
     }
   })
-  if (['/documents', '/news', '/list'].includes(path)) {
-    showLantern.value = false
-  } else {
-    showLantern.value = true
-  }
+  // if (['/documents', '/news', '/list'].includes(path)) {
+  //   showLantern.value = false
+  // } else {
+  //   showLantern.value = true
+  // }
 })
 </script>
 
 <template>
-  <div :style="{
+  <!-- <div :style="{
     opacity: showLantern ? 1 : 0
-  }" id="lantern-wrapper"></div>
+  }" id="lantern-wrapper"></div> -->
   <div class="nav-container">
     <nav class="nav-bar">
       <div v-for="(item, index) in navItems" :key="index" class="nav-item" @click="setIndex(index)">
@@ -96,14 +96,14 @@ onMounted(() => {
 </template>
 
 <style lang="css" scoped>
-#lantern-wrapper {
+/* #lantern-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 5vh;
   transition: opacity .3s ease-in-out;
-}
+} */
 
 .nav-container {
   display: flex;
@@ -161,11 +161,11 @@ onMounted(() => {
 }
 
 .slider-box {
+  background-color: #d84b4b;
+  border-top: 4px solid #ee6a6a;
+  border-bottom: 4px solid #9f3131;
   box-sizing: border-box;
-  background-color: #7e0c6b;
   border-radius: 0;
-  border-top: 4px solid #9b428c;
-  border-bottom: 4px solid #46073b;
   height: 100%;
   width: 100%;
 

@@ -6,6 +6,7 @@ import CalendarIcon from '@/components/icons/CalendarIcon.vue'
 import UserIcon from '@/components/icons/UserIcon.vue'
 import PdfViewer from '@/components/PdfViewer.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
+import { startBackgroundCarousel } from '@/utils/backgroundCarousel'
 import { MdCatalog, MdPreview } from 'md-editor-v3'
 import { onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { useToast } from 'vue-toastification'
@@ -119,65 +120,17 @@ const onResize = () => {
   }
 }
 
-const bgCount = 62
-let box: HTMLElement | null = null
-const pool: Array<string> = []
-const stayTime = 8000
-const fadeTime = 400
-const unloadedImages: Array<string> = []
-
-const preloadImage = async (url: string) => {
-  if (unloadedImages.includes(url)) {
-    unloadedImages.splice(unloadedImages.indexOf(url), 1)
-  } else {
-    return
-  }
-  const promise = new Promise((resolve, reject) => {
-    const img = new Image()
-    img.onload = resolve
-    img.onerror = reject
-    img.src = url
-  })
-  await promise
-}
-
-const nextBg = (first: boolean = false) => {
-  if (box == null) {
-    return
-  }
-  if (pool.length === 0) {
-    for (let i = 1; i <= bgCount; i++) {
-      pool.push(import.meta.env.BASE_URL + `mc自然风景背景图-air/${i}.jpg`)
-    }
-  }
-
-  const idx = Math.floor(Math.random() * pool.length)
-  const url = pool.splice(idx, 1)[0]
-  preloadImage(url)
-
-  box.style.opacity = '0'
-  if (first) {
-    box.style.backgroundImage = `url(${url})`
-    box.style.opacity = '1'
-  }
-  setTimeout(() => {
-    if (box == null) {
-      return
-    }
-    box.style.backgroundImage = `url(${url})`
-    box.style.opacity = '1'
-
-    setTimeout(nextBg, stayTime + fadeTime)
-  }, fadeTime)
-}
+let stopBackgroundCarousel: (() => void) | null = null
 
 onMounted(() => {
   // 背景轮播
-  box = document.getElementById('documents-bg')
-  for (let i = 1; i <= bgCount; i++) {
-    unloadedImages.push(import.meta.env.BASE_URL + `mc自然风景背景图-air/${i}.jpg`)
-  }
-  nextBg(true)
+  void startBackgroundCarousel('documents-bg')
+    .then((stop) => {
+      stopBackgroundCarousel = stop
+    })
+    .catch(() => {
+      toast.warning('背景轮播加载失败，将保持静态背景。')
+    })
 
   if (window.innerWidth < 768) {
     isMobile.value = true
@@ -186,6 +139,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  stopBackgroundCarousel?.()
   window.removeEventListener('resize', onResize)
 })
 

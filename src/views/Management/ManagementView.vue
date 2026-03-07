@@ -47,7 +47,7 @@ onUnmounted(() => {
   <div class="management-area">
     <div class="management-menu" :type="sidebarExpand ? '' : 'shrink'">
       <img class="management-logo" src="/logo-320px.png" />
-      <span class="management-title">USTCraft - 管理后台</span>
+      <span class="management-title">管理后台</span>
       <MinecraftButtonClassic
         class="management-nav"
         :activated="route.path.endsWith('/management/user')"
