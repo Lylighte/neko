@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const purple = 'color: #80227A; font-weight: bold;'
-const yellow = 'color: #E9C31A; font-weight: bold;'
+// const purple = 'color: #80227A; font-weight: bold;'
+// const yellow = 'color: #E9C31A; font-weight: bold;'
 // console.log(
 //   `%c ______%c___%c__ ____%c___%c_____
 // |\\   ___   _ \\  _    __  \\
@@ -40,7 +40,7 @@ const title = 'color: #67C23A; font-weight: bold;'
 const isDarkConsole = window.matchMedia('(prefers-color-scheme: dark)').matches
 const info = `color: ${isDarkConsole ? '#E5EAF3' : '#303133'}; font-weight: normal;`
 const int15 = 'color: #409EFF; font-weight: bold;'
-const weak = 'color: #909399; font-weight: bold;'
+// const weak = 'color: #909399; font-weight: bold;'
 const danger = 'color: #F56C6C; font-weight: bold;'
 console.log(`%cCopyright © 2026 USTCraft.`, int15)
 console.group('%c📦 Project Info', group)
