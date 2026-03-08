@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import QQIcon from './icons/QQIcon.vue'
 import BilibiliIcon from './icons/BilibiliIcon.vue'
-import GithubIcon from './icons/GithubIcon.vue'
+// import GithubIcon from './icons/GithubIcon.vue'
 import { GetSlogan } from '@/api/slogan'
 import { RouterLink } from 'vue-router'
 
@@ -53,7 +53,7 @@ onMounted(async () => {
           Powered by Neco
         </a>
 
-        <a class="link-item" href="https://nmo.net.cn">
+        <a class="link-item" href="https://www.nmo.net.cn">
           NMO
         </a>
       </div>
