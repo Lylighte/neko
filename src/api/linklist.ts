@@ -20,10 +20,10 @@ export const GetLinkList = (): LinkEntity[] => {
       description: '在哔哩哔哩同步动态！',
     },
     {
-      name: 'Powered by Neco',
+      name: '本站仓库',
       image: '/loading.gif',
-      url: 'https://github.com/EntropyGenerator/neco',
-      description: 'Powered by Neco',
+      url: 'https://github.com/Lylighte/neko',
+      description: 'Remember?',
     },
   ]
 }

@@ -49,7 +49,7 @@ export const GetDetailedIntroList = (): IntroEntity[] => {
       image: ``,
     },
     {
-      title: `2025 第二十三周目`,
+      title: `2025 第二十五周目`,
       description: 
         `
         机械动力全家桶，匠魂，Biomes O' Plenty，以及超多美食 mod，还有制作团队开发的经济系统模组……
