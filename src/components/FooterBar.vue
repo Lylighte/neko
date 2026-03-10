@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import QQIcon from './icons/QQIcon.vue'
-import BilibiliIcon from './icons/BilibiliIcon.vue'
+// import QQIcon from './icons/QQIcon.vue'
+// import BilibiliIcon from './icons/BilibiliIcon.vue'
 // import GithubIcon from './icons/GithubIcon.vue'
 import { GetSlogan } from '@/api/slogan'
 import { RouterLink } from 'vue-router'
@@ -25,6 +25,12 @@ onMounted(async () => {
           >豫ICP备2025158752号</a
         >
       </span>
+      <span id="powered-by" style="user-select: none;">
+        <a class="link-item" href="https://github.com/EntropyGenerator/neco">
+          Powered by Neco
+        </a>
+        | Thanks to INT15 &amp; Kingcq
+      </span>
       <span id="declaration" style="user-select: none">
         NOT AN OFFICIAL MINECRAFT ORGANIZATION <br />
         NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT
@@ -37,22 +43,14 @@ onMounted(async () => {
       <div class="link-block">
         <p>社区</p>
         <a class="link-item" href="https://qm.qq.com/q/GcTr6vaKEQ">
-          <QQIcon class="link-icon" />
+          <!-- <QQIcon class="link-icon" /> -->
           MC交流群
         </a>
         <a class="link-item" href="https://space.bilibili.com/3546788017474530">
-          <BilibiliIcon class="link-icon" />
+          <!-- <BilibiliIcon class="link-icon" /> -->
           bilibili
         </a>
-      </div>
-
-      <div class="link-block">
         <p>友链</p>
-        <a class="link-item" href="https://github.com/EntropyGenerator/neco">
-          <!-- <GithubIcon class="link-icon" /> -->
-          Powered by Neco
-        </a>
-
         <a class="link-item" href="https://www.nmo.net.cn">
           NMO
         </a>
@@ -95,6 +93,20 @@ onMounted(async () => {
 .footer-description #copyright {
   font-size: 0.8rem;
   color: gray;
+}
+
+.footer-description #powered-by {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.footer-description #powered-by a {
+  display: inline;
+  color: gray;
+  margin-bottom: 0;
 }
 
 .footer-description #declaration {
