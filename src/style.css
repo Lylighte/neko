@@ -1,3 +1,5 @@
+@import '@fontsource/unifont/index.css';
+
 :root {
   --minecraft-green: #3c8527;
   --minecraft-green-light: #6cc349;
@@ -27,6 +29,42 @@
 
 * {
   box-sizing: border-box;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+}
+
+body,
+input,
+textarea,
+select,
+button,
+p,
+span,
+li,
+td,
+th,
+label {
+  font-family:
+    'Unifont',
+    'Ark Latin' /*, 'Minecraft_AE'*/,
+    'Cubic 11',
+    system-ui,
+    Avenir,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+}
+
+nav,
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class*='title'] {
   font-family:
     'Ark Latin' /*, 'Minecraft_AE'*/,
     'Cubic 11',
@@ -35,9 +73,6 @@
     Helvetica,
     Arial,
     sans-serif !important;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: none;
 }
 
 .title-font {

@@ -75,11 +75,13 @@ import Intro from './IntroView.vue'
   margin-top: 0;
   margin-bottom: 0;
   text-wrap: nowrap;
+  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 .intro-text {
   font-size: 1.15rem;
   font-weight: bold;
+  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 @media screen and (max-width: 623px) {

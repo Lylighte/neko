@@ -158,6 +158,7 @@
 .minecraft-theme h5,
 .minecraft-theme h6 {
   color: #fff;
+  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 10px;
@@ -389,7 +390,7 @@
   position: relative;
   word-break: break-word;
 
-  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  font-family: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 *[data-line='0'] {
   margin-top: 0 !important;
