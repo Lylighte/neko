@@ -1,7 +1,7 @@
 /* Override global text rules inside md-editor-v3. */
 .md-editor,
 .md-editor * {
-  font-family: var(--font-family-editor-ui) !important;
+  font-family: var(--font-family-editor-ui);
 }
 
 /* Markdown source editing area should use a monospaced font. */
@@ -9,12 +9,12 @@
 .md-editor-input-wrapper textarea,
 .cm-editor .cm-content,
 .cm-editor .cm-line {
-  font-family: var(--font-family-editor-code) !important;
+  font-family: var(--font-family-editor-code);
 }
 
 /* Preview area keeps body reading font for Chinese readability. */
 .md-editor-preview,
 .md-editor-preview-wrapper,
 .md-editor-preview * {
-  font-family: var(--font-family-editor-content) !important;
+  font-family: var(--font-family-editor-content);
 }

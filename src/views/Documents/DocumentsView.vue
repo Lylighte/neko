@@ -38,12 +38,53 @@ const scrollTo = (id: string) => {
 
 const toast = useToast()
 
-const resizeContainerWidth = ref(320)
+const MOBILE_BREAKPOINT = 768
+const NARROW_DESKTOP_BREAKPOINT = 1200
+const MIN_TREE_WIDTH = 128
+const MAX_TREE_WIDTH = 1280
+const MIN_EDITOR_WIDTH_WIDE = 640
+const MIN_EDITOR_WIDTH_NARROW = 420
+
+const resizeContainerWidth = ref(270)
 const resizeContainerRef = ref<HTMLDivElement | null>(null)
 
 let isResizing = false
 let startX = 0
 let startWidth = 0
+
+const getContainerHorizontalPadding = () => {
+  if (window.innerWidth < MOBILE_BREAKPOINT) {
+    return 32
+  }
+  if (window.innerWidth < NARROW_DESKTOP_BREAKPOINT) {
+    return 48
+  }
+  return 128
+}
+
+const getMinEditorWidth = () => {
+  if (window.innerWidth < NARROW_DESKTOP_BREAKPOINT) {
+    return MIN_EDITOR_WIDTH_NARROW
+  }
+  return MIN_EDITOR_WIDTH_WIDE
+}
+
+const clampTreeWidth = (rawWidth: number) => {
+  if (isMobile.value) {
+    return rawWidth
+  }
+
+  const maxAllowedByViewport = window.innerWidth - getContainerHorizontalPadding() - getMinEditorWidth()
+  const upperBound = Math.max(MIN_TREE_WIDTH, Math.min(MAX_TREE_WIDTH, maxAllowedByViewport))
+
+  if (rawWidth < MIN_TREE_WIDTH) {
+    return MIN_TREE_WIDTH
+  }
+  if (rawWidth > upperBound) {
+    return upperBound
+  }
+  return rawWidth
+}
 
 const startResize = (event: MouseEvent) => {
   if (!resizeContainerRef.value) {
@@ -63,14 +104,8 @@ const handleMouseMove = (event: MouseEvent) => {
     return
   }
   const deltaX = event.clientX - startX
-  let newWidth = startWidth + deltaX
-  if (newWidth < 128) {
-    newWidth = 128
-  } else if (newWidth > 1280) {
-    newWidth = 1280
-  }
-
-  resizeContainerWidth.value = newWidth
+  const newWidth = startWidth + deltaX
+  resizeContainerWidth.value = clampTreeWidth(newWidth)
 }
 
 const stopResize = () => {
@@ -113,10 +148,11 @@ const documentInstance = reactive({
 const isMobile = ref(false)
 
 const onResize = () => {
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < MOBILE_BREAKPOINT) {
     isMobile.value = true
   } else {
     isMobile.value = false
+    resizeContainerWidth.value = clampTreeWidth(resizeContainerWidth.value)
   }
 }
 
@@ -132,8 +168,10 @@ onMounted(() => {
       toast.warning('背景轮播加载失败，将保持静态背景。')
     })
 
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < MOBILE_BREAKPOINT) {
     isMobile.value = true
+  } else {
+    resizeContainerWidth.value = clampTreeWidth(resizeContainerWidth.value)
   }
   window.addEventListener('resize', onResize)
 })
@@ -162,7 +200,7 @@ const scrollElement = document.documentElement
         :style="{
           width: isMobile ? `100%` : `${resizeContainerWidth}px`,
           minWidth: `128px`,
-          maxWidth: `1280x`,
+          maxWidth: `1280px`,
         }"
       >
         <TreeViewer class="tree-viewer" v-model="selectedDocumentId" :disable-edit="true" />
@@ -171,7 +209,7 @@ const scrollElement = document.documentElement
       <div
         class="editor-container"
         :style="{
-          width: isMobile ? '100%' : `calc(100vw - ${resizeContainerWidth}px)`,
+          width: isMobile ? '100%' : 'auto',
         }"
       >
         <div class="document-main-content" id="md-editor">
@@ -296,6 +334,7 @@ const scrollElement = document.documentElement
   height: 100vh;
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
 }
 
 .resizer {
@@ -359,10 +398,11 @@ const scrollElement = document.documentElement
 }
 
 .editor-container {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 5rem);
+  min-width: 0;
 }
 
 .editor {
@@ -407,11 +447,13 @@ const scrollElement = document.documentElement
   box-shadow:
     inset -4px -4px 0px 0px #3a3a3a,
     inset 4px 4px 0px 0px #6b6b6b;
+  min-width: 0;
 }
 
 .document-main-item {
   width: 100%;
   margin: 1rem 0;
+  min-width: 0;
 }
 
 .document-title {
@@ -431,8 +473,11 @@ const scrollElement = document.documentElement
 }
 
 .document-preview-catalog {
-  min-width: 20%;
+  flex: 0 0 20%;
+  min-width: 220px;
+  max-width: 320px;
   height: min-content;
+  overflow: hidden;
 
   position: sticky;
   top: 5rem;
@@ -444,12 +489,100 @@ const scrollElement = document.documentElement
   justify-content: space-between;
   position: relative;
   gap: 1rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.document-preview > :first-child {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.document-preview :deep(.md-editor-preview-wrapper),
+.document-preview :deep(.md-editor-preview),
+.document-preview :deep(.md-editor) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.document-preview :deep(.md-editor-code),
+.document-preview :deep(.md-editor-code pre) {
+  max-width: 100%;
+}
+
+.document-preview :deep(.md-editor-code pre) {
+  overflow-x: auto;
+}
+
+.document-preview :deep(.md-editor-code pre code) {
+  width: max-content;
+  min-width: 100%;
+}
+
+.document-preview :deep(table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.document-preview :deep(img),
+.document-preview :deep(video),
+.document-preview :deep(canvas),
+.document-preview :deep(iframe) {
+  max-width: 100%;
+}
+
+.document-preview :deep(.md-editor-catalog) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.document-preview :deep(.md-editor-catalog-link span),
+.document-preview :deep(.md-editor-catalog-active span) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.document-preview :deep(.md-editor-catalog-link),
+.document-preview :deep(.md-editor-catalog-active) {
+  min-width: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .documents-editor-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .document-main-item-list {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .document-preview {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .document-preview-catalog {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border-bottom: 2px solid #909399;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    top: 0;
+    position: relative;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .document-preview {
     flex-direction: column-reverse;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
   }
 

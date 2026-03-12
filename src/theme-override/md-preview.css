@@ -390,7 +390,7 @@
   position: relative;
   word-break: break-word;
 
-  font-family: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+  font-family: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 *[data-line='0'] {
   margin-top: 0 !important;
