@@ -8,10 +8,10 @@ export interface LinkEntity {
 export const GetLinkList = (): LinkEntity[] => {
   return [
     {
-      name: '公共皮肤站',
-      image: 'https://mc.genshin.ac.cn/app/favicon.ico',
-      url: 'https://mc.genshin.ac.cn',
-      description: '原神启动！',
+      name: '社团皮肤站',
+      image: 'https://skin.ustcmc.com/app/favicon.ico',
+      url: 'https://skin.ustcmc.com',
+      description: '使用 USTCraft Skins 畅玩我们的服务器！',
     },
     {
       name: 'bilibili',
