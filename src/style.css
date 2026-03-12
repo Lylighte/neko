@@ -1,6 +1,17 @@
 @import '@fontsource/unifont/index.css';
 
 :root {
+  --font-family-body: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  --font-family-heading: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-nav: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-footer: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family-editor-ui: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
+  --font-family-editor-content: 'Unifont', 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica,
+    Arial, sans-serif;
+  --font-family-editor-code: 'Unifont', 'Ark Latin', 'Cubic 11', 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
   --minecraft-green: #3c8527;
   --minecraft-green-light: #6cc349;
   --minecraft-green-dark: #2a641c;
@@ -45,46 +56,56 @@ li,
 td,
 th,
 label {
-  font-family:
-    'Unifont',
-    'Ark Latin' /*, 'Minecraft_AE'*/,
-    'Cubic 11',
-    system-ui,
-    Avenir,
-    Helvetica,
-    Arial,
-    sans-serif !important;
+  font-family: var(--font-family-body) !important;
+  line-height: 1.6;
 }
 
 nav,
-header,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-[class*='title'] {
-  font-family:
-    'Ark Latin' /*, 'Minecraft_AE'*/,
-    'Cubic 11',
-    system-ui,
-    Avenir,
-    Helvetica,
-    Arial,
-    sans-serif !important;
+h6 {
+  font-family: var(--font-family-heading) !important;
+}
+
+nav,
+.nav-bar,
+.nav-item,
+.text-nav {
+  font-family: var(--font-family-nav) !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.text-title {
+  font-family: var(--font-family-heading) !important;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.text-section-title {
+  font-family: var(--font-family-heading) !important;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-family: var(--font-family-body) !important;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-footer,
+.text-footer * {
+  font-family: var(--font-family-footer) !important;
+  line-height: 1.5;
 }
 
 .title-font {
-  font-family:
-    'Minecraft-Tenv2',
-    'Ark Latin' /*, 'Minecraft_AE'*/,
-    'Cubic 11',
-    system-ui,
-    Avenir,
-    Helvetica,
-    Arial,
-    sans-serif !important;
+  font-family: var(--font-family-heading) !important;
   margin: 0 4px;
 }
 

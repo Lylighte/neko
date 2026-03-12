@@ -10,8 +10,8 @@ import Intro from './IntroView.vue'
           <div>
             <img src="/logo-320px.png" alt="LOGO" style="user-select: none; height: 5rem" />
           </div>
-          <p>USTCraft 像素艺术社</p>
-          <span class="intro-text">
+          <p class="text-title">USTCraft 像素艺术社</p>
+          <span class="intro-text text-body">
             从 Minecraft 等优秀数字作品出发，逐步拓展至更广阔的像素艺术领域，同时与其他领域交叉发展。
           </span>
         </div>
@@ -75,13 +75,11 @@ import Intro from './IntroView.vue'
   margin-top: 0;
   margin-bottom: 0;
   text-wrap: nowrap;
-  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 .intro-text {
   font-size: 1.15rem;
   font-weight: bold;
-  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 @media screen and (max-width: 623px) {

@@ -82,9 +82,14 @@ onMounted(() => {
   <!-- <div :style="{
     opacity: showLantern ? 1 : 0
   }" id="lantern-wrapper"></div> -->
-  <div class="nav-container">
-    <nav class="nav-bar">
-      <div v-for="(item, index) in navItems" :key="index" class="nav-item" @click="setIndex(index)">
+  <div class="nav-container text-nav">
+    <nav class="nav-bar text-nav">
+      <div
+        v-for="(item, index) in navItems"
+        :key="index"
+        class="nav-item text-nav"
+        @click="setIndex(index)"
+      >
         {{ item.name }}
       </div>
 

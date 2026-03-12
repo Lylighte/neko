@@ -43,16 +43,16 @@ onUnmounted(() => {
     <img :src="props.activity.image" :alt="props.activity.title + ' image'" />
 
     <div class="activity-info">
-      <div class="activity-title">
+      <div class="activity-title text-section-title">
         {{ props.activity.title }}
-        <div class="activity-status" :type="isActive ? 'active' : 'inactive'">
+        <div class="activity-status text-body" :type="isActive ? 'active' : 'inactive'">
           {{ isActive ? '进行中' : '已结束' }}
         </div>
       </div>
-      <div class="activity-date">
+      <div class="activity-date text-body">
         {{ `${props.activity.date} ~ ${props.activity.endDate ?? '长期'}` }}
       </div>
-      <div class="activity-brief">
+      <div class="activity-brief text-body">
         {{ props.activity.brief }}
       </div>
     </div>

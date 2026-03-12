@@ -108,9 +108,11 @@ onMounted(async () => {
       />
     </div>
     <div class="server-options">
-      <MinecraftButtonClassic class="server-option" @click="refresh">刷新</MinecraftButtonClassic>
+      <MinecraftButtonClassic class="server-option text-nav" @click="refresh"
+        >刷新</MinecraftButtonClassic
+      >
       <MinecraftButtonClassic
-        class="server-option"
+        class="server-option text-nav"
         @click="
           focusIndex !== -1
             ? copy(serverList[focusIndex].serverUrl || 'undefined')

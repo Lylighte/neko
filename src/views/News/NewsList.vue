@@ -102,7 +102,7 @@ const optionFocus = ref(false)
       <div class="news-title-item">
         <button
           :value="model"
-          class="news-title"
+          class="news-title text-section-title"
           :stat="optionFocus ? 'active' : 'inactive'"
           @click="optionFocus = !optionFocus"
         >
@@ -118,28 +118,28 @@ const optionFocus = ref(false)
           <div class="news-title-options" v-if="optionFocus">
             <button
               :stat="model === 'information' ? 'active' : 'inactive'"
-              class="news-title-option"
+                class="news-title-option text-body"
               @click="model = 'information'"
             >
               最新资讯
             </button>
             <button
               :stat="model === 'magazine' ? 'active' : 'inactive'"
-              class="news-title-option"
+                class="news-title-option text-body"
               @click="model = 'magazine'"
             >
               最新社刊
             </button>
             <button
               :stat="model === 'notice' ? 'active' : 'inactive'"
-              class="news-title-option"
+                class="news-title-option text-body"
               @click="model = 'notice'"
             >
               最新公告
             </button>
             <button
               :stat="model === 'activity' ? 'active' : 'inactive'"
-              class="news-title-option"
+                class="news-title-option text-body"
               @click="model = 'activity'"
               v-if="props.allowActivity"
             >
@@ -147,13 +147,13 @@ const optionFocus = ref(false)
             </button>
           </div>
         </button>
-        <text class="news-total">
+        <text class="news-total text-body">
           {{ newsTotal.toLocaleString() }}
         </text>
       </div>
       <div class="news-title-item sort-by">
-        <text class="news-sort-by"> 排序方式： </text>
-        <text class="news-sort-by-option"> 最新发布 </text>
+        <text class="news-sort-by text-body"> 排序方式： </text>
+        <text class="news-sort-by-option text-section-title"> 最新发布 </text>
       </div>
     </div>
     <div class="news-list-loading-container" v-if="newsLoading">
@@ -176,19 +176,19 @@ const optionFocus = ref(false)
         <MinecraftButton class="news-pagination-button" @click="movePage('prev')">{{
           '<'
         }}</MinecraftButton>
-        <text class="news-pagination-text">第</text>
-        <text class="news-pagination-text special page">{{ page }}</text>
-        <text class="news-pagination-text">/</text>
-        <text class="news-pagination-text special total">{{ maxPage }}</text>
-        <text class="news-pagination-text">页</text>
+        <text class="news-pagination-text text-body">第</text>
+        <text class="news-pagination-text text-section-title special page">{{ page }}</text>
+        <text class="news-pagination-text text-body">/</text>
+        <text class="news-pagination-text text-section-title special total">{{ maxPage }}</text>
+        <text class="news-pagination-text text-body">页</text>
         <MinecraftButton class="news-pagination-button" @click="movePage('next')">{{
           '>'
         }}</MinecraftButton>
       </div>
       <div class="news-pagination-item">
-        <text class="news-pagination-text">前往</text>
+        <text class="news-pagination-text text-body">前往</text>
         <MinecraftInput class="news-pagination-input" v-model="pageInput" />
-        <text class="news-pagination-text">页</text>
+        <text class="news-pagination-text text-body">页</text>
         <MinecraftButton class="news-pagination-button" @click="setPage">→</MinecraftButton>
       </div>
     </div>

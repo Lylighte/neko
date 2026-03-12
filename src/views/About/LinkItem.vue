@@ -20,8 +20,8 @@ const jumpto = (url: string) => {
     @click="jumpto(props.link.url)"
   >
     <div class="link-content">
-      <p>{{ link.name }}</p>
-      <span>{{ link.description }}</span>
+      <p class="text-section-title">{{ link.name }}</p>
+      <span class="text-body">{{ link.description }}</span>
     </div>
   </div>
 </template>

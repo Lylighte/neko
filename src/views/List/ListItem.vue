@@ -55,18 +55,9 @@ onMounted(async () => {
       @click="copy(server.serverUrl || '')"
     />
     <div class="item-info">
-      <span
-        style="
-          color: white;
-          line-height: 1.1rem;
-          font-size: 1.1rem;
-          margin-bottom: 5px;
-          margin-top: 4px;
-        "
-        >{{ server.name }}</span
-      >
-      <span style="line-height: 1rem; margin-bottom: 3px">{{ server.description }}</span>
-      <span style="line-height: 1rem; color: var(--minecraft-green-light)">{{
+      <span class="server-name text-section-title">{{ server.name }}</span>
+      <span class="server-description text-body">{{ server.description }}</span>
+      <span class="server-version text-body">{{
         server.status?.version
       }}</span>
     </div>
@@ -77,8 +68,10 @@ onMounted(async () => {
         >
         <img class="status-img" :src="props.pingIcon" alt="pingIcon" />
       </span>
-      <span style="margin-top: auto; display: flex; align-items: center; justify-content: center">
-        <a v-if="server.onlineMapUrl.trim() != ''" :href="server.onlineMapUrl">网页地图</a>
+      <span class="server-extra">
+        <a class="text-body" v-if="server.onlineMapUrl.trim() != ''" :href="server.onlineMapUrl"
+          >网页地图</a
+        >
         <DeleteIcon class="delete-icon" v-if="props.withDelete" @click="emit('delete')" />
       </span>
     </div>
@@ -149,6 +142,24 @@ onMounted(async () => {
   user-select: none;
 }
 
+.server-name {
+  color: #fff;
+  line-height: 1.1rem;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  margin-top: 4px;
+}
+
+.server-description {
+  line-height: 1rem;
+  margin-bottom: 3px;
+}
+
+.server-version {
+  line-height: 1rem;
+  color: var(--minecraft-green-light);
+}
+
 .item-status {
   display: flex;
   flex-direction: column;
@@ -169,6 +180,13 @@ onMounted(async () => {
 .status-text {
   user-select: none;
   color: #aaaaaa;
+}
+
+.server-extra {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .status-img {

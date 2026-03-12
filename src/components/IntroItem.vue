@@ -17,15 +17,15 @@ const props = defineProps({
   <div class="intro-box">
     <div v-if="props.intro.image == ''" class="intro-center">
       <div class="intro-text">
-        <p>{{ props.intro.title }}</p>
-        <span>{{ props.intro.description }}</span>
+        <p class="text-section-title">{{ props.intro.title }}</p>
+        <span class="text-body">{{ props.intro.description }}</span>
       </div>
     </div>
     <div v-else :class="!right ? 'intro-right' : 'intro-left'">
       <img :src="props.intro.image" alt="image" class="intro-image mc-border" />
       <div class="intro-text">
-        <p>{{ props.intro.title }}</p>
-        <span>{{ props.intro.description }}</span>
+        <p class="text-section-title">{{ props.intro.title }}</p>
+        <span class="text-body">{{ props.intro.description }}</span>
       </div>
     </div>
   </div>

@@ -1,5 +1,15 @@
 .Vue-Toastification__toast {
   border-radius: 0;
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+}
+
+.Vue-Toastification__toast-body {
+  font-family: var(--font-family-body);
+}
+
+.Vue-Toastification__toast-heading {
+  font-family: var(--font-family-heading);
 }
 
 .Vue-Toastification__close-button {

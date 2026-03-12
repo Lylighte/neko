@@ -14,11 +14,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="footer-area">
+  <div class="footer-area text-footer">
     <div class="footer-description">
       <img src="/logo-320px.png" alt="logo" style="width: 5rem; user-select: none" />
-      <p class="footer-main-title" style="user-select: none">中国科学技术大学 USTCraft 像素艺术社</p>
-      <text style="margin-bottom: 0.5rem">{{ slogan }}</text>
+      <p class="text-section-title" style="user-select: none">中国科学技术大学 USTCraft 像素艺术社</p>
+      <text class="text-body" style="margin-bottom: 0.5rem">{{ slogan }}</text>
       <span id="copyright" style="user-select: none">
         © 2026 USTCraft. |
         <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/"
@@ -41,7 +41,7 @@ onMounted(async () => {
 
     <div class="footer-links">
       <div class="link-block">
-        <p class="footer-main-title">社区</p>
+        <p class="text-section-title">社区</p>
         <a class="link-item" href="https://qm.qq.com/q/GcTr6vaKEQ">
           <!-- <QQIcon class="link-icon" /> -->
           MC交流群
@@ -50,7 +50,7 @@ onMounted(async () => {
           <!-- <BilibiliIcon class="link-icon" /> -->
           bilibili
         </a>
-        <p class="footer-main-title">友链</p>
+        <p class="text-section-title">友链</p>
         <a class="link-item" href="https://www.nmo.net.cn">
           NMO
         </a>
@@ -81,10 +81,6 @@ onMounted(async () => {
   font-weight: bold;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-.footer-main-title {
-  font-family: 'Ark Latin', 'Cubic 11', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 .footer-description #management {

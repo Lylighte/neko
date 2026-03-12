@@ -41,7 +41,7 @@ onMounted(async () => {
   <div class="news-detail-container">
     <picture class="news-poster">
       <img class="news-poster-img" :src="newsDetail?.entity.image" alt="Detail image" />
-      <text class="news-poster-category">
+      <text class="news-poster-category text-section-title">
         {{ newsDetail?.category }}
       </text>
     </picture>
@@ -57,8 +57,8 @@ onMounted(async () => {
           </picture>
           <div class="news-detail-author-info">
             <div class="news-detail-author-info-item">
-              <div class="news-detail-author-title">作者</div>
-              <div class="news-detail-author-text">{{ newsDetail?.author.username }}</div>
+              <div class="news-detail-author-title text-section-title">作者</div>
+              <div class="news-detail-author-text text-body">{{ newsDetail?.author.username }}</div>
               <div
                 class="news-detail-author-name-container"
                 v-if="(newsDetail?.author.tags || []).length > 0"
@@ -82,12 +82,12 @@ onMounted(async () => {
                 newsDetail?.entity.endDate === undefined || newsDetail?.entity.endDate.trim() === ''
               "
             >
-              <div class="news-detail-author-title">发布日期</div>
-              <div class="news-detail-author-text">{{ newsDetail?.entity.date }}</div>
+              <div class="news-detail-author-title text-section-title">发布日期</div>
+              <div class="news-detail-author-text text-body">{{ newsDetail?.entity.date }}</div>
             </div>
             <div class="news-detail-author-info-item" v-else>
-              <div class="news-detail-author-title">起止日期</div>
-              <div class="news-detail-author-text">
+              <div class="news-detail-author-title text-section-title">起止日期</div>
+              <div class="news-detail-author-text text-body">
                 {{ `${newsDetail?.entity.date} ~ ${newsDetail?.entity.endDate}` }}
               </div>
             </div>
@@ -107,7 +107,7 @@ onMounted(async () => {
             />
             <MinecraftButton
               v-if="item.type === 'pdf_file'"
-              class="pdf-read-btn"
+              class="pdf-read-btn text-nav"
               @click="scrollToIndex(index)"
               >↓ 最佳阅读位置</MinecraftButton
             >

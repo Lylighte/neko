@@ -71,7 +71,7 @@ onMounted(async () => {
 
 <template>
   <div class="activity-area">
-    <p id="activity-title">活动</p>
+    <p id="activity-title" class="text-title">活动</p>
     <div class="activity-list-loading-container" v-if="activityLoading">
       <img class="activity-list-loading" src="/loading.gif" alt="loading" />
     </div>
@@ -91,19 +91,19 @@ onMounted(async () => {
         <MinecraftButton class="activity-pagination-button" @click="movePage('prev')">{{
           '<'
         }}</MinecraftButton>
-        <text class="activity-pagination-text">第</text>
-        <text class="activity-pagination-text special page">{{ page }}</text>
-        <text class="activity-pagination-text">/</text>
-        <text class="activity-pagination-text special total">{{ maxPage }}</text>
-        <text class="activity-pagination-text">页</text>
+        <text class="activity-pagination-text text-body">第</text>
+        <text class="activity-pagination-text text-section-title special page">{{ page }}</text>
+        <text class="activity-pagination-text text-body">/</text>
+        <text class="activity-pagination-text text-section-title special total">{{ maxPage }}</text>
+        <text class="activity-pagination-text text-body">页</text>
         <MinecraftButton class="activity-pagination-button" @click="movePage('next')">{{
           '>'
         }}</MinecraftButton>
       </div>
       <div class="activity-pagination-item">
-        <text class="activity-pagination-text">前往</text>
+        <text class="activity-pagination-text text-body">前往</text>
         <MinecraftInput class="activity-pagination-input" v-model="pageInput" />
-        <text class="activity-pagination-text">页</text>
+        <text class="activity-pagination-text text-body">页</text>
         <MinecraftButton class="activity-pagination-button" @click="setPage">→</MinecraftButton>
       </div>
     </div>
@@ -123,7 +123,7 @@ onMounted(async () => {
   background-size: cover;
 }
 
-.activity-area p {
+#activity-title {
   user-select: none;
   color: #fff;
   font-size: 1.5rem;

@@ -50,7 +50,7 @@ onUnmounted(() => {
   <div class="login-area">
     <div class="login-panel mc-border">
       <img class="login-logo" src="/logo-320px.png" />
-      <span class="login-title">登录 USTCraft</span>
+      <span class="login-title text-title">登录 USTCraft</span>
       <MinecraftInput
         class="login-input"
         v-model="form.username"
@@ -64,11 +64,13 @@ onUnmounted(() => {
         placeholder="密码"
         @keyup.enter="onLogin"
       />
-      <div class="button-area">
-        <MinecraftButtonClassic class="login-btn" @click="backHome"
-          >回到主页</MinecraftButtonClassic
-        >
-        <MinecraftButtonClassic class="login-btn" @click="onLogin">登录</MinecraftButtonClassic>
+        <div class="button-area">
+          <MinecraftButtonClassic class="login-btn text-nav" @click="backHome"
+            >回到主页</MinecraftButtonClassic
+          >
+          <MinecraftButtonClassic class="login-btn text-nav" @click="onLogin"
+            >登录</MinecraftButtonClassic
+          >
       </div>
     </div>
   </div>

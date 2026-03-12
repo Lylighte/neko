@@ -17,9 +17,9 @@ const props = defineProps({
     <picture class="news-item-picture">
       <img class="news-item-image" :src="props.news.image" alt="news image" />
     </picture>
-    <text class="news-item-title">{{ props.news.title }}</text>
-    <text class="news-item-description">{{ props.news.brief }}</text>
-    <text class="news-item-date">{{ props.news.date }}</text>
+    <text class="news-item-title text-section-title">{{ props.news.title }}</text>
+    <text class="news-item-description text-body">{{ props.news.brief }}</text>
+    <text class="news-item-date text-body">{{ props.news.date }}</text>
   </MinecraftButton>
 </template>
 

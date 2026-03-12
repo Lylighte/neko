@@ -47,13 +47,13 @@ const props = defineProps({
       />
     </picture>
     <div class="overview-content">
-      <text class="overview title" @click="newTab(`/news/detail/${props.newsBrief.id}`)">
+      <text class="overview title text-section-title" @click="newTab(`/news/detail/${props.newsBrief.id}`)">
         {{ props.newsBrief.title }}
       </text>
-      <text class="overview">
+      <text class="overview text-body">
         {{ props.newsBrief.brief }}
       </text>
-      <MinecraftButton class="overview button" @click="emit('jump')">
+      <MinecraftButton class="overview button text-nav" @click="emit('jump')">
         {{ props.buttonText }}
         <div style="width: 1.2rem"></div>
         >

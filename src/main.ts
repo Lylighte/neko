@@ -8,6 +8,7 @@ import 'vue-toastification/dist/index.css'
 import { router } from './router'
 
 import './theme-override/md-preview.css'
+import './theme-override/md-editor.css'
 import './theme-override/toast.css'
 
 const app = createApp(App)
