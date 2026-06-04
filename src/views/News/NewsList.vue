@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch, computed } from 'vue'
-// TODO: Replace with static data in template optimization phase
 import NewsItem from './NewsItem.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import MinecraftInput from '@/components/utils/MinecraftInput.vue'
+import { staticNewsList } from '@/data/static'
+import type { NewsEntity, NewsTarget } from '@/data/types'
 
 const emit = defineEmits(['need-scroll', 'card-click'])
 
@@ -32,9 +33,12 @@ const newsLoading = ref(false)
 const refreshNews = () => {
   newsLoading.value = true
   emit('need-scroll')
-  setTimeout(async () => {
-    newsTotal.value = await GetNewsTotal(model.value as NewsTarget)
-    news.value = await GetNews(model.value as NewsTarget, page.value, pageSize.value)
+  setTimeout(() => {
+    const target = model.value as NewsTarget
+    const allNews = staticNewsList[target] ?? []
+    newsTotal.value = allNews.length
+    const start = (page.value - 1) * pageSize.value
+    news.value = allNews.slice(start, start + pageSize.value)
     newsLoading.value = false
   }, 500)
 }
@@ -66,18 +70,18 @@ const setPage = () => {
 watch(
   () => model.value,
   (newVal, oldVal) => {
-    if (newVal === oldVal) {
-      return
-    }
+    if (newVal === oldVal) return
     page.value = 1
     refreshNews()
   },
 )
 
-onMounted(async () => {
-  newsTotal.value = await GetNewsTotal(model.value as NewsTarget)
+onMounted(() => {
+  const target = model.value as NewsTarget
+  const allNews = staticNewsList[target] ?? []
+  newsTotal.value = allNews.length
   newsLoading.value = true
-  news.value = await GetNews(model.value as NewsTarget, page.value, pageSize.value)
+  news.value = allNews.slice(0, pageSize.value)
   newsLoading.value = false
 })
 

@@ -1,39 +1,54 @@
 <script lang="ts" setup>
-// TODO: Replace with static data in template optimization phase
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { MdPreview } from 'md-editor-v3'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
-import PdfViewer from '@/components/PdfViewer.vue'
+import { staticNewsDetails } from '@/data/static'
+import type { NewsDetail } from '@/data/types'
 
-const newsId = useRoute().params.id
+const newsId = useRoute().params.id as string
 const newsDetail = ref<NewsDetail | null>(null)
 
-const scrollToIndex = (index: number) => {
-  const element = document.getElementById(`pdf-renderer-${index}`)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
+/** Simple markdown-to-HTML converter for static content rendering */
+function renderMarkdown(md: string): string {
+  return md
+    // Headings
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    // Bold and italic
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Inline code
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    // Blockquote
+    .replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>')
+    // Horizontal rule
+    .replace(/^---$/gm, '<hr>')
+    // Unordered lists
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    // Ordered lists
+    .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+    // Wrap consecutive <li> in <ul>
+    .replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>')
+    // Paragraphs: wrap lines that aren't already HTML tags
+    .replace(/^(?!<[houlb])(.+)$/gm, '<p>$1</p>')
+    // Clean up empty paragraphs
+    .replace(/<p>\s*<\/p>/g, '')
 }
 
-const soundOn = () => {
-  const audio = new Audio('/button.click.ogg')
-  audio.play()
-  audio.volume = 0.3
-}
-
-const mountSounds = () => {
-  // mount audios
-  const buttons = document.querySelectorAll(
-    '.md-editor-copy-button, .md-editor-collapse-tips, .md-editor-code-flag',
-  )
-  buttons.forEach((button) => {
-    button.addEventListener('click', soundOn)
+const renderedContent = computed(() => {
+  if (!newsDetail.value) return []
+  return newsDetail.value.content.map((segment) => {
+    if (segment.type === 'markdown') {
+      return { ...segment, html: renderMarkdown(segment.content) }
+    }
+    return segment
   })
-}
+})
 
-onMounted(async () => {
-  newsDetail.value = await GetNewsDetail(newsId as string)
+onMounted(() => {
+  newsDetail.value = staticNewsDetails[newsId] ?? null
 })
 </script>
 
@@ -96,27 +111,16 @@ onMounted(async () => {
       </aside>
       <main class="news-main-content">
         <div class="news-main-item-list">
-          <div class="news-main-item" v-for="(item, index) in newsDetail?.content" :key="index">
-            <MdPreview
+          <div class="news-main-item" v-for="(item, index) in renderedContent" :key="index">
+            <div
               v-if="item.type === 'markdown'"
-              theme="dark"
-              language="zh-CN"
-              preview-theme="minecraft"
-              :model-value="item.content"
-              @on-remount="mountSounds"
+              class="markdown-body"
+              v-html="item.html"
             />
-            <MinecraftButton
-              v-if="item.type === 'pdf_file'"
-              class="pdf-read-btn"
-              @click="scrollToIndex(index)"
-              >↓ 最佳阅读位置</MinecraftButton
-            >
-            <PdfViewer
-              :id="`pdf-renderer-${index}`"
-              v-if="item.type === 'pdf_file'"
-              class="pdf-renderer mc-border"
-              :pdf-url="item.content"
-            />
+            <div v-if="item.type === 'pdf_file'" class="pdf-placeholder">
+              <p>📄 PDF Document</p>
+              <a :href="item.content" target="_blank" rel="noopener">Open PDF in new tab</a>
+            </div>
           </div>
         </div>
       </main>
@@ -270,16 +274,86 @@ onMounted(async () => {
   margin: 1rem 0;
 }
 
-.pdf-read-btn {
-  height: 3rem;
-  font-size: 1.2rem;
-  margin-top: 2rem;
+.markdown-body {
+  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 1.05rem;
 }
 
-.pdf-renderer {
-  width: 100%;
-  height: 100vh;
-  margin: 2rem 0;
+.markdown-body :deep(h1) {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--minecraft-gray-light);
+  padding-bottom: 0.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.markdown-body :deep(h2) {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--minecraft-gray-light);
+  padding-bottom: 0.3rem;
+  margin: 1.2rem 0 0.8rem;
+}
+
+.markdown-body :deep(h3) {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.markdown-body :deep(p) {
+  margin: 0.8rem 0;
+}
+
+.markdown-body :deep(ul) {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.markdown-body :deep(li) {
+  margin: 0.3rem 0;
+}
+
+.markdown-body :deep(code) {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+}
+
+.markdown-body :deep(blockquote) {
+  border-left: 3px solid var(--minecraft-gray-light);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+}
+
+.markdown-body :deep(hr) {
+  border: none;
+  border-top: 1px solid var(--minecraft-gray-light);
+  margin: 1.5rem 0;
+}
+
+.markdown-body :deep(strong) {
+  color: #fff;
+}
+
+.pdf-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed var(--minecraft-gray-light);
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.pdf-placeholder p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.pdf-placeholder a {
+  color: #64b5f6;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {

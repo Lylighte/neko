@@ -1,37 +1,28 @@
 <script lang="ts" setup>
-// TODO: Replace with static data in template optimization phase
-import TreeViewer from '@/components/documents/TreeViewer.vue'
 import CalendarIcon from '@/components/icons/CalendarIcon.vue'
 import UserIcon from '@/components/icons/UserIcon.vue'
-import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import { onMounted, onUnmounted, reactive, ref, watch } from 'vue'
+import { staticDocumentTree, staticDocumentDetails } from '@/data/static'
+import type { DocumentNode, NewsSegment } from '@/data/types'
 
-const soundOn = () => {
-  const audio = new Audio('/button.click.ogg')
-  audio.play()
-  audio.volume = 0.3
+/** Simple markdown-to-HTML converter */
+function renderMarkdown(md: string): string {
+  return md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/^---$/gm, '<hr>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+    .replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>')
+    .replace(/^(?!<[houlb])(.+)$/gm, '<p>$1</p>')
+    .replace(/<p>\s*<\/p>/g, '')
 }
-
-const mountSounds = () => {
-  // mount audios
-  const buttons = document.querySelectorAll(
-    '.md-editor-copy-button, .md-editor-collapse-tips, .md-editor-code-flag',
-  )
-  buttons.forEach((button) => {
-    button.addEventListener('click', soundOn)
-  })
-}
-
-const scrollTo = (id: string) => {
-  setTimeout(() => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, 100)
-}
-
-const toast = useToast()
 
 const resizeContainerWidth = ref(320)
 const resizeContainerRef = ref<HTMLDivElement | null>(null)
@@ -41,37 +32,25 @@ let startX = 0
 let startWidth = 0
 
 const startResize = (event: MouseEvent) => {
-  if (!resizeContainerRef.value) {
-    return
-  }
+  if (!resizeContainerRef.value) return
   isResizing = true
-
   startX = event.clientX
   startWidth = resizeContainerRef.value.offsetWidth
-
   document.addEventListener('mousemove', handleMouseMove)
   document.addEventListener('mouseup', stopResize)
 }
 
 const handleMouseMove = (event: MouseEvent) => {
-  if (!isResizing) {
-    return
-  }
+  if (!isResizing) return
   const deltaX = event.clientX - startX
   let newWidth = startWidth + deltaX
-  if (newWidth < 128) {
-    newWidth = 128
-  } else if (newWidth > 1280) {
-    newWidth = 1280
-  }
-
+  if (newWidth < 128) newWidth = 128
+  else if (newWidth > 1280) newWidth = 1280
   resizeContainerWidth.value = newWidth
 }
 
 const stopResize = () => {
-  if (!isResizing) {
-    return
-  }
+  if (!isResizing) return
   isResizing = false
   document.removeEventListener('mousemove', handleMouseMove)
   document.removeEventListener('mouseup', stopResize)
@@ -82,10 +61,31 @@ onUnmounted(() => {
   document.removeEventListener('mouseup', stopResize)
 })
 
+// Static document tree
+const docTree = ref<DocumentNode[]>(staticDocumentTree)
+
+// Flatten tree for display
+function flattenTree(nodes: DocumentNode[], depth = 0): { node: DocumentNode; depth: number }[] {
+  const result: { node: DocumentNode; depth: number }[] = []
+  for (const node of nodes) {
+    result.push({ node, depth })
+    if (node.children) {
+      result.push(...flattenTree(node.children, depth + 1))
+    }
+  }
+  return result
+}
+
+const flatTree = flattenTree(docTree.value)
+
 const selectedDocumentId = ref('')
 
-watch(selectedDocumentId, async (newVal) => {
-  const result = await GetDocumentDetail(newVal)
+const selectDocument = (id: string) => {
+  selectedDocumentId.value = id
+}
+
+watch(selectedDocumentId, (newVal) => {
+  const result = staticDocumentDetails[newVal]
   if (result) {
     documentInstance.private = result.private
     documentInstance.name = result.name
@@ -93,7 +93,7 @@ watch(selectedDocumentId, async (newVal) => {
     documentInstance.contributors = result.contributors || []
     documentInstance.updateTime = result.updateTime || ''
   } else {
-    toast.error('获取文档详情失败！')
+    console.warn('Document not found:', newVal)
   }
 })
 
@@ -108,11 +108,7 @@ const documentInstance = reactive({
 const isMobile = ref(false)
 
 const onResize = () => {
-  if (window.innerWidth < 768) {
-    isMobile.value = true
-  } else {
-    isMobile.value = false
-  }
+  isMobile.value = window.innerWidth < 768
 }
 
 const bgCount = 62
@@ -138,54 +134,41 @@ const preloadImage = async (url: string) => {
 }
 
 const nextBg = (first: boolean = false) => {
-  if (box == null) {
-    return
-  }
+  if (box == null) return
   if (pool.length === 0) {
     for (let i = 1; i <= bgCount; i++) {
       pool.push(import.meta.env.BASE_URL + `mc自然风景背景图-air/${i}.jpg`)
     }
   }
-
   const idx = Math.floor(Math.random() * pool.length)
   const url = pool.splice(idx, 1)[0]
   preloadImage(url)
-
   box.style.opacity = '0'
   if (first) {
     box.style.backgroundImage = `url(${url})`
     box.style.opacity = '1'
   }
   setTimeout(() => {
-    if (box == null) {
-      return
-    }
+    if (box == null) return
     box.style.backgroundImage = `url(${url})`
     box.style.opacity = '1'
-
     setTimeout(nextBg, stayTime + fadeTime)
   }, fadeTime)
 }
 
 onMounted(() => {
-  // 背景轮播
   box = document.getElementById('documents-bg')
   for (let i = 1; i <= bgCount; i++) {
     unloadedImages.push(import.meta.env.BASE_URL + `mc自然风景背景图-air/${i}.jpg`)
   }
   nextBg(true)
-
-  if (window.innerWidth < 768) {
-    isMobile.value = true
-  }
+  if (window.innerWidth < 768) isMobile.value = true
   window.addEventListener('resize', onResize)
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', onResize)
 })
-
-const scrollElement = document.documentElement
 </script>
 
 <template>
@@ -207,7 +190,18 @@ const scrollElement = document.documentElement
           maxWidth: `1280x`,
         }"
       >
-        <TreeViewer class="tree-viewer" v-model="selectedDocumentId" :disable-edit="true" />
+        <div class="tree-viewer">
+          <div
+            v-for="item in flatTree"
+            :key="item.node.id"
+            class="tree-item"
+            :class="{ active: selectedDocumentId === item.node.id }"
+            :style="{ paddingLeft: `${item.depth * 1.2 + 0.8}rem` }"
+            @click="selectDocument(item.node.id)"
+          >
+            {{ item.node.children ? '📁' : '📄' }} {{ item.node.name }}
+          </div>
+        </div>
         <div class="resizer" @mousedown.prevent="startResize" v-if="!isMobile"></div>
       </div>
       <div
@@ -234,34 +228,15 @@ const scrollElement = document.documentElement
               v-for="(item, index) in documentInstance.content"
               :key="index"
             >
-              <div class="document-preview">
-                <MdPreview
-                  :id="`md-preview-${index}`"
-                  theme="dark"
-                  language="zh-CN"
-                  preview-theme="minecraft"
-                  :model-value="item.content"
-                  @on-remount="mountSounds"
-                  v-if="item.type === 'markdown'"
-                />
-                <MdCatalog
-                  class="document-preview-catalog"
-                  :editor-id="`md-preview-${index}`"
-                  :scroll-element="scrollElement"
-                />
-              </div>
-              <MinecraftButton
-                v-if="item.type === 'pdf_file'"
-                class="pdf-read-btn"
-                @click="scrollTo(`pdf-renderer-${index}`)"
-                >↓ 最佳阅读位置</MinecraftButton
-              >
-              <PdfViewer
-                :id="`pdf-renderer-${index}`"
-                v-if="item.type === 'pdf_file'"
-                class="pdf-renderer mc-border"
-                :pdf-url="item.content"
+              <div
+                v-if="item.type === 'markdown'"
+                class="markdown-body"
+                v-html="renderMarkdown(item.content)"
               />
+              <div v-if="item.type === 'pdf_file'" class="pdf-placeholder">
+                <p>📄 PDF Document</p>
+                <a :href="item.content" target="_blank" rel="noopener">Open PDF in new tab</a>
+              </div>
             </div>
           </div>
         </div>
@@ -329,6 +304,25 @@ const scrollElement = document.documentElement
     inset -4px -4px 0px 0px #3a3a3a,
     inset 4px 4px 0px 0px #6b6b6b;
   background-color: #111111;
+}
+
+.tree-item {
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  user-select: none;
+  color: #ccc;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  transition: background-color 0.15s;
+}
+
+.tree-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.tree-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 .resizer-container {
@@ -454,6 +448,88 @@ const scrollElement = document.documentElement
 .document-main-item {
   width: 100%;
   margin: 1rem 0;
+}
+
+.markdown-body {
+  color: #e0e0e0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.markdown-body :deep(h1) {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--minecraft-gray-light);
+  padding-bottom: 0.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.markdown-body :deep(h2) {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--minecraft-gray-light);
+  padding-bottom: 0.3rem;
+  margin: 1.2rem 0 0.8rem;
+}
+
+.markdown-body :deep(h3) {
+  font-size: 1.3rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.markdown-body :deep(p) {
+  margin: 0.8rem 0;
+}
+
+.markdown-body :deep(ul) {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.markdown-body :deep(li) {
+  margin: 0.3rem 0;
+}
+
+.markdown-body :deep(code) {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+}
+
+.markdown-body :deep(blockquote) {
+  border-left: 3px solid var(--minecraft-gray-light);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+}
+
+.markdown-body :deep(hr) {
+  border: none;
+  border-top: 1px solid var(--minecraft-gray-light);
+  margin: 1.5rem 0;
+}
+
+.markdown-body :deep(strong) {
+  color: #fff;
+}
+
+.pdf-placeholder {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed var(--minecraft-gray-light);
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.pdf-placeholder p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.pdf-placeholder a {
+  color: #64b5f6;
+  text-decoration: underline;
 }
 
 .document-title {

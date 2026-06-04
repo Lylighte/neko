@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-// TODO: Replace with static data in template optimization phase
 import NewsCard from './NewsCard.vue'
 import NewsList from './NewsList.vue'
+import { staticNewsBrief } from '@/data/static'
+import type { NewsEntity } from '@/data/types'
 
 const router = useRouter()
 
@@ -29,8 +30,8 @@ const newTab = (id: string) => {
   window.open(target.href, '_blank')
 }
 
-onMounted(async () => {
-  newsBrief.value = await GetNewsBrief()
+onMounted(() => {
+  newsBrief.value = staticNewsBrief
 })
 </script>
 

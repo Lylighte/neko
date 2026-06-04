@@ -1,15 +1,12 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
-// TODO: Replace with static data in template optimization phase
+import { ref } from 'vue'
 import LinkItem from './LinkItem.vue'
 import IntroItem from '@/components/IntroItem.vue'
+import { staticLinkList, staticIntroList } from '@/data/static'
+import type { LinkEntity, IntroEntity } from '@/data/types'
 
-const linkList = ref<LinkEntity[]>([])
-const intros = ref<IntroEntity[]>([])
-onMounted(() => {
-  linkList.value = GetLinkList()
-  intros.value = GetDetailedIntroList()
-})
+const linkList = ref<LinkEntity[]>(staticLinkList)
+const intros = ref<IntroEntity[]>(staticIntroList)
 </script>
 
 <template>

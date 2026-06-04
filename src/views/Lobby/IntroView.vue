@@ -1,13 +1,10 @@
 <script lang="ts" setup>
-// TODO: Replace with static data in template optimization phase
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import IntroItem from '@/components/IntroItem.vue'
+import { staticIntroList } from '@/data/static'
+import type { IntroEntity } from '@/data/types'
 
-const intros = ref<IntroEntity[]>([])
-
-onMounted(() => {
-  intros.value = GetIntroList()
-})
+const intros = ref<IntroEntity[]>(staticIntroList)
 </script>
 
 <template>
