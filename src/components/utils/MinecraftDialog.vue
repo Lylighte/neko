@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref, watch } from 'vue'
 import MinecraftButtonClassic from './MinecraftButtonClassic.vue'
+import { uiText } from '@/data/i18n'
 
 const modelValue = defineModel<boolean>({ default: false })
 const emits = defineEmits(['confirm'])
@@ -11,11 +12,11 @@ const props = defineProps({
   },
   cancelText: {
     type: String,
-    default: '取消',
+    default: uiText.dialog.cancel,
   },
   confirmText: {
     type: String,
-    default: '确定',
+    default: uiText.dialog.confirm,
   },
 })
 const visible = ref(false)

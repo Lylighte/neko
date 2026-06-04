@@ -1,8 +1,8 @@
 # Template Page Optimization Plan
 
 **Branch:** `template-cleanup`
-**Status:** 📋 PLANNING
-**Prerequisite:** Backend Dependency Stripping Plan — ✅ COMPLETED (all 10 steps)
+**Status:** ✅ COMPLETED — all 6 phases executed and committed.
+**Next Phase:** VitePress migration (see `template-migration-report.md` for details).
 
 ---
 
@@ -278,6 +278,44 @@ All data should be **template-neutral** — no NMO-specific content. Use placeho
 1. Extract hero content to a `homeConfig` object
 2. Make logo path, title, subtitle, description configurable
 3. Make background image configurable
+
+---
+
+## Phase 3.5 — i18n UI Text Extraction
+
+Extract all generic UI labels (not content) into a central i18n file so they can be translated or customized without touching components.
+
+### Step 3.5.1 — Create `src/data/i18n.ts`
+
+```ts
+export const uiText = {
+  about: { moreAboutUs: 'More About Us' },
+  news: {
+    categories: { information: 'News', magazine: 'Magazine', notice: 'Notices', activity: 'Activities' },
+    categoryLabels: { information: 'Latest News', magazine: 'Latest Magazine', notice: 'Latest Notices', activity: 'Latest Activities' },
+    sortBy: 'Sort by: ',
+    sortOption: 'Latest',
+    overviewButtons: { activities: 'More Activities', news: 'More News', magazine: 'Past Issues', notices: 'More Notices' },
+    pagination: { page: 'Page', of: '/', goTo: 'Go to' },
+  },
+  article: { author: 'Author', publishDate: 'Published', dateRange: 'Date Range' },
+  dialog: { cancel: 'Cancel', confirm: 'OK' },
+  footer: { linksHeading: 'Links' },
+  documents: { pdfPlaceholder: 'PDF Document', pdfOpenLink: 'Open PDF in new tab' },
+} as const
+```
+
+### Step 3.5.2 — Replace hardcoded Chinese text in components
+
+| File | Hardcoded Text | Replaced With |
+|------|---------------|---------------|
+| `AboutView.vue` | `更多关于我们的事情...` | `uiText.about.moreAboutUs` |
+| `NewsView.vue` | `更多活动/更多资讯/往期社刊/更多公告` | `uiText.news.overviewButtons.*` |
+| `NewsList.vue` | `最新资讯/最新社刊/最新公告/最新活动` | `uiText.news.categoryLabels.*` |
+| `NewsList.vue` | `排序方式：/最新发布` | `uiText.news.sortBy/sortOption` |
+| `NewsList.vue` | `第/页/前往` | `uiText.news.pagination.*` |
+| `NewsDetail.vue` | `作者/发布日期/起止日期` | `uiText.article.*` |
+| `MinecraftDialog.vue` | `取消/确定` | `uiText.dialog.*` |
 
 ---
 

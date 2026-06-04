@@ -43,7 +43,7 @@ onMounted(() => {
           class="vertical"
           style="animation: fade-in-down 0.5s ease-in-out 0.2s forwards"
           :news-brief="newsBrief[0] ?? {}"
-          button-text="更多活动"
+          button-text="More Activities"
           @jump="router.push(`/activity`)"
         />
         <div class="overview-divide vertical">
@@ -51,7 +51,7 @@ onMounted(() => {
             class="dynamic-vertical"
             style="animation: fade-in-down 0.5s ease-in-out 0.4s forwards"
             :news-brief="newsBrief[1] ?? {}"
-            button-text="更多资讯"
+            button-text="More News"
             @jump="((newsId = 'information'), scrollToNews())"
           />
           <div class="overview-divide divide-2">
@@ -59,14 +59,14 @@ onMounted(() => {
               class="vertical"
               style="animation: fade-in-down 0.5s ease-in-out 0.6s forwards"
               :news-brief="newsBrief[2] ?? {}"
-              button-text="往期社刊"
+              button-text="Past Issues"
               @jump="((newsId = 'magazine'), scrollToNews())"
             />
             <NewsCard
               class="vertical"
               style="animation: fade-in-down 0.5s ease-in-out 0.8s forwards"
               :news-brief="newsBrief[3] ?? {}"
-              button-text="更多公告"
+              button-text="More Notices"
               @jump="((newsId = 'notice'), scrollToNews())"
             />
           </div>

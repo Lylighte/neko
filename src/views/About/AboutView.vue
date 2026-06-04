@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import LinkItem from './LinkItem.vue'
 import IntroItem from '@/components/IntroItem.vue'
 import { staticLinkList, staticIntroList } from '@/data/static'
+import { uiText } from '@/data/i18n'
 import type { LinkEntity, IntroEntity } from '@/data/types'
 
 const linkList = ref<LinkEntity[]>(staticLinkList)
@@ -24,7 +25,7 @@ const intros = ref<IntroEntity[]>(staticIntroList)
     </div>
     <div class="intro-area">
       <h1 style="opacity: 0; animation: fade-in-down 1s ease-out forwards">
-        更多关于我们的事情...
+        {{ uiText.about.moreAboutUs }}
       </h1>
       <IntroItem
         v-for="(intro, index) in intros"

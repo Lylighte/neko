@@ -4,6 +4,7 @@ import NewsItem from './NewsItem.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import MinecraftInput from '@/components/utils/MinecraftInput.vue'
 import { staticNewsList } from '@/data/static'
+import { uiText } from '@/data/i18n'
 import type { NewsEntity, NewsTarget } from '@/data/types'
 
 const emit = defineEmits(['need-scroll', 'card-click'])
@@ -98,36 +99,28 @@ const optionFocus = ref(false)
           :stat="optionFocus ? 'active' : 'inactive'"
           @click="optionFocus = !optionFocus"
         >
-          最新{{
-            model === 'information'
-              ? '资讯'
-              : model === 'magazine'
-                ? '社刊'
-                : model === 'notice'
-                  ? '公告'
-                  : '活动'
-          }}
+          {{ uiText.news.categories[model as NewsTarget] ?? model }}
           <div class="news-title-options" v-if="optionFocus">
             <button
               :stat="model === 'information' ? 'active' : 'inactive'"
               class="news-title-option"
               @click="model = 'information'"
             >
-              最新资讯
+              {{ uiText.news.categoryLabels.information }}
             </button>
             <button
               :stat="model === 'magazine' ? 'active' : 'inactive'"
               class="news-title-option"
               @click="model = 'magazine'"
             >
-              最新社刊
+              {{ uiText.news.categoryLabels.magazine }}
             </button>
             <button
               :stat="model === 'notice' ? 'active' : 'inactive'"
               class="news-title-option"
               @click="model = 'notice'"
             >
-              最新公告
+              {{ uiText.news.categoryLabels.notice }}
             </button>
             <button
               :stat="model === 'activity' ? 'active' : 'inactive'"
@@ -135,7 +128,7 @@ const optionFocus = ref(false)
               @click="model = 'activity'"
               v-if="props.allowActivity"
             >
-              最新活动
+              {{ uiText.news.categoryLabels.activity }}
             </button>
           </div>
         </button>
@@ -144,8 +137,8 @@ const optionFocus = ref(false)
         </text>
       </div>
       <div class="news-title-item sort-by">
-        <text class="news-sort-by"> 排序方式： </text>
-        <text class="news-sort-by-option"> 最新发布 </text>
+        <text class="news-sort-by"> {{ uiText.news.sortBy }} </text>
+        <text class="news-sort-by-option"> {{ uiText.news.sortOption }} </text>
       </div>
     </div>
     <div class="news-list-loading-container" v-if="newsLoading">
@@ -168,19 +161,17 @@ const optionFocus = ref(false)
         <MinecraftButton class="news-pagination-button" @click="movePage('prev')">{{
           '<'
         }}</MinecraftButton>
-        <text class="news-pagination-text">第</text>
+        <text class="news-pagination-text">{{ uiText.news.pagination.page }}</text>
         <text class="news-pagination-text special page">{{ page }}</text>
-        <text class="news-pagination-text">/</text>
+        <text class="news-pagination-text">{{ uiText.news.pagination.of }}</text>
         <text class="news-pagination-text special total">{{ maxPage }}</text>
-        <text class="news-pagination-text">页</text>
         <MinecraftButton class="news-pagination-button" @click="movePage('next')">{{
           '>'
         }}</MinecraftButton>
       </div>
       <div class="news-pagination-item">
-        <text class="news-pagination-text">前往</text>
+        <text class="news-pagination-text">{{ uiText.news.pagination.goTo }}</text>
         <MinecraftInput class="news-pagination-input" v-model="pageInput" />
-        <text class="news-pagination-text">页</text>
         <MinecraftButton class="news-pagination-button" @click="setPage">→</MinecraftButton>
       </div>
     </div>

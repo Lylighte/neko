@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { staticNewsDetails } from '@/data/static'
+import { uiText } from '@/data/i18n'
 import type { NewsDetail, NewsSegment } from '@/data/types'
 
 const newsId = useRoute().params.id as string
@@ -75,7 +76,7 @@ onMounted(() => {
           </picture>
           <div class="news-detail-author-info">
             <div class="news-detail-author-info-item">
-              <div class="news-detail-author-title">作者</div>
+              <div class="news-detail-author-title">{{ uiText.article.author }}</div>
               <div class="news-detail-author-text">{{ newsDetail?.author.username }}</div>
               <div
                 class="news-detail-author-name-container"
@@ -100,11 +101,11 @@ onMounted(() => {
                 newsDetail?.entity.endDate === undefined || newsDetail?.entity.endDate.trim() === ''
               "
             >
-              <div class="news-detail-author-title">发布日期</div>
+              <div class="news-detail-author-title">{{ uiText.article.publishDate }}</div>
               <div class="news-detail-author-text">{{ newsDetail?.entity.date }}</div>
             </div>
             <div class="news-detail-author-info-item" v-else>
-              <div class="news-detail-author-title">起止日期</div>
+              <div class="news-detail-author-title">{{ uiText.article.dateRange }}</div>
               <div class="news-detail-author-text">
                 {{ `${newsDetail?.entity.date} ~ ${newsDetail?.entity.endDate}` }}
               </div>
