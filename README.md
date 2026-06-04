@@ -1,30 +1,103 @@
-# Neco
+# Minecraft Community Template
 
-NMO Ecosystem.
+A VitePress-based template with Minecraft-themed UI components. Designed for community portals, game servers, and creative projects.
 
-## What is it?
-
-Neco is a brand new website for NMO.
-
-## Deployment
-
-Need Node.js 22+ and npm 11+.
+## Quick Start
 
 ```bash
-git clone https://github.com/nmo-ecosystem/neco.git
-cd neco
+# Clone the template branch
+git clone -b template/vitepress <repo-url> my-site
+cd my-site
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-## API
+## Customization
 
-Refer to [`API.md`](./API.md) for more information.
+### Basic Settings
 
-## TODO
+Edit `.vitepress/config.ts` to change the site title, description, and navigation:
 
-- [ ] API doc
+```ts
+export default defineConfig({
+  title: 'My Community',
+  description: 'A place for creators',
+  // ...
+})
+```
 
-- [ ] Management Page
+### Replace Assets
 
-- [ ] News Page
+| File | Purpose |
+|------|---------|
+| `public/logo.svg` | Site logo (SVG recommended) |
+| `public/background/hero-bg.jpg` | Home page hero background |
+| `public/background/bg.jpg` | Secondary background image |
+| `public/background/15.jpg` | Feature section image |
+| `public/background/44.jpg` | Feature section image |
+| `public/background/bgbtn.jpg` | Button background texture |
+
+### Edit Content
+
+All page content is in Markdown files at the repository root:
+
+| File | Content |
+|------|---------|
+| `index.md` | Home page (hero + feature sections) |
+| `about.md` | About page |
+| `blog/index.md` | Blog listing |
+| `blog/welcome.md` | Sample blog post |
+| `blog/community-update.md` | Sample blog post |
+| `docs/index.md` | Document archive |
+
+### Add Blog Posts
+
+Create a new `.md` file in the `blog/` directory with frontmatter:
+
+```md
+---
+title: My New Post
+date: 2025-07-01
+author: Your Name
+---
+
+# My New Post
+
+Content goes here...
+```
+
+Then add a `<BlogCard>` to `blog/index.md`.
+
+### CSS Variables
+
+Customize colors in `.vitepress/theme/styles/vars.css`:
+
+```css
+:root {
+  --minecraft-green: #3c8527;
+  --minecraft-green-light: #6cc349;
+  --minecraft-green-dark: #2a641c;
+  --background-color: var(--minecraft-dark);
+  --background-card: #313131;
+}
+```
+
+## Build & Deploy
+
+```bash
+# Build for production
+npm run build
+
+# Preview the build
+npm run preview
+```
+
+The built files are in `.vitepress/dist/`. Deploy to any static hosting (GitHub Pages, Netlify, Vercel, etc.).
+
+---
+
+NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
