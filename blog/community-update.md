@@ -1,10 +1,16 @@
 ---
 title: Community Update — June 2025
 date: 2025-06-15
-author: Community Team
+author:
+  name: Event Team
+  avatar: /background/bgbtn.jpg
+  tags:
+    - text: Event
+      color: '#fff'
+      bg: '#1296db'
+cover: /background/15.jpg
+category: News
 ---
-
-# Community Update — June 2025
 
 Here's what's been happening in our community this month!
 

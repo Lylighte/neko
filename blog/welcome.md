@@ -1,10 +1,19 @@
 ---
 title: Welcome to Our Community
 date: 2025-06-01
-author: Community Team
+author:
+  name: Community Team
+  avatar: /background/bgbtn.jpg
+  tags:
+    - text: Staff
+      color: '#fff'
+      bg: '#7e0c6b'
+    - text: Official
+      color: '#ffffa0'
+      bg: '#3c8527'
+cover: /background/44.jpg
+category: Announcement
 ---
-
-# Welcome to Our Community
 
 We're excited to have you here! Whether you're a seasoned builder, a redstone engineer, or just starting your Minecraft journey, you'll find a home with us.
 
