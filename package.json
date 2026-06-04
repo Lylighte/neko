@@ -4,13 +4,9 @@
   "version": "1.14.514",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
-    "lint": "eslint src/ --fix",
-    "format": "prettier --write src/"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^11.0.2",
