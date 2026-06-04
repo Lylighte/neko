@@ -16,25 +16,17 @@ import ScrollToTop from './components/ScrollToTop.vue'
 </template>
 
 <style>
-/* ── Full-width layout override ── */
+/* ── Match VitePress dark palette to Minecraft ── */
 .minecraft-layout {
   min-height: 100vh;
   background-color: var(--background-color);
 }
 
-/* Strip VitePress content wrapper constraints */
-.minecraft-layout .VPDoc,
-.minecraft-layout .VPContent,
-.minecraft-layout .VPHero {
-  max-width: 100% !important;
-  padding: 0 !important;
-}
-
-/* Remove default nav & sidebar */
-.minecraft-layout .VPNav,
-.minecraft-layout .VPSidebar,
-.minecraft-layout .VPDocFooter,
-.minecraft-layout .VPLocalNav {
-  display: none !important;
+/* Remove default VitePress nav, sidebar, doc footer */
+.minecraft-layout :deep(.VPNav),
+.minecraft-layout :deep(.VPSidebar),
+.minecraft-layout :deep(.VPDocFooter),
+.minecraft-layout :deep(.VPLocalNav) {
+  display: none;
 }
 </style>

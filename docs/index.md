@@ -19,4 +19,3 @@ Document archive and resources for our community.
 
 Want to contribute a guide or resource? Reach out to the community team!
 
-<SiteFooter />

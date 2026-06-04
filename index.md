@@ -29,4 +29,3 @@ layout: page
   image="/background/bg.jpg"
 />
 
-<SiteFooter />

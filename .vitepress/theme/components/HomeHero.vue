@@ -45,7 +45,8 @@ const bgStyle = (bg: string) => {
 
 <style lang="css" scoped>
 .hero {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   min-height: 40rem;
   display: flex;
   align-items: center;

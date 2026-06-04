@@ -27,4 +27,3 @@ Here's what's been happening in our community this month!
 
 Stay tuned for more updates!
 
-<SiteFooter />

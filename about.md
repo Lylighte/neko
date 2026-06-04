@@ -19,4 +19,3 @@ To build an inclusive environment where players of all skill levels can gather, 
 - [Community Forum](#)
 - [Discord Server](#)
 
-<SiteFooter />

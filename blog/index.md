@@ -14,4 +14,3 @@
   link="/blog/community-update"
 />
 
-<SiteFooter />

@@ -31,4 +31,3 @@ We're excited to have you here! Whether you're a seasoned builder, a redstone en
 
 We can't wait to see what you'll create!
 
-<SiteFooter />
