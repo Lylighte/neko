@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { siteConfig } from '@/data/config'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,43 +14,31 @@ const router = createRouter({
           path: '/lobby',
           name: 'lobby',
           component: () => import('../views/Lobby/LobbyView.vue'),
-          meta: { title: 'NMO' },
-        },
-        {
-          path: '/list',
-          name: 'list',
-          component: () => import('../views/List/ListView.vue'),
-          meta: { title: 'NMO | 服务器列表' },
-        },
-        {
-          path: '/activity',
-          name: 'activity',
-          component: () => import('../views/Activity/ActivityView.vue'),
-          meta: { title: 'NMO | 活动列表' },
+          meta: { title: siteConfig.name },
         },
         {
           path: '/news',
           name: 'news',
           component: () => import('../views/News/NewsView.vue'),
-          meta: { title: 'NMO | 新闻' },
+          meta: { title: `${siteConfig.name} | News` },
         },
         {
           path: '/news/detail/:id',
           name: 'news detail',
           component: () => import('../views/News/NewsDetail.vue'),
-          meta: { title: 'NMO | 新闻详情' },
+          meta: { title: `${siteConfig.name} | Article` },
         },
         {
           path: '/about',
           name: 'about',
           component: () => import('../views/About/AboutView.vue'),
-          meta: { title: 'NMO | 关于' },
+          meta: { title: `${siteConfig.name} | About` },
         },
         {
           path: '/documents',
           name: 'documents',
           component: () => import('../views/Documents/DocumentsView.vue'),
-          meta: { title: 'NMO | 文档' },
+          meta: { title: `${siteConfig.name} | Docs` },
         },
       ],
     },
@@ -57,7 +46,7 @@ const router = createRouter({
       path: '/404',
       name: 'NotFound',
       component: () => import('../views/NotFound.vue'),
-      meta: { title: 'NMO | 404' },
+      meta: { title: `${siteConfig.name} | 404` },
     },
     {
       path: '/:catchAll(.*)*',
@@ -70,7 +59,6 @@ router.beforeEach((to, _, next) => {
   if (to.meta.title) {
     document.title = String(to.meta.title)
   }
-
   next()
 })
 
