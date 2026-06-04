@@ -21,6 +21,7 @@ import ScrollToTop from './components/ScrollToTop.vue'
 import HomeHero from './components/HomeHero.vue'
 import HomeIntro from './components/HomeIntro.vue'
 import BlogCard from './components/BlogCard.vue'
+import LinkCard from './components/LinkCard.vue'
 import SiteFooter from './components/SiteFooter.vue'
 
 export default {
@@ -40,6 +41,7 @@ export default {
     app.component('HomeHero', HomeHero)
     app.component('HomeIntro', HomeIntro)
     app.component('BlogCard', BlogCard)
+    app.component('LinkCard', LinkCard)
     app.component('SiteFooter', SiteFooter)
   },
 } satisfies Theme
