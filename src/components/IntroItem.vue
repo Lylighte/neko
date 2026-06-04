@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import type { IntroEntity } from '@/api/introlist'
+interface IntroEntity {
+  title: string
+  description: string
+  image: string
+}
 
 const props = defineProps({
   intro: {

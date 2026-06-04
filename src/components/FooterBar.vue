@@ -1,16 +1,7 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
 import QQIcon from './icons/QQIcon.vue'
 import BilibiliIcon from './icons/BilibiliIcon.vue'
 import GithubIcon from './icons/GithubIcon.vue'
-import { GetSlogan } from '@/api/slogan'
-import { RouterLink } from 'vue-router'
-
-const slogan = ref('')
-
-onMounted(async () => {
-  slogan.value = await GetSlogan()
-})
 </script>
 
 <template>
@@ -18,7 +9,7 @@ onMounted(async () => {
     <div class="footer-description">
       <img src="/nmo-logo-large.png" alt="logo" style="width: 5rem; user-select: none" />
       <p style="user-select: none">南京大学 Minecraft 协会</p>
-      <text style="margin-bottom: 0.5rem">{{ slogan }}</text>
+      <text style="margin-bottom: 0.5rem">在 Minecraft 基础上，发展建筑，计算机，软件，电路，建模等方面的知识水平</text>
       <span id="copyright" style="user-select: none">
         © 2025 - All rights reserved |
         <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/"
@@ -29,8 +20,6 @@ onMounted(async () => {
         NOT AN OFFICIAL MINECRAFT ORGANIZATION <br />
         NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT
       </span>
-
-      <RouterLink id="management" to="/management/user">后台</RouterLink>
     </div>
 
     <div class="footer-links">
