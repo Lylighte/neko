@@ -1,7 +1,7 @@
 # VitePress Migration Plan
 
-**Branch:** `template-cleanup`
-**Status:** 📋 PLANNING
+**Branch:** `template/vitepress` ← branched from `template-cleanup`
+**Status:** 📋 PLANNING (strategy revised: in-place transform, not orphan)
 **Prerequisite:** Template Page Optimization Plan — ✅ COMPLETED (all 5 phases)
 
 ---
@@ -17,7 +17,8 @@ The current repository (`neko`) is a Vite + Vue 3 SPA originally built for NMO (
 - **Legacy view components** that are now just wrappers around static data
 
 The goal is to create a **clean, lightweight VitePress template** that:
-- Lives on an **orphan branch** in this same repo (no historical baggage)
+- Lives on a **branch from `template-cleanup`** in this same repo
+- Transforms the SPA **in-place** (`git rm` old files, add VitePress overlay)
 - Has **zero NMO-specific content** — fully generic
 - Ships with **minimal placeholder assets** (not 62 background images)
 - Is **easy to clone and customize** — just edit Markdown + swap a few images
@@ -27,33 +28,37 @@ The goal is to create a **clean, lightweight VitePress template** that:
 
 ## Migration Form Decision
 
-### Option A: In-place migration (add VitePress to current repo)
-❌ **Rejected.** The current repo is too bloated with legacy SPA code and NMO-specific assets. Adding VitePress alongside would create confusion and the large `public/` directory would still be present.
+### Option A: In-place migration on a new branch
+✅ **Selected.** Branch from `template-cleanup` → `template/vitepress`, delete old SPA files, install VitePress into the same directory. Clean and safe — `.git` stays intact throughout.
 
-### Option B: New standalone repo
+### Option B: Orphan branch
+❌ **Rejected.** Requires `git checkout --orphan` + clearing worktree, which risks accidentally deleting `.git` (happened in practice). Tooling around `Remove-Item .*` in PowerShell is dangerous.
+
+### Option C: New standalone repo
 ❌ **Rejected.** Would require maintaining two repos. The user wants single-repo management with limited distribution.
 
-### Option C: Monorepo subdirectory
+### Option D: Monorepo subdirectory
 ❌ **Rejected.** Keeps the bloated `public/` and legacy code in the same workspace. The template would be buried in a subdirectory.
 
-### Decision: **Option C+ — Orphan branch in current repo** ✅
+### Decision: **Option A — In-place transformation on new branch** ✅
 
-Create the VitePress template on an **orphan branch** (a new root commit with no parent) within this same repository.
+Branch from `template-cleanup` → `template/vitepress`, then transform in-place: delete old SPA files, install VitePress, add new content.
 
 **How it works:**
-1. Perform VitePress migration on the current `template-cleanup` branch
-2. After completion, create an orphan branch (e.g., `template`) with only the template files
-3. Old branches (`main`, `template-cleanup`) remain as **source material** for reference
-4. The orphan branch can be pushed independently — others clone only the clean template
+1. `git checkout -b template/vitepress` from `template-cleanup`
+2. Delete old SPA source files (`src/`, `index.html`, SPA configs)
+3. Clean `public/` (remove NMO assets, PDF.js, excess backgrounds)
+4. Install VitePress, create `.vitepress/` config and theme
+5. Create Markdown pages, write README
 
 **Benefits:**
 - ✅ **Single repo** — no need to maintain two repositories
-- ✅ **Clean history** — orphan branch has zero historical baggage, only template files
-- ✅ **Limited distribution** — push only the orphan branch; others clone a clean template
-- ✅ **Source material preserved** — old branches remain for reference
-- ✅ **No git filter-branch needed** — orphan branch is naturally clean
+- ✅ **Shared git history** — `template-cleanup` commits visible via `git log`, easier to trace component origins
+- ✅ **Simple branch workflow** — `git checkout template/vitepress` switches between template and source
+- ✅ **Source material preserved** — `template-cleanup` branch untouched
+- ✅ **Safe** — no `git reset --hard`, no `Remove-Item .*`, no risk of losing `.git`
 
-**Trade-off:** Git history is split — the orphan branch doesn't share commits with `main` or `template-cleanup`. This is acceptable because the template is a fundamentally different project structure from the original SPA.
+**Trade-off:** Template branch inherits all commits from `template-cleanup` (but file tree is completely different after transformation). Acceptable because it preserves traceability.
 
 ---
 
@@ -78,10 +83,10 @@ Before executing the migration steps below, review and confirm these cross-cutti
 - 所有组件使用 CSS 变量而非硬编码值
 
 ### 0.4 仓库初始化规范
-Step 1 中增加：
-- `git init` 后创建 `.gitignore`（忽略 `node_modules`、`.vitepress/dist`、`cache` 等）
-- 确保模板仓库不包含构建产物
-- 在 README 中提供两种使用方式：`npx degit` 或 GitHub "Use this template" 按钮
+Step 1 中从 `template-cleanup` 分支后：
+- 更新 `.gitignore`（添加 `.vitepress/dist`、`.vitepress/cache`）
+- 确保模板分支不包含构建产物（`dist/`、`.vite/`）
+- 在 README 中提供两种使用方式：`git clone -b template/vitepress` 或 GitHub "Use this template" 按钮
 
 ### 0.5 工作量预估修正
 实际工作量预计为 **12-16 小时**（原估 8 小时偏乐观），主要风险点：
@@ -99,11 +104,11 @@ Step 1 中增加：
 ## Template Structure
 
 ```
-neko-template/
+neko/                                   # repo root (template/vitepress branch)
 ├── .vitepress/
-│   ├── config.ts              # Site config: title, description, nav, social links
+│   ├── config.ts                       # Site config: title, description, nav, social links
 │   └── theme/
-│       ├── index.ts            # Theme entry — registers all components
+│       ├── index.ts                    # Theme entry — registers all components
 │       ├── components/
 │       │   ├── MinecraftButton.vue
 │       │   ├── MinecraftButtonClassic.vue
@@ -113,14 +118,14 @@ neko-template/
 │       │   ├── MinecraftSwitch.vue
 │       │   ├── MinecraftDialog.vue
 │       │   ├── ScrollToTop.vue
-│       │   ├── HomeHero.vue       # Hero section for index.md
-│       │   ├── HomeIntro.vue      # Alternating feature sections
-│       │   ├── BlogCard.vue       # Blog listing card
-│       │   └── SiteFooter.vue     # Footer with social links
+│       │   ├── HomeHero.vue
+│       │   ├── HomeIntro.vue
+│       │   ├── BlogCard.vue
+│       │   └── SiteFooter.vue
 │       └── styles/
-│           ├── vars.css           # CSS variables (Minecraft palette)
-│           ├── animations.css     # fade-in, fade-in-right, etc.
-│           └── mc-border.css      # .mc-border utility class
+│           ├── vars.css                # CSS variables (Minecraft palette)
+│           ├── animations.css          # fade-in, fade-in-right, etc.
+│           └── mc-border.css           # .mc-border utility class
 ├── public/
 │   ├── UI/                        # Core UI sprites (buttons, toggles, inputs)
 │   │   ├── button_normal.png
@@ -171,29 +176,47 @@ neko-template/
 
 ## Migration Steps
 
-### Step 1 — Scaffold the new repo
+### Step 1 — Branch and scaffold VitePress
 
 ```bash
-mkdir neko-template
-cd neko-template
-npm init -y
+# 1.1 Create branch from template-cleanup
+git checkout -b template/vitepress
+
+# 1.2 Install VitePress
 npm install -D vitepress
-npx vitepress init
+
+# 1.3 Delete old SPA source files
+git rm -rf src/
+git rm index.html vite.config.ts tsconfig.app.json tsconfig.node.json eslint.config.ts
+git rm .prettierrc.json shell.nix API.md .envrc .editorconfig
+
+# 1.4 Clean public/ (keep only template assets)
+git rm -rf public/pdfjs/
+git rm -rf public/resources/
+git rm -rf public/UI/server/
+git rm public/nmo-logo.png public/nmo-logo-large.png
+git rm public/background/beidalou.webp public/404.png
+# Remove excess background images (keep 1-2 only)
+git rm -rf "public/mc自然风景背景图-air/"
+
+# 1.5 Update .gitignore for VitePress
+# Add: .vitepress/dist, .vitepress/cache
+
+# 1.6 Create .vitepress/ directory structure
+mkdir -p .vitepress/theme/components .vitepress/theme/styles
+
+# 1.7 Rename background asset
+git mv public/background/bg.jpg public/background/hero-bg.jpg
+
+# 1.8 Commit
+git add -A
+git commit -m "Step 1: init VitePress, strip old SPA, clean public assets"
 ```
 
-Configure basic `package.json`:
-```json
-{
-  "name": "neko-template",
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
-  }
-}
-```
+**Result:** Repo root on `template/vitepress` branch has only:
+- `public/` (cleaned — UI sprites, block textures, 2 backgrounds, click sound, loading gif)
+- `docs/` (migration plan docs, preserved)
+- `package.json`, `tsconfig.json`, `.gitignore` (to be updated in-place)
 
 ### Step 2 — Port theme styles
 
@@ -340,28 +363,28 @@ author: Community Team
 Content here...
 ```
 
-### Step 7 — Curate static assets
+### Step 7 — Curate static assets (keep/delete in place)
 
-From the current `public/` directory, copy only:
+Since we're on a branch from `template-cleanup`, `public/` already has all assets. Strategy: **delete unwanted, keep needed, rename where appropriate.**
 
-| Source | Destination | Notes |
-|--------|-------------|-------|
-| `public/UI/` | `public/UI/` | All UI sprites (buttons, toggles, inputs, dialog) |
-| `public/blockbg/dirt.png` | `public/blockbg/dirt.png` | Core block texture |
-| `public/blockbg/cobblestone.png` | `public/blockbg/cobblestone.png` | Core block texture |
-| `public/button.click.ogg` | `public/button.click.ogg` | Click sound |
-| `public/loading.gif` | `public/loading.gif` | Loading animation |
-| `public/background/bg.jpg` | `public/background/hero-bg.jpg` | Generic hero background |
-| `public/mc自然风景背景图-air/1.jpg` | `public/background/scenery-1.jpg` | 1-2 curated scenic backgrounds (rename to English) |
+| Keep (already in place) | Notes |
+|--------------------------|-------|
+| `public/UI/` | All UI sprites (buttons, toggles, inputs, dialog) |
+| `public/blockbg/dirt.png` | Core block texture |
+| `public/blockbg/cobblestone.png` | Core block texture |
+| `public/button.click.ogg` | Click sound |
+| `public/loading.gif` | Loading animation |
+| `public/background/hero-bg.jpg` | Renamed from `bg.jpg` in Step 1 |
+| `public/background/scenery-1.jpg` | Copy 1 from `mc自然风景背景图-air/` before deleting the folder |
 
-**Do NOT copy:**
+**Delete (done in Step 1):**
 - `public/pdfjs/` — too heavy
 - `public/resources/` — NMO-specific
 - `public/UI/server/` — server status icons
 - `public/nmo-logo.png`, `public/nmo-logo-large.png` — NMO branding
 - `public/background/beidalou.webp` — NJU-specific
 - `public/404.png` — NMO-branded
-- All 62 background images — pick only 1-2
+- `public/mc自然风景背景图-air/` — 62 images, keep only 1-2
 
 ### Step 8 — Create placeholder assets
 
@@ -441,8 +464,8 @@ Verify:
 
 ## Notes
 
-- The current `neko` repo remains as **source material** — it's not deleted or modified further.
-- The new `neko-template` repo is **standalone** — users clone it, not this repo.
+- The `template-cleanup` branch remains as **source material** — it's not deleted or modified further.
+- Template lives on `template/vitepress` branch — `git checkout template/vitepress` to work on it.
 - All Minecraft UI components in the template should accept CSS variable overrides for easy theming.
 - The template should work with zero configuration — just `npm install && npm run dev`.
 - Customization is done by editing Markdown files and swapping assets in `public/`.

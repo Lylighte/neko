@@ -2,7 +2,7 @@
 
 ## Project Context
 
-This is a Vite + Vue 3 + TypeScript SPA originally built for NMO (Nanjing University Minecraft Association). After backend stripping and template optimization, it's now a functional static SPA. The next phase is to migrate it to a **VitePress template** on an **orphan branch**.
+This is a Vite + Vue 3 + TypeScript SPA originally built for NMO (Nanjing University Minecraft Association). After backend stripping and template optimization, it's now a functional static SPA. The next phase is to migrate it to a **VitePress template** on a new **branch from `template-cleanup`**.
 
 ## Current State
 
@@ -26,11 +26,18 @@ This is a Vite + Vue 3 + TypeScript SPA originally built for NMO (Nanjing Univer
 - `npm run type-check` ✅ zero errors
 - `npm run build` ✅ 95 modules, 1.20s
 
-## Migration Strategy: Orphan Branch
+## Migration Strategy: Branch from template-cleanup
 
-The VitePress template will be created on an **orphan branch** (`template/vitepress`) within this same repository. This gives:
-- Clean git history (no legacy baggage)
+The VitePress template will be created on a **new branch** (`template/vitepress`) from `template-cleanup`, then transformed in-place:
+- `git rm` old SPA files (`src/`, `index.html`, SPA configs)
+- Clean `public/` (remove NMO assets, PDF.js, excess backgrounds)
+- Install VitePress, create `.vitepress/` theme
+- Create Markdown content, write README
+
+This gives:
+- Git history continuity (can trace component origins back to `template-cleanup`)
 - Single-repo management
+- Safe — no `git reset --hard`, no risk of losing `.git`
 - Old branches (`main`, `template-cleanup`) remain as source material
 
 ## File Structure (Current Repo — Source Material)
@@ -75,13 +82,12 @@ neko/
 
 ## Migration Steps (from plan)
 
-### Step 1 — Create orphan branch and init VitePress
+### Step 1 — Create branch and init VitePress
 ```bash
-git checkout --orphan template/vitepress
-git reset --hard
-npm init -y
+git checkout -b template/vitepress
 npm install -D vitepress
-npx vitepress init
+# Delete old SPA files, clean public/, update .gitignore
+# Create .vitepress/ directory structure
 ```
 
 ### Step 2 — Port theme styles
@@ -120,15 +126,15 @@ From `src/components/utils/`:
 - `docs/index.md` — document archive
 
 ### Step 7 — Curate static assets
-Copy from current `public/`:
+Keep in `public/` (already in place, delete unwanted):
 - `UI/` (all sprites)
 - `blockbg/dirt.png`, `blockbg/cobblestone.png`
 - `button.click.ogg`
 - `loading.gif`
-- `background/bg.jpg` → `background/hero-bg.jpg`
-- 1-2 from `mc自然风景背景图-air/` → `background/scenery-*.jpg`
+- `background/bg.jpg` → rename to `background/hero-bg.jpg`
+- 1-2 from `mc自然风景背景图-air/` → `background/scenery-*.jpg`, then delete the folder
 
-**Don't copy:** pdfjs/, resources/, UI/server/, nmo-logo*, beidalou.webp, 404.png.
+**Delete:** pdfjs/, resources/, UI/server/, nmo-logo*, beidalou.webp, 404.png.
 
 ### Step 8 — Create placeholder assets
 - `logo.svg` — simple SVG cube icon
@@ -156,7 +162,8 @@ npm run preview
 
 ## Key Decisions
 
-- **Orphan branch** (`template/vitepress`) — clean history, no legacy baggage
+- **Branch from template-cleanup** (`template/vitepress`) — safe, preserves git history, no risk of deleting `.git`
+- **In-place transformation** — `git rm` old files, overlay VitePress
 - **Custom footer** — override VitePress default, use `SiteFooter.vue`
 - **No i18n** — inline text in components, no `@/data/i18n` dependency
 - **No PDF.js** — too heavy, app-specific
