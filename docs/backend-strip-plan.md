@@ -1,7 +1,8 @@
 # Backend Dependency Stripping Plan
 
 **Branch:** `template-cleanup`
-**Goal:** Remove all runtime backend coupling from the static template, one commit per step.
+**Status:** ✅ COMPLETED — all 10 steps executed and committed.
+**Next Phase:** VitePress migration (see `template-migration-report.md` for details).
 
 ---
 
