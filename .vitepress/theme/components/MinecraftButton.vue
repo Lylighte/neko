@@ -1,0 +1,70 @@
+<script lang="ts" setup>
+defineProps({
+  dark: {
+    type: Boolean,
+    default: false,
+  },
+  soundUrl: {
+    type: String,
+    default: '/button.click.ogg',
+  },
+})
+
+const soundOn = (url: string) => {
+  if (!url) return
+  const audio = new Audio(url)
+  audio.play()
+  audio.volume = 0.3
+}
+</script>
+
+<template>
+  <div
+    :class="$props.dark ? 'minecraft-button dark' : 'minecraft-button'"
+    @click="soundOn($props.soundUrl)"
+  >
+    <slot></slot>
+  </div>
+</template>
+
+<style lang="css" scoped>
+.minecraft-button {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  padding: 1rem;
+  outline: 2px solid #000;
+  border: 2px solid;
+  background-color: #c6c6c6;
+  border-image: var(--btn-border-image);
+  cursor: pointer;
+}
+
+.minecraft-button.dark {
+  color: #fff;
+  outline: 2px solid #333;
+  background-color: #303030;
+  border-image: var(--btn-border-image);
+}
+
+.minecraft-button:hover {
+  color: #fff;
+  outline: 2px solid #fff;
+  background-color: #43a01c;
+  border-image: var(--btn-border-image-hover);
+}
+
+.minecraft-button:active {
+  background-color: #8b8b8b;
+  border-image: var(--btn-border-image-active);
+}
+
+.minecraft-button:active:hover {
+  color: #fff;
+  outline: 2px solid #fff;
+  background-color: #43a01c;
+  border-image: url('/UI/button_pressed.png') 1;
+}
+</style>
