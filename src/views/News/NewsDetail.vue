@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import { staticNewsDetails } from '@/data/static'
-import type { NewsDetail } from '@/data/types'
+import type { NewsDetail, NewsSegment } from '@/data/types'
 
 const newsId = useRoute().params.id as string
 const newsDetail = ref<NewsDetail | null>(null)
@@ -37,7 +36,11 @@ function renderMarkdown(md: string): string {
     .replace(/<p>\s*<\/p>/g, '')
 }
 
-const renderedContent = computed(() => {
+interface RenderedSegment extends NewsSegment {
+  html?: string
+}
+
+const renderedContent = computed<RenderedSegment[]>(() => {
   if (!newsDetail.value) return []
   return newsDetail.value.content.map((segment) => {
     if (segment.type === 'markdown') {

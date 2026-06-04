@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import CalendarIcon from '@/components/icons/CalendarIcon.vue'
-import UserIcon from '@/components/icons/UserIcon.vue'
 import { onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { staticDocumentTree, staticDocumentDetails } from '@/data/static'
 import type { DocumentNode, NewsSegment } from '@/data/types'
@@ -216,7 +215,7 @@ onUnmounted(() => {
               {{ documentInstance.name }}
             </div>
             <div class="document-desc-item" v-if="selectedDocumentId.trim() !== ''">
-              <UserIcon class="document-desc-icon" />
+              <span>👤</span>
               <span>{{ documentInstance.contributors.join(', ') }}</span>
             </div>
             <div class="document-desc-item" v-if="selectedDocumentId.trim() !== ''">

@@ -54,6 +54,7 @@ export interface LinkEntity {
   name: string
   url: string
   icon?: string
+  image?: string
   description?: string
 }
 

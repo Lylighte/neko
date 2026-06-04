@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { LinkEntity } from '../../api/linklist'
+import type { LinkEntity } from '@/data/types'
 
 const props = defineProps({
   link: {

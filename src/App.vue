@@ -12,8 +12,6 @@ if (import.meta.env.DEV) {
   console.log(`%cEnvironment: %c${import.meta.env.MODE}`, c('#67C23A'), c('#F56C6C'))
 }
 </script>
-}
-</script>
 
 <template>
   <router-view />
