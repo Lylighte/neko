@@ -37,6 +37,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* ── VitePress default variable overrides ── */
+  --vp-c-bg: var(--background-color);
+  --vp-c-bg-elv: var(--background-card);
+  --vp-c-bg-soft: var(--background-card);
+  --vp-c-text-1: rgba(255, 255, 255, 0.8);
+  --vp-c-text-2: rgba(255, 255, 255, 0.6);
+  --vp-c-border: #909399;
+  --vp-c-divider: var(--minecraft-gray);
+  --vp-c-brand-1: var(--minecraft-green-light);
+  --vp-c-brand-2: var(--minecraft-green);
+  --vp-c-brand-3: var(--minecraft-green-dark);
+  --vp-nav-bg-color: rgba(0, 0, 0, 0.5);
+  --vp-layout-max-width: 100%;
 }
 
 * {

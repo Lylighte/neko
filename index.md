@@ -1,17 +1,5 @@
 ---
-layout: home
-
-hero:
-  name: Your Organization
-  text: Minecraft Community
-  tagline: Building a vibrant community where creativity meets technology.
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /about
-    - theme: alt
-      text: View Blog
-      link: /blog/
+layout: page
 ---
 
 <HomeHero

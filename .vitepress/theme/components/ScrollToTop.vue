@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import MinecraftButton from './MinecraftButton.vue'
 
 const scrollToTop = () => {
+  if (typeof window === 'undefined') return
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
@@ -11,8 +12,19 @@ const scrollToTop = () => {
 
 const shouldShow = ref(false)
 
-window.addEventListener('scroll', () => {
-  shouldShow.value = window.scrollY > 200
+let scrollHandler: (() => void) | null = null
+
+onMounted(() => {
+  scrollHandler = () => {
+    shouldShow.value = window.scrollY > 200
+  }
+  window.addEventListener('scroll', scrollHandler)
+})
+
+onUnmounted(() => {
+  if (scrollHandler) {
+    window.removeEventListener('scroll', scrollHandler)
+  }
 })
 </script>
 

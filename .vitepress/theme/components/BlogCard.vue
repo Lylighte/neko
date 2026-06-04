@@ -33,7 +33,6 @@ defineProps({
         :src="$props.image"
         :alt="$props.title"
         class="overview-img"
-        @click="window.open($props.link, '_self')"
       />
     </picture>
     <div class="overview-content">

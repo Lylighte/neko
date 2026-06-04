@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
+import Layout from './Layout.vue'
 
 // Styles
 import './styles/vars.css'
@@ -23,7 +24,7 @@ import BlogCard from './components/BlogCard.vue'
 import SiteFooter from './components/SiteFooter.vue'
 
 export default {
-  extends: DefaultTheme,
+  Layout,
   enhanceApp({ app }) {
     // Register all Minecraft UI components globally
     app.component('MinecraftButton', MinecraftButton)
