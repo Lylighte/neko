@@ -14,18 +14,13 @@
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^11.0.2",
-    "axios": "^1.11.0",
-    "md-editor-v3": "^5.8.3",
     "mitt": "^3.0.1",
     "vue": "^3.5.18",
-    "vue-clipboard3": "^2.0.0",
-    "vue-router": "^4.5.1",
-    "vue-toastification": "^2.0.0-rc.5"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.1.0",
-    "@types/sanitize-html": "^2.16.0",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
