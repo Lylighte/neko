@@ -17,7 +17,7 @@ The current repository (`neko`) is a Vite + Vue 3 SPA originally built for NMO (
 - **Legacy view components** that are now just wrappers around static data
 
 The goal is to create a **clean, lightweight VitePress template** that:
-- Is a **separate, standalone project** (not in this repo)
+- Lives on an **orphan branch** in this same repo (no historical baggage)
 - Has **zero NMO-specific content** — fully generic
 - Ships with **minimal placeholder assets** (not 62 background images)
 - Is **easy to clone and customize** — just edit Markdown + swap a few images
@@ -30,20 +30,30 @@ The goal is to create a **clean, lightweight VitePress template** that:
 ### Option A: In-place migration (add VitePress to current repo)
 ❌ **Rejected.** The current repo is too bloated with legacy SPA code and NMO-specific assets. Adding VitePress alongside would create confusion and the large `public/` directory would still be present.
 
-### Option B: New standalone repo for the template
-✅ **Recommended.** Create a fresh repository with only what the template needs. This gives:
-- Clean git history starting from zero
-- No legacy SPA code to maintain
-- Only essential static assets (curated subset)
-- Users can clone and immediately start customizing
-- Clear separation between "source material" (this repo) and "template product"
+### Option B: New standalone repo
+❌ **Rejected.** Would require maintaining two repos. The user wants single-repo management with limited distribution.
 
 ### Option C: Monorepo subdirectory
-❌ **Rejected.** While it keeps git history, it also keeps the bloated `public/` and legacy code in the same workspace. The template would be buried in a subdirectory of a project that's mostly irrelevant to template users.
+❌ **Rejected.** Keeps the bloated `public/` and legacy code in the same workspace. The template would be buried in a subdirectory.
 
-### Decision: **Option B — New standalone repo**
+### Decision: **Option C+ — Orphan branch in current repo** ✅
 
-The current `neko` repo becomes **source material** — a reference for how the original components looked and behaved. The new `neko-template` repo is the **product** — a clean, minimal, customizable VitePress template.
+Create the VitePress template on an **orphan branch** (a new root commit with no parent) within this same repository.
+
+**How it works:**
+1. Perform VitePress migration on the current `template-cleanup` branch
+2. After completion, create an orphan branch (e.g., `template`) with only the template files
+3. Old branches (`main`, `template-cleanup`) remain as **source material** for reference
+4. The orphan branch can be pushed independently — others clone only the clean template
+
+**Benefits:**
+- ✅ **Single repo** — no need to maintain two repositories
+- ✅ **Clean history** — orphan branch has zero historical baggage, only template files
+- ✅ **Limited distribution** — push only the orphan branch; others clone a clean template
+- ✅ **Source material preserved** — old branches remain for reference
+- ✅ **No git filter-branch needed** — orphan branch is naturally clean
+
+**Trade-off:** Git history is split — the orphan branch doesn't share commits with `main` or `template-cleanup`. This is acceptable because the template is a fundamentally different project structure from the original SPA.
 
 ---
 
