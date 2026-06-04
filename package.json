@@ -1,7 +1,7 @@
 {
-  "name": "nmo-ecosystem",
+  "name": "minecraft-community-template",
   "private": true,
-  "version": "1.14.514",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
@@ -9,26 +9,10 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@vuepic/vue-datepicker": "^11.0.2",
-    "mitt": "^3.0.1",
-    "vue": "^3.5.18",
-    "vue-router": "^4.5.1"
+    "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.2",
-    "@types/node": "^24.1.0",
-    "@vitejs/plugin-vue": "^6.0.0",
-    "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/eslint-config-typescript": "^14.6.0",
-    "@vue/tsconfig": "^0.7.0",
-    "eslint": "^9.31.0",
-    "eslint-plugin-vue": "~10.3.0",
-    "jiti": "^2.5.0",
-    "npm-run-all2": "^8.0.4",
-    "prettier": "3.6.2",
     "typescript": "~5.8.3",
-    "vite": "^7.0.6",
-    "vitepress": "^1.6.4",
-    "vue-tsc": "^3.0.3"
+    "vitepress": "^1.6.4"
   }
 }
