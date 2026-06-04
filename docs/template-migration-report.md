@@ -198,6 +198,57 @@ npm run docs:preview
 - `public/resources/` — app-specific media (server icons, group photos)
 - `public/UI/server/` — server status icons (upstream-specific)
 
+## Static Asset Classification for VitePress
+
+The `public/` directory in this repo is a source inventory. Only a subset should be carried into the VitePress template. Below is the classification for the template migration.
+
+### Theme-critical — goes into VitePress `public/` or `.vitepress/theme/styles/`
+
+These assets define the Minecraft visual language and should be ported to the template.
+
+| Path | Use in VitePress | Notes |
+|------|----------------|-------|
+| `public/UI/` | `public/UI/` | Button sprites, dialog backgrounds, toggle switches, text input — core UI primitives |
+| `public/blockbg/` | `public/blockbg/` | Block textures used as CSS backgrounds (cobblestone, dirt, etc.) |
+| `public/button.click.ogg` | `public/` | Click sound, referenced by button components |
+| `public/loading.gif` | `public/` | Loading animation |
+| `public/mc自然风景背景图-air/` | `public/mc自然风景背景图-air/` | Background scenery images (select a representative subset, e.g. 10-15) |
+| `public/background/` | `public/background/` | General background images (exclude NMO-specific ones like beidalou.webp) |
+
+### App-specific — stays in this repo as source material, NOT in VitePress template
+
+These are tied to the current NMO organization and should not be part of a generic template.
+
+| Path | Reason |
+|------|--------|
+| `public/resources/groups/` | NMO department group photos |
+| `public/resources/restore/` | NJU campus building photos |
+| `public/resources/server/` | NMO server-specific screenshots |
+| `public/resources/server_icons/` | NMO server-specific icons |
+| `public/background/beidalou.webp` | NJU-specific background |
+| `public/nmo-logo.png` | NMO organization logo |
+| `public/nmo-logo-large.png` | NMO organization logo (large) |
+| `public/resources/nmo十载合照.jpg` | NMO 10th anniversary photo |
+| `public/resources/线下合照.jpg` | NMO offline event photo |
+| `public/404.png` | NMO-branded 404 page |
+
+### Runtime dependency — NOT in VitePress template
+
+| Path | Reason |
+|------|--------|
+| `public/pdfjs/` | Entire PDF.js runtime library — heavy and app-specific |
+
+### Template default content assets — goes into VitePress `public/`
+
+When building the template, provide a small set of placeholder/replacement assets:
+
+- A generic logo placeholder (replace `nmo-logo.png`)
+- A default hero background (replace `background/beidalou.webp`)
+- A default 404 illustration (replace `404.png`)
+- A small set of example background images from `mc自然风景背景图-air/` (select 5-8 representative ones)
+
+This way the template ships with a working visual identity out of the box, and users only need to swap the placeholder assets with their own.
+
 ## Backend Dependency Audit
 
 The following must be removed or replaced for the static template to have zero runtime backend coupling.
