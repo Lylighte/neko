@@ -1,0 +1,104 @@
+<script lang="ts" setup>
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    default: '',
+  },
+  image: {
+    type: String,
+    default: '',
+  },
+  right: {
+    type: Boolean,
+    default: false,
+  },
+})
+</script>
+
+<template>
+  <div class="intro-box">
+    <div v-if="!$props.image" class="intro-center">
+      <div class="intro-text">
+        <p>{{ $props.title }}</p>
+        <span>{{ $props.description }}</span>
+      </div>
+    </div>
+    <div v-else :class="$props.right ? 'intro-left' : 'intro-right'">
+      <img :src="$props.image" alt="image" class="intro-image mc-border" />
+      <div class="intro-text">
+        <p>{{ $props.title }}</p>
+        <span>{{ $props.description }}</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="css" scoped>
+.intro-box {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+
+.intro-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.intro-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.intro-left {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2rem;
+}
+
+.intro-image {
+  width: 40%;
+  min-width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.intro-text {
+  flex: 1;
+}
+
+.intro-text p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  color: #fff;
+}
+
+.intro-text span {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .intro-right,
+  .intro-left {
+    flex-direction: column;
+  }
+  .intro-image {
+    width: 100%;
+    min-width: unset;
+  }
+}
+</style>
