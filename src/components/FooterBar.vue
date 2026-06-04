@@ -1,41 +1,52 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import QQIcon from './icons/QQIcon.vue'
 import BilibiliIcon from './icons/BilibiliIcon.vue'
 import GithubIcon from './icons/GithubIcon.vue'
+import { siteConfig } from '@/data/config'
+
+const iconMap: Record<string, unknown> = {
+  github: GithubIcon,
+  bilibili: BilibiliIcon,
+  qq: QQIcon,
+}
+
+const socialLinks = computed(() =>
+  siteConfig.socialLinks.map((link) => ({
+    ...link,
+    iconComponent: iconMap[link.icon] ?? null,
+  })),
+)
 </script>
 
 <template>
   <div class="footer-area">
     <div class="footer-description">
-      <img src="/nmo-logo-large.png" alt="logo" style="width: 5rem; user-select: none" />
-      <p style="user-select: none">南京大学 Minecraft 协会</p>
-      <text style="margin-bottom: 0.5rem">在 Minecraft 基础上，发展建筑，计算机，软件，电路，建模等方面的知识水平</text>
+      <img :src="siteConfig.logo" alt="logo" style="width: 5rem; user-select: none" />
+      <p style="user-select: none">{{ siteConfig.name }}</p>
+      <text style="margin-bottom: 0.5rem">{{ siteConfig.description }}</text>
       <span id="copyright" style="user-select: none">
-        © 2025 - All rights reserved |
-        <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/"
-          >浙ICP备2022000762号-1</a
-        >
+        {{ siteConfig.copyright }}
+        <template v-if="siteConfig.icp">
+          | <a style="color: rgb(128, 128, 128)" href="https://beian.miit.gov.cn/">{{ siteConfig.icp }}</a>
+        </template>
       </span>
       <span id="declaration" style="user-select: none">
-        NOT AN OFFICIAL MINECRAFT ORGANIZATION <br />
-        NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT
+        {{ siteConfig.declaration }}
       </span>
     </div>
 
     <div class="footer-links">
       <div class="link-block">
-        <p>外部链接</p>
-        <a class="link-item" href="https://qm.qq.com/q/J9i2nFAFkS">
-          <QQIcon class="link-icon" />
-          QQ交流群
-        </a>
-        <a class="link-item" href="https://space.bilibili.com/646892894">
-          <BilibiliIcon class="link-icon" />
-          bilibili
-        </a>
-        <a class="link-item" href="https://github.com/EntropyGenerator/neco">
-          <GithubIcon class="link-icon" />
-          Github源码
+        <p>Links</p>
+        <a
+          class="link-item"
+          v-for="link in socialLinks"
+          :key="link.name"
+          :href="link.url"
+        >
+          <component :is="link.iconComponent" class="link-icon" v-if="link.iconComponent" />
+          {{ link.name }}
         </a>
       </div>
     </div>

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Intro from './IntroView.vue'
+import { siteConfig } from '@/data/config'
 </script>
 
 <template>
@@ -8,14 +9,10 @@ import Intro from './IntroView.vue'
       <div class="logo-area">
         <div class="logo-content">
           <div>
-            <img src="/nmo-logo-large.png" alt="LOGO" style="user-select: none; height: 5rem" />
+            <img :src="siteConfig.logo" alt="LOGO" style="user-select: none; height: 5rem" />
           </div>
-          <p>南京大学<span class="title-font">Minecraft</span>协会</p>
-          <span class="intro-text"
-            >在 Minecraft
-            基础上，发展建筑，计算机，软件，电路，建模等方面的知识水平，充分利用同学们的兴趣，形成具有南大特色的
-            mc 社区文化，进一步提升学校影响力。</span
-          >
+          <p>{{ siteConfig.name }}</p>
+          <span class="intro-text">{{ siteConfig.description }}</span>
         </div>
       </div>
     </div>
@@ -28,7 +25,7 @@ import Intro from './IntroView.vue'
   width: 100%;
   height: 40rem;
   display: flex;
-  background-image: url('/background/beidalou.webp');
+  background-image: v-bind('siteConfig.heroBackground');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

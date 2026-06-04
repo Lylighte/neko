@@ -3,6 +3,7 @@ import { computed, onMounted, ref } from 'vue'
 import { onBeforeRouteUpdate, useRouter } from 'vue-router'
 
 import { useLantern } from '@/lantern/lantern'
+import { siteConfig } from '@/data/config'
 
 useLantern('lantern-wrapper', {
   position: {
@@ -19,19 +20,7 @@ const soundOn = () => {
 
 const router = useRouter()
 
-interface NavItem {
-  name: string
-  url: string
-}
-
-const navItems = ref<NavItem[]>([
-  { name: '主页', url: '/lobby' },
-  { name: '维度', url: '/list' },
-  { name: '活动', url: '/activity' },
-  { name: '新闻', url: '/news' },
-  { name: '关于', url: '/about' },
-  { name: '文档', url: '/documents' },
-])
+const navItems = ref(siteConfig.nav)
 const activeIndex = ref<number>(0)
 const setIndex = (index: number) => {
   soundOn()
@@ -49,6 +38,9 @@ const sliderStyle = computed(() => {
 
 const showLantern = ref(true)
 
+// Routes where lantern should be hidden
+const noLanternRoutes = ['/documents', '/news']
+
 onBeforeRouteUpdate((to) => {
   const path = '/' + to.path.split('/')[1]
   navItems.value.forEach((item, index) => {
@@ -56,11 +48,7 @@ onBeforeRouteUpdate((to) => {
       activeIndex.value = index
     }
   })
-  if (['/documents', '/news', '/list'].includes(path)) {
-    showLantern.value = false
-  } else {
-    showLantern.value = true
-  }
+  showLantern.value = !noLanternRoutes.includes(path)
 })
 
 onMounted(() => {
@@ -70,11 +58,7 @@ onMounted(() => {
       activeIndex.value = index
     }
   })
-  if (['/documents', '/news', '/list'].includes(path)) {
-    showLantern.value = false
-  } else {
-    showLantern.value = true
-  }
+  showLantern.value = !noLanternRoutes.includes(path)
 })
 </script>
 
