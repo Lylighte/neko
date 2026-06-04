@@ -29,7 +29,7 @@ The goal is to create a **clean, lightweight VitePress template** that:
 ## Migration Form Decision
 
 ### Option A: In-place migration on a new branch
-✅ **Selected.** Branch from `template-cleanup` → `template/vitepress`, delete old SPA files, install VitePress into the same directory. Clean and safe — `.git` stays intact throughout.
+✅ **Selected.** Branch from `template-cleanup` → `template/vitepress`, keep `src/` as source material during migration, install VitePress alongside. Clean and safe — `.git` stays intact throughout.
 
 ### Option B: Orphan branch
 ❌ **Rejected.** Requires `git checkout --orphan` + clearing worktree, which risks accidentally deleting `.git` (happened in practice). Tooling around `Remove-Item .*` in PowerShell is dangerous.
@@ -42,23 +42,24 @@ The goal is to create a **clean, lightweight VitePress template** that:
 
 ### Decision: **Option A — In-place transformation on new branch** ✅
 
-Branch from `template-cleanup` → `template/vitepress`, then transform in-place: delete old SPA files, install VitePress, add new content.
+Branch from `template-cleanup` → `template/vitepress`, then transform in-place: keep `src/` as component source, install VitePress overlay, add new content, delete `src/` last.
 
 **How it works:**
 1. `git checkout -b template/vitepress` from `template-cleanup`
-2. Delete old SPA source files (`src/`, `index.html`, SPA configs)
+2. Install VitePress, create `.vitepress/` config and theme
 3. Clean `public/` (remove NMO assets, PDF.js, excess backgrounds)
-4. Install VitePress, create `.vitepress/` config and theme
-5. Create Markdown pages, write README
+4. Port components from `src/` → `.vitepress/theme/components/` (Steps 2-4)
+5. Create Markdown pages, write README (Steps 5-8)
+6. After build verification, delete `src/` and old SPA configs (final cleanup)
+7. Commit
 
 **Benefits:**
 - ✅ **Single repo** — no need to maintain two repositories
 - ✅ **Shared git history** — `template-cleanup` commits visible via `git log`, easier to trace component origins
 - ✅ **Simple branch workflow** — `git checkout template/vitepress` switches between template and source
 - ✅ **Source material preserved** — `template-cleanup` branch untouched
-- ✅ **Safe** — no `git reset --hard`, no `Remove-Item .*`, no risk of losing `.git`
-
-**Trade-off:** Template branch inherits all commits from `template-cleanup` (but file tree is completely different after transformation). Acceptable because it preserves traceability.
+- ✅ **Safe** — no `git reset --hard`, no wildcard `Remove-Item`, no risk of losing `.git`
+- ✅ **`src/` available as reference** — components ported from live source, not memory
 
 ---
 
@@ -185,8 +186,7 @@ git checkout -b template/vitepress
 # 1.2 Install VitePress
 npm install -D vitepress
 
-# 1.3 Delete old SPA source files
-git rm -rf src/
+# 1.3 Delete old SPA entry points (NOT src/ — kept as component source!)
 git rm index.html vite.config.ts tsconfig.app.json tsconfig.node.json eslint.config.ts
 git rm .prettierrc.json shell.nix API.md .envrc .editorconfig
 
@@ -208,15 +208,22 @@ mkdir -p .vitepress/theme/components .vitepress/theme/styles
 # 1.7 Rename background asset
 git mv public/background/bg.jpg public/background/hero-bg.jpg
 
-# 1.8 Commit
+# 1.8 Update package.json scripts to VitePress
+# Change: "dev": "vitepress dev", "build": "vitepress build", "preview": "vitepress preview"
+
+# 1.9 Commit
 git add -A
-git commit -m "Step 1: init VitePress, strip old SPA, clean public assets"
+git commit -m "Step 1: init VitePress, clean public assets, keep src/ as source"
 ```
 
-**Result:** Repo root on `template/vitepress` branch has only:
+**Result:** `template/vitepress` branch has:
+- `src/` ✅ **KEPT** — component source material for Steps 2-4
 - `public/` (cleaned — UI sprites, block textures, 2 backgrounds, click sound, loading gif)
 - `docs/` (migration plan docs, preserved)
-- `package.json`, `tsconfig.json`, `.gitignore` (to be updated in-place)
+- `.vitepress/` (empty dirs, ready for Steps 2-5)
+- `package.json` (updated scripts)
+- `tsconfig.json`, `.gitignore` (to be updated)
+- Old SPA entry points & unused configs ❌ deleted
 
 ### Step 2 — Port theme styles
 
@@ -420,6 +427,20 @@ Verify:
 - Mobile responsive
 - All Minecraft UI components render correctly
 
+### Step 11 — Final cleanup (delete src/ and old configs)
+
+After build verification passes, remove the legacy SPA source now that all components are ported:
+
+```bash
+git rm -rf src/
+git rm tsconfig.json tsconfig.app.json tsconfig.node.json eslint.config.ts
+git rm .prettierrc.json shell.nix API.md .envrc .editorconfig
+# Clean up remaining old deps from package.json
+# Remove: vue-router, mitt, @vuepic/vue-datepicker, and devDeps (eslint, prettier, vue-tsc, etc.)
+git add package.json package-lock.json
+git commit -m "Step 11: final cleanup — remove src/ and old SPA configs"
+```
+
 ---
 
 ## What NOT to include (summary)
@@ -448,7 +469,7 @@ Verify:
 
 | Step | Description | Estimated Effort |
 |------|-------------|-----------------|
-| 1 | Scaffold new repo | 15 min |
+| 1 | Branch and scaffold VitePress | 15 min |
 | 2 | Port theme styles | 30 min |
 | 3 | Port theme components (8 components) | 2 hours |
 | 4 | Create layout components (4 components) | 1.5 hours |
@@ -458,7 +479,8 @@ Verify:
 | 8 | Create placeholder assets | 30 min |
 | 9 | Write README | 30 min |
 | 10 | Build and verify | 30 min |
-| **Total** | | **~8 hours** |
+| 11 | Final cleanup (delete src/) | 15 min |
+| **Total** | | **~9 hours** |
 
 ---
 
