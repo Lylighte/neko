@@ -5,19 +5,8 @@ import type { NewsEntity, NewsTarget } from '@/api/newslist'
 import NewsItem from './NewsItem.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import MinecraftInput from '@/components/utils/MinecraftInput.vue'
-import { EventBus } from '@/eventbus/EventBus'
 
 const emit = defineEmits(['need-scroll', 'card-click'])
-
-EventBus.on('NewsManagement::refresh', async () => {
-  newsLoading.value = true
-  emit('need-scroll')
-  setTimeout(async () => {
-    newsTotal.value = await GetNewsTotal(model.value as NewsTarget)
-    news.value = await GetNews(model.value as NewsTarget, page.value, pageSize.value)
-    newsLoading.value = false
-  }, 500)
-})
 
 const model = defineModel({
   type: String as () => NewsTarget,
