@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { NewsEntity } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 
 const emits = defineEmits(['card-click'])

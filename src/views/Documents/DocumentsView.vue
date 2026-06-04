@@ -1,14 +1,10 @@
 <script lang="ts" setup>
-import { GetDocumentDetail } from '@/api/documents'
-import type { NewsSegment } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import TreeViewer from '@/components/documents/TreeViewer.vue'
 import CalendarIcon from '@/components/icons/CalendarIcon.vue'
 import UserIcon from '@/components/icons/UserIcon.vue'
-import PdfViewer from '@/components/PdfViewer.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
-import { MdCatalog, MdPreview } from 'md-editor-v3'
 import { onMounted, onUnmounted, reactive, ref, watch } from 'vue'
-import { useToast } from 'vue-toastification'
 
 const soundOn = () => {
   const audio = new Audio('/button.click.ogg')

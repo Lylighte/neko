@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { GetLinkList, type LinkEntity } from '@/api/linklist'
+// TODO: Replace with static data in template optimization phase
 import LinkItem from './LinkItem.vue'
-import { GetDetailedIntroList, type IntroEntity } from '@/api/introlist'
 import IntroItem from '@/components/IntroItem.vue'
 
 const linkList = ref<LinkEntity[]>([])

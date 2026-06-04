@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch, computed } from 'vue'
-import { GetNews, GetNewsTotal } from '@/api/newslist'
-import type { NewsEntity, NewsTarget } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import NewsItem from './NewsItem.vue'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
 import MinecraftInput from '@/components/utils/MinecraftInput.vue'

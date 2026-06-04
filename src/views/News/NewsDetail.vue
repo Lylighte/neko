@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { GetNewsDetail, type NewsDetail } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { MdPreview } from 'md-editor-v3'

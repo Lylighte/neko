@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import { GetNewsBrief, type NewsEntity } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import NewsCard from './NewsCard.vue'
 import NewsList from './NewsList.vue'
 

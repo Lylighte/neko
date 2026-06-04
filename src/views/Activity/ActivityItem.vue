@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { NewsEntity } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 import MinecraftButton3D from '@/components/utils/MinecraftButton3D.vue'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 

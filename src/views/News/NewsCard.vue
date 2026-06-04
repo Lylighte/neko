@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
 import MinecraftButton from '@/components/utils/MinecraftButton.vue'
-import type { NewsEntity } from '@/api/newslist'
+// TODO: Replace with static data in template optimization phase
 
 const router = useRouter()
 
