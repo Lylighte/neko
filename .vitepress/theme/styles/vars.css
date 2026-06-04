@@ -1,0 +1,51 @@
+:root {
+  /* Minecraft palette */
+  --minecraft-green: #3c8527;
+  --minecraft-green-light: #6cc349;
+  --minecraft-green-dark: #2a641c;
+  --minecraft-gray-light: #747271;
+  --minecraft-gray: #3d3938;
+  --minecraft-gray-dark: #262524;
+  --minecraft-dark: #171615;
+
+  /* Backgrounds */
+  --background-color: var(--minecraft-dark);
+  --background-page: #0f0e0d;
+  --background-card: #313131;
+
+  /* Button sprites (overridable) */
+  --btn-border-image: url('/UI/button_normal.png') 1;
+  --btn-border-image-hover: url('/UI/button_hover.png') 1;
+  --btn-border-image-active: url('/UI/button_pressed_hover.png') 1;
+
+  /* Classic button */
+  --btn-classic-bg: #999 url('/background/bgbtn.jpg') center/cover;
+
+  /* Input sprites */
+  --input-border-image: url('/UI/text-input.png') 1;
+
+  /* Base */
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: var(--background-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  font-family:
+    'Cubic 11',
+    system-ui,
+    Avenir,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+}

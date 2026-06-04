@@ -1,0 +1,7 @@
+.mc-border {
+  box-sizing: border-box;
+  color: #fff;
+  background-color: color-mix(in srgb, white, black 75%);
+  border: 8px solid;
+  border-image: url('/UI/dialog_background_hollow_4.png') 8;
+}
