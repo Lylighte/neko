@@ -94,7 +94,7 @@ The template uses a three-tier pixel font stack:
 |-------|------|------------|
 | Headings | Ark Pixel 12px | `h1`–`h6` |
 | Code | Monocraft | `code`, `pre`, `kbd`, `samp` |
-| Body | System fonts | default body text |
+| Body | Unifont | default body text |
 
 All font files are in `public/fonts/`. `@font-face` declarations are in `.vitepress/theme/styles/fonts.css`.
 

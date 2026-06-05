@@ -51,3 +51,33 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* ── Unifont (fallback) ── */
+/* Latin subset: Basic Latin + Latin-1 Supplement */
+@font-face {
+  font-family: 'Unifont';
+  src: url('/fonts/unifont-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-024F;
+}
+
+/* CJK subset: Unified Ideographs + punctuation + compatibility */
+@font-face {
+  font-family: 'Unifont';
+  src: url('/fonts/unifont-cjk.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+3000-303F, U+FF00-FFEF, U+2000-206F, U+2F00-2FDF, U+2E80-2EFF, U+2FF0-2FFF, U+31C0-31EF, U+3200-33FF;
+}
+
+/* Rest: all remaining BMP + SMP glyphs */
+@font-face {
+  font-family: 'Unifont';
+  src: url('/fonts/unifont-rest.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

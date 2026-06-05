@@ -58,26 +58,26 @@
 }
 
 /* ── Pixel Font Stack ── */
-/* Headings: Ark Pixel 12px proportional (zh_cn + latin) */
+/* Headings: Ark Pixel 12px proportional (zh_cn + latin), fallback to Unifont */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ark Pixel', monospace;
+  font-family: 'Ark Pixel', 'Unifont', monospace;
 }
 
-/* Code: Monocraft */
+/* Code: Monocraft, fallback to Unifont */
 code, pre, kbd, samp {
-  font-family: 'Monocraft', monospace;
+  font-family: 'Monocraft', 'Unifont', monospace;
 }
 
-/* Body: system font stack (high readability) */
+/* Body: Unifont pixel font */
 body {
-  font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Unifont', monospace;
   font-size: 16px;
   line-height: 1.7;
 }
 
 /* Optional pixel body text — use class="pixel-text" */
 .pixel-text {
-  font-family: 'Ark Pixel', monospace;
+  font-family: 'Unifont', 'Ark Pixel', monospace;
   font-size: 18px;
   line-height: 1.8;
 }
