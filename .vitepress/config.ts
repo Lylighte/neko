@@ -10,7 +10,6 @@ export default defineConfig({
       { text: 'Blog', link: '/blog/' },
       { text: 'About', link: '/about' },
       { text: 'Docs', link: '/docs/' },
-      { text: 'Demo', link: '/demo' },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com' },

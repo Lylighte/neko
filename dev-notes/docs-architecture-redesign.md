@@ -1,6 +1,6 @@
 # Docs Architecture Redesign — Plan B
 
-**Status:** 📋 PLANNING
+**Status:** ✅ APPROVED — 执行中
 **Goal:** 废弃 DocsBrowser SPA 架构，改用 VitePress 原生 `.md` 文件 + 轻量侧边栏。
 
 ---
@@ -169,3 +169,18 @@ const nav = [
 | 6 | 修改 `config.ts` | 移除 Demo nav |
 | 7 | 删除旧文件 | docs.ts, DocsBrowser.vue, DocTree.vue, DocViewer.vue, demo.md |
 | 8 | 构建验证 | `npm run build` |
+
+---
+
+## 审查记录 (2025-06-05)
+
+**结论：批准。** 这是消除技术债务的关键一步，方向完全正确。
+
+### 补充建议
+
+1. **路径判断**：`isDocsPage` 用 `path.startsWith('/docs/')` 足够，但需排除 `/docs/` 自身（入口页不需要侧边栏）。当前写法已处理。
+2. **侧边栏数据**：硬编码导航适合模板起步阶段。若未来文档增多，可改为从 `themeConfig.sidebar` 读取。在代码注释中提示即可。
+3. **CSS 衔接**：`.vp-doc` 自带排版样式，需确保 `vars.css` 中的 VitePress 变量覆盖（`--vp-c-*`）已覆盖代码块背景、表格边框等。当前已覆盖。
+4. **内容迁移**：从 `docs.ts` 转录到 `.md` 时，注意代码块语言标注（`` ```ts ``），保留原有结构。
+5. **执行顺序**：优先完成一个文档页 + 侧边栏基本渲染，验证全流程无样式冲突，再批量迁移其余文档。
+6. **README 补充**：完成后在 README 中说明"所有文档均为标准 Markdown 文件，直接编辑 `docs/` 目录即可"。
