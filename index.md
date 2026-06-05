@@ -1,5 +1,6 @@
 ---
 layout: page
+hasHero: true
 ---
 
 <HomeHero

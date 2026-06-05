@@ -32,6 +32,7 @@ defineProps({
 .hero {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  margin-bottom: 3rem;
   min-height: 40rem;
   position: relative;
   overflow: hidden;

@@ -10,6 +10,8 @@ import DocsSidebar from './components/DocsSidebar.vue'
 const { frontmatter } = useData()
 const route = useRoute()
 
+const hasHero = computed(() => !!frontmatter.value.hasHero)
+
 const isBlogPost = computed(() => {
   const path = route.path
   return path.startsWith('/blog/') && path !== '/blog/' && path !== '/blog'
@@ -48,7 +50,7 @@ const articleProps = computed(() => {
       <ArticleView v-else-if="articleProps" v-bind="articleProps">
         <Content />
       </ArticleView>
-      <div v-else class="page-container vp-doc">
+      <div v-else class="page-container vp-doc" :class="{ 'with-hero': hasHero }">
         <Content />
       </div>
     </main>
@@ -77,6 +79,10 @@ const articleProps = computed(() => {
   max-width: 72rem;
   margin: 0 auto;
   padding: 5rem 1.5rem 2rem;
+}
+
+.page-container.with-hero {
+  padding-top: 0;
 }
 
 /* Docs layout: sidebar + content */
