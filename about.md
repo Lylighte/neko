@@ -22,13 +22,13 @@ To build an inclusive environment where players of all skill levels can gather, 
 <HomeIntro
   title="More About Us"
   description="From our humble beginnings as a small group of friends to a thriving community of builders, redstone engineers, and explorers — our story is one of creativity and camaraderie."
-  image="/background/bg.jpg"
+  image="/background/15.jpg"
 />
 
 <HomeIntro
   title="Join the Adventure"
   description="Whether you're a seasoned player or just starting out, there's a place for you here. Build your dream castle, automate farms with redstone, or simply hang out with friends."
-  image="/background/hero-bg.jpg"
+  image="/background/44.jpg"
   :right="true"
 />
 
