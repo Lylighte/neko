@@ -9,10 +9,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noEmit": true,
-    "paths": {
-      "@/*": ["./.vitepress/theme/*"]
-    }
+    "noEmit": true
   },
   "include": [
     ".vitepress/**/*.ts",
