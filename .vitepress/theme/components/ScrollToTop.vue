@@ -31,9 +31,9 @@ onUnmounted(() => {
 <template>
   <PixelButton
     class="scroll-to-top"
+    :class="{ visible: shouldShow }"
     :sound-url="''"
     @click="scrollToTop"
-    :type="shouldShow ? 'show' : 'hide'"
   >
     ↑
   </PixelButton>
@@ -48,13 +48,17 @@ onUnmounted(() => {
   bottom: 0;
   right: 0;
   z-index: var(--pixel-z-overlay);
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
 
-.scroll-to-top[type='hide'] {
-  transform: translateY(100%);
-  opacity: 0;
+.scroll-to-top.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 </style>

@@ -43,6 +43,7 @@ defineProps({
   max-width: 1200px;
   padding: 2rem 1rem;
   margin: 0 auto;
+  animation: fade-in 0.8s ease;
 }
 
 .intro-center {

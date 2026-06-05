@@ -71,7 +71,7 @@ const sliderStyle = computed(() => {
         :key="index"
         class="nav-item"
         :href="item.url"
-        @click.prevent="(soundOn($props.soundUrl), updateActiveIndex(item.url))"
+        @click="soundOn($props.soundUrl)"
       >
         {{ item.name }}
       </a>

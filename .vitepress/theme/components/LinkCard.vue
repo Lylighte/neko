@@ -42,6 +42,11 @@ defineProps<{
   cursor: pointer;
   text-decoration: none;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover {
+  transform: scale(1.05);
 }
 
 .link-content {

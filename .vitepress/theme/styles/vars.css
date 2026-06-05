@@ -7,6 +7,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -268,3 +269,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--pixel-gray-light);
 }
+
+/* ── Reduced motion (disabled by default; uncomment to respect OS preference)
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+*/

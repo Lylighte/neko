@@ -41,18 +41,20 @@ const articleProps = computed(() => {
   <div class="pixel-layout">
     <NavBar />
     <main class="main-content">
-      <div v-if="isDocsPage" class="docs-layout">
-        <DocsSidebar />
-        <div class="page-container vp-doc">
+      <Transition name="page" mode="out-in">
+        <div v-if="isDocsPage" class="docs-layout" :key="route.path">
+          <DocsSidebar />
+          <div class="page-container vp-doc">
+            <Content />
+          </div>
+        </div>
+        <ArticleView v-else-if="articleProps" v-bind="articleProps" :key="route.path">
+          <Content />
+        </ArticleView>
+        <div v-else class="page-container vp-doc" :class="{ 'with-hero': hasHero }" :key="route.path">
           <Content />
         </div>
-      </div>
-      <ArticleView v-else-if="articleProps" v-bind="articleProps">
-        <Content />
-      </ArticleView>
-      <div v-else class="page-container vp-doc" :class="{ 'with-hero': hasHero }">
-        <Content />
-      </div>
+      </Transition>
     </main>
     <SiteFooter />
     <ScrollToTop />

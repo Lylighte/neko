@@ -75,6 +75,7 @@ defineProps({
   justify-content: center;
   align-self: stretch;
   text-shadow: var(--pixel-shadow-text);
+  animation: fade-in-left 0.8s ease;
 }
 
 .hero-logo {
