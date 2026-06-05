@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Your Organization',
   description: 'A Minecraft-themed community portal',
-  srcExclude: ['dev-notes/**'],
+  srcExclude: ['dev-notes/**', 'AGENTS.md', 'CHANGELOG.md', 'README.md', 'LICENSE'],
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
