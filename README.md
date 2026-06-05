@@ -86,6 +86,32 @@ Customize colors in `.vitepress/theme/styles/vars.css`:
 }
 ```
 
+### Fonts
+
+The template uses a three-tier pixel font stack:
+
+| Layer | Font | Applied to |
+|-------|------|------------|
+| Headings | Ark Pixel 12px | `h1`–`h6` |
+| Code | Monocraft | `code`, `pre`, `kbd`, `samp` |
+| Body | System fonts | default body text |
+
+All font files are in `public/fonts/`. `@font-face` declarations are in `.vitepress/theme/styles/fonts.css`.
+
+**To replace a font:**
+
+1. Drop your `.woff2` or `.ttf` file into `public/fonts/`
+2. Update the `@font-face` in `fonts.css`
+3. Update the `font-family` in `vars.css`
+
+**To remove pixel fonts entirely:**
+
+1. Delete `public/fonts/` directory
+2. Remove `import './styles/fonts.css'` from `.vitepress/theme/index.ts`
+3. Remove the heading/code font-family rules from `vars.css`
+
+**Optional pixel body text** — add `class="pixel-text"` to any element for full pixel rendering.
+
 ## Build & Deploy
 
 ```bash

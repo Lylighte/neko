@@ -7,6 +7,7 @@ import 'vitepress/theme'
 
 // Custom styles
 import './styles/vars.css'
+import './styles/fonts.css'
 import './styles/animations.css'
 import './styles/pixel-border.css'
 
