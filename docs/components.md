@@ -61,11 +61,11 @@ Pressable 3D button with depth effect.
 
 <PixelButton3D>3D Button</PixelButton3D>
 
-<PixelButton3D height="6rem">Tall 3D Button</PixelButton3D>
+<PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
 
 ```html
 <PixelButton3D>3D Button</PixelButton3D>
-<PixelButton3D height="6rem">Tall 3D Button</PixelButton3D>
+<PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
 ```
 
 ---
@@ -96,7 +96,7 @@ Multi-line input with auto-resize.
 
 Toggle switch with on/off sprites.
 
-<div style="display:flex;align-items:center;gap:1rem;margin:1rem 0">
+<div style="display:flex;align-items:center;gap:0.5rem;margin:1rem 0">
   <PixelSwitch v-model="switchOn" />
   <span>{{ switchOn ? 'ON' : 'OFF' }}</span>
 </div>

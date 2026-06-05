@@ -4,6 +4,9 @@ export default defineConfig({
   title: 'Pixel UI',
   description: 'A VitePress template with retro pixel-style UI components',
   srcExclude: ['dev-notes/**', 'AGENTS.md', 'CHANGELOG.md', 'README.md', 'LICENSE'],
+  markdown: {
+    theme: 'github-dark',
+  },
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },

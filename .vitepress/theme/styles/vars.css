@@ -201,6 +201,15 @@
   --vp-c-brand-3: var(--pixel-color-accent-dark);
   --vp-nav-bg-color: var(--pixel-nav-bg);
   --vp-layout-max-width: 100%;
+
+  /* ── Code block dark background ── */
+  --vp-code-block-bg: #1a1a1c;
+  --vp-code-line-highlight-color: rgba(255, 255, 255, 0.05);
+  --vp-code-copy-code-bg: rgba(255, 255, 255, 0.06);
+  --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.12);
+  --vp-code-tab-bg: #1a1a1c;
+  --vp-code-tab-text-color: rgba(255, 255, 255, 0.5);
+  --vp-code-lang-color: rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -226,4 +235,28 @@ body {
   font-family: 'Unifont', 'Ark Pixel', monospace;
   font-size: 18px;
   line-height: 1.8;
+}
+
+/* ── 演示区与代码块间距 ── */
+.vp-doc + div[class*='language-'] {
+  margin-top: 1.5rem;
+}
+
+/* ── 深色滚动条 ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-gray);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pixel-gray-light);
 }

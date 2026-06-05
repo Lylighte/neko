@@ -27,7 +27,7 @@ const soundOn = (url: string) => {
     class="pixel-button-3d"
     :class="{ 'is-pressed': pressed }"
     :style="{
-      height: pressed ? `calc(${$props.height} - var(--pixel-btn-3d-offset))` : $props.height,
+      height: $props.height,
     }"
     @click="soundOn($props.soundUrl)"
     @mousedown="pressed = true"
@@ -56,7 +56,6 @@ const soundOn = (url: string) => {
 
 .pixel-button-3d.is-pressed {
   transform: translateY(var(--pixel-btn-3d-offset));
-  margin-bottom: var(--pixel-btn-3d-offset);
 }
 
 .pixel-button-3d.is-pressed::after {
