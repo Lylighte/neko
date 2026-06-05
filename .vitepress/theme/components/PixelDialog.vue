@@ -88,7 +88,7 @@ onMounted(() => {
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--pixel-color-bg-overlay);
 
   display: flex;
   align-items: center;

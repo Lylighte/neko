@@ -25,7 +25,7 @@ defineProps({
 const bgStyle = (bg: string) => {
   if (bg) return { backgroundImage: `url(${bg})` }
   return {
-    background: 'linear-gradient(135deg, #2a641c 0%, #171615 50%, #3c8527 100%)',
+    background: 'var(--pixel-hero-gradient)',
   }
 }
 </script>
@@ -87,7 +87,7 @@ const bgStyle = (bg: string) => {
 .hero-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--pixel-hero-title-color);
   margin: 0;
 }
 

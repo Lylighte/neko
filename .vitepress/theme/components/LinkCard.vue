@@ -47,7 +47,7 @@ defineProps<{
 .link-content {
   margin-top: auto;
   padding: 0.5rem 1rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--pixel-linkcard-overlay-bg);
   user-select: none;
 }
 
@@ -55,11 +55,11 @@ defineProps<{
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
-  color: #fff;
+  color: var(--pixel-linkcard-title-color);
 }
 
 .link-content span {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
 }
 </style>

@@ -35,24 +35,24 @@ const soundOn = (url: string) => {
 }
 
 .pixel-button-classic[activated='true'] .title {
-  background-color: rgba(100, 100, 255, 0.45);
-  text-shadow: 2px 2px #202013cc;
-  color: #ffffa0;
+  background-color: var(--pixel-btn-classic-active-bg);
+  text-shadow: var(--pixel-btn-classic-active-shadow);
+  color: var(--pixel-btn-classic-active-text);
   box-shadow:
-    inset -2px -4px #0004,
-    inset 2px 2px #fff5;
+    inset -2px -4px var(--pixel-btn-classic-inset-dark),
+    inset 2px 2px var(--pixel-btn-classic-inset-light);
 }
 
 .pixel-button-classic:hover .title {
-  background-color: rgba(100, 100, 255, 0.45);
-  text-shadow: 2px 2px #202013cc;
-  color: #ffffa0;
+  background-color: var(--pixel-btn-classic-active-bg);
+  text-shadow: var(--pixel-btn-classic-active-shadow);
+  color: var(--pixel-btn-classic-active-text);
 }
 
 .pixel-button-classic:active .title {
   box-shadow:
-    inset -2px -4px #0004,
-    inset 2px 2px #fff5;
+    inset -2px -4px var(--pixel-btn-classic-inset-dark),
+    inset 2px 2px var(--pixel-btn-classic-inset-light);
 }
 
 .title {
@@ -64,10 +64,10 @@ const soundOn = (url: string) => {
   height: 100%;
   padding-bottom: 0.3em;
 
-  color: #ddd;
-  text-shadow: 2px 2px #000a;
+  color: var(--pixel-btn-classic-text);
+  text-shadow: var(--pixel-btn-classic-shadow);
   box-shadow:
-    inset -2px -4px #0006,
-    inset 2px 2px #fff7;
+    inset -2px -4px var(--pixel-btn-classic-inset-dark-strong),
+    inset 2px 2px var(--pixel-btn-classic-inset-light-strong);
 }
 </style>

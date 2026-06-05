@@ -53,7 +53,7 @@ const iconMap: Record<string, unknown> = {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: var(--pixel-color-bg);
-  border-top: 1px solid #909399;
+  border-top: 1px solid var(--pixel-footer-border);
   margin-top: 3rem;
 }
 
@@ -78,12 +78,12 @@ const iconMap: Record<string, unknown> = {
 
 #copyright {
   font-size: 0.9rem;
-  color: rgb(128, 128, 128);
+  color: var(--pixel-footer-copyright);
 }
 
 #declaration {
   font-size: 0.75rem;
-  color: #666;
+  color: var(--pixel-footer-declaration);
   margin-top: 0.5rem;
 }
 

@@ -21,7 +21,7 @@ const model = defineModel<string>({
 }
 
 .pixel-input:disabled {
-  color: #aaa;
-  background-color: #424242;
+  color: var(--pixel-input-disabled-text);
+  background-color: var(--pixel-input-disabled-bg);
 }
 </style>

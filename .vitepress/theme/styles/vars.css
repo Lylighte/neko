@@ -85,14 +85,35 @@
   /* PixelButton */
   --pixel-btn-bg: var(--pixel-color-accent);
   --pixel-btn-bg-hover: var(--pixel-color-accent-light);
+  --pixel-btn-bg-base: #c6c6c6;
+  --pixel-btn-bg-dark: #303030;
+  --pixel-btn-bg-active: #8b8b8b;
   --pixel-btn-text: var(--pixel-color-text-inverse);
+  --pixel-btn-text-hover: #fff;
   --pixel-btn-border: var(--pixel-border-dark);
+  --pixel-btn-outline-dark: #333;
+  --pixel-btn-outline-hover: #fff;
 
   /* PixelButtonClassic */
   --pixel-btn-classic-bg: #999 url('/background/bgbtn.jpg') center/cover;
+  --pixel-btn-classic-active-bg: rgba(100, 100, 255, 0.45);
+  --pixel-btn-classic-active-text: #ffffa0;
+  --pixel-btn-classic-active-shadow: 2px 2px #202013cc;
+  --pixel-btn-classic-text: #ddd;
+  --pixel-btn-classic-shadow: 2px 2px #000a;
+  --pixel-btn-classic-inset-dark: #0004;
+  --pixel-btn-classic-inset-dark-strong: #0006;
+  --pixel-btn-classic-inset-light: #fff5;
+  --pixel-btn-classic-inset-light-strong: #fff7;
 
   /* PixelButton3D */
   --pixel-btn-3d-offset: 12px;
+  --pixel-btn-3d-bg: #313233;
+  --pixel-btn-3d-border: rgba(0, 0, 0, 0.4);
+  --pixel-btn-3d-hover-overlay: #ffffff08;
+  --pixel-btn-3d-shadow-top: rgb(104, 104, 104);
+  --pixel-btn-3d-highlight: rgba(178, 178, 178, 0.5);
+  --pixel-btn-3d-shadow-bottom: rgba(153, 153, 153, 0.5);
 
   /* Input sprites */
   --input-border-image: url('/UI/text-input.png') 1;
@@ -101,6 +122,8 @@
   --pixel-input-bg: var(--pixel-color-bg-input);
   --pixel-input-border: var(--pixel-border-dark);
   --pixel-input-text: #fff;
+  --pixel-input-disabled-text: #aaa;
+  --pixel-input-disabled-bg: #424242;
 
   /* NavBar */
   --pixel-nav-bg: rgba(0, 0, 0, 0.5);
@@ -109,6 +132,7 @@
   --pixel-nav-slider-bg: #7e0c6b;
   --pixel-nav-slider-border-top: #9b428c;
   --pixel-nav-slider-border-bottom: #46073b;
+  --pixel-nav-item-text-hover: #fff;
 
   /* PixelDialog */
   --pixel-dialog-overlay: var(--pixel-color-bg-overlay);
@@ -117,17 +141,28 @@
   /* Cards (BlogCard, LinkCard) */
   --pixel-card-bg: var(--pixel-color-bg-card);
   --pixel-card-shadow: var(--pixel-shadow-soft);
+  --pixel-linkcard-overlay-bg: rgba(0, 0, 0, 0.7);
+  --pixel-linkcard-title-color: #fff;
 
   /* DocsSidebar */
   --pixel-sidebar-bg: var(--pixel-color-bg-card);
   --pixel-sidebar-border: var(--pixel-border);
   --pixel-sidebar-active-bg: var(--pixel-color-accent-soft);
+  --pixel-sidebar-hover-bg: rgba(255, 255, 255, 0.05);
 
   /* HomeHero */
   --pixel-hero-overlay: var(--pixel-color-bg-overlay);
+  --pixel-hero-gradient: linear-gradient(135deg, #2a641c 0%, #171615 50%, #3c8527 100%);
+  --pixel-hero-title-color: #fff;
 
   /* SiteFooter */
   --pixel-footer-text: var(--pixel-color-text-muted);
+  --pixel-footer-border: #909399;
+  --pixel-footer-copyright: rgb(128, 128, 128);
+  --pixel-footer-declaration: #666;
+
+  /* ArticleView */
+  --pixel-article-category-bg: rgba(0, 0, 0, 0.6);
 
   /* ───────────────────────────────────────────
      Backward compat aliases

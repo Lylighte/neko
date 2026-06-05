@@ -44,14 +44,14 @@ const soundOn = (url: string) => {
   position: relative;
   cursor: pointer;
   user-select: none;
-  background-color: #313233;
-  border: 2px solid rgba(0, 0, 0, 0.4);
+  background-color: var(--pixel-btn-3d-bg);
+  border: 2px solid var(--pixel-btn-3d-border);
   transition: all 0.1s ease-in-out;
   box-shadow: var(--pixel-shadow-hard);
 }
 
 .pixel-button-3d:hover::after {
-  background-color: #ffffff08;
+  background-color: var(--pixel-btn-3d-hover-overlay);
 }
 
 .pixel-button-3d.is-pressed {
@@ -61,8 +61,8 @@ const soundOn = (url: string) => {
 
 .pixel-button-3d.is-pressed::after {
   box-shadow:
-    2px 2px 0 0 rgba(178, 178, 178, 0.5) inset,
-    -2px -2px 0 0 rgba(153, 153, 153, 0.5) inset;
+    2px 2px 0 0 var(--pixel-btn-3d-highlight) inset,
+    -2px -2px 0 0 var(--pixel-btn-3d-shadow-bottom) inset;
 }
 
 .pixel-button-3d::after {
@@ -75,9 +75,9 @@ const soundOn = (url: string) => {
   height: 100%;
   z-index: 1;
   box-shadow:
-    0 -12px 0 0 rgb(104, 104, 104) inset,
-    2px 2px 0 0 rgba(178, 178, 178, 0.5) inset,
-    -2px -16px 0 0 rgba(153, 153, 153, 0.5) inset;
+    0 -12px 0 0 var(--pixel-btn-3d-shadow-top) inset,
+    2px 2px 0 0 var(--pixel-btn-3d-highlight) inset,
+    -2px -16px 0 0 var(--pixel-btn-3d-shadow-bottom) inset;
   mix-blend-mode: hard-light;
   pointer-events: none;
   transition: all 0.1s ease-in-out;

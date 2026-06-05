@@ -75,7 +75,7 @@ defineProps<{
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--pixel-article-category-bg);
   color: var(--pixel-green-light);
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;

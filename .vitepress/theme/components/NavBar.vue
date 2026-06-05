@@ -127,7 +127,7 @@ const sliderStyle = computed(() => {
 }
 
 .nav-item:hover {
-  color: #fff;
+  color: var(--pixel-nav-item-text-hover);
 }
 
 .slider {
