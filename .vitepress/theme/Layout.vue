@@ -35,7 +35,7 @@ const articleProps = computed(() => {
       <ArticleView v-if="articleProps" v-bind="articleProps">
         <Content />
       </ArticleView>
-      <div v-else class="page-container">
+      <div v-else class="page-container vp-doc">
         <Content />
       </div>
     </main>

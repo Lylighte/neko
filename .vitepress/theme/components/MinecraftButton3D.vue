@@ -4,7 +4,7 @@ import { ref } from 'vue'
 defineProps({
   height: {
     type: String,
-    default: '12rem',
+    default: '6rem',
   },
   soundUrl: {
     type: String,

@@ -2,7 +2,10 @@ import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 
-// Styles
+// VitePress default content styles (code blocks, tables, etc.)
+import 'vitepress/theme'
+
+// Custom styles
 import './styles/vars.css'
 import './styles/animations.css'
 import './styles/mc-border.css'

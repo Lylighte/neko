@@ -45,7 +45,7 @@ defineProps<{
       <!-- Markdown content -->
       <main class="article-content">
         <h1 v-if="title" class="article-title">{{ title }}</h1>
-        <div class="article-text">
+        <div class="article-text vp-doc">
           <slot />
         </div>
       </main>
