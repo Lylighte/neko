@@ -147,3 +147,33 @@
 - 制定三层字体栈计划：Ark Pixel 12px（标题）+ Monocraft（代码）+ 系统字体（正文）
 - Unifont 作为 fallback + 可选 `.pixel-text` 工具类
 - 计划文档：`dev-notes/pixel-font-plan.md`
+
+---
+
+## 9 — Pixel Font Implementation
+
+**Branch:** `template/vitepress`
+
+完整实施像素字体方案，实现三层字体栈。
+
+### 9A — 字体文件下载
+- 下载 Ark Pixel 12px proportional woff2（zh_cn + latin 分片，~1.1MB）
+- 下载 Monocraft v4.2.1 TTF（Regular + Bold + Italic，~930KB）
+- 下载 Unifont 17.0.04 OTF，用 `pyftsubset` 切割为 3 个 woff2 分片（latin 6.6KB + CJK 605KB + rest 259KB，合计 ~870KB）
+- 字体存入 `public/fonts/`，OFL 许可证文件一并纳入
+
+### 9B — @font-face 声明
+- 新建 `.vitepress/theme/styles/fonts.css`：5 组 @font-face，含 unicode-range 分片
+- 新建 `.vitepress/theme/env.d.ts`：CSS 模块类型声明
+
+### 9C — 字体栈应用
+- **标题** `h1-h6` → `'Ark Pixel', 'Unifont', monospace`
+- **代码** `code/pre/kbd/samp` → `'Monocraft', 'Unifont', monospace`
+- **正文** `body` → `'Unifont', monospace`
+- 提供 `.pixel-text` 工具类（Unifont 18px）
+
+### 9D — 配套更新
+- `.gitignore`：排除字体临时文件
+- `README.md`：字体栈说明 + 替换/移除指南
+- `dev-notes/pixel-font-plan.md`：Unifont 分片方案计划
+- 构建验证通过（2.17s）

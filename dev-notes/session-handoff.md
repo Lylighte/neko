@@ -12,12 +12,11 @@
 - **CHANGELOG**: Phase 8 记录 ✅
 - **dev-notes 清理**: 移除 4 个已完成计划文档 ✅
 - **docs 一致性检查**: 侧边栏链接与文件一一对应 ✅
+- **像素字体实施**: Ark Pixel (标题) + Monocraft (代码) + Unifont (正文) ✅
 
 ## 剩余待办
 
-### 像素字体实施
-
-详见 `dev-notes/pixel-font-plan.md`：
+无。项目核心功能已完整实现。
 
 - 下载 Ark Pixel 12px、Monocraft、Unifont woff2
 - 编写 `fonts.css`（@font-face + unicode-range 分片）
