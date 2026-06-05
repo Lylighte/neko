@@ -22,6 +22,9 @@ import HomeHero from './components/HomeHero.vue'
 import HomeIntro from './components/HomeIntro.vue'
 import BlogCard from './components/BlogCard.vue'
 import LinkCard from './components/LinkCard.vue'
+import DocTree from './components/DocTree.vue'
+import DocViewer from './components/DocViewer.vue'
+import DocsBrowser from './components/DocsBrowser.vue'
 import SiteFooter from './components/SiteFooter.vue'
 
 export default {
@@ -42,6 +45,9 @@ export default {
     app.component('HomeIntro', HomeIntro)
     app.component('BlogCard', BlogCard)
     app.component('LinkCard', LinkCard)
+    app.component('DocTree', DocTree)
+    app.component('DocViewer', DocViewer)
+    app.component('DocsBrowser', DocsBrowser)
     app.component('SiteFooter', SiteFooter)
   },
 } satisfies Theme

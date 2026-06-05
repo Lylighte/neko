@@ -3,9 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Your Organization',
   description: 'A Minecraft-themed community portal',
-  ignoreDeadLinks: [
-    /^\.\/\.\.\/src\//,
-  ],
+  srcExclude: ['dev-notes/**'],
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
