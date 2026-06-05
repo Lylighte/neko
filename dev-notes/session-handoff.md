@@ -15,7 +15,17 @@
 - **像素字体实施**: Ark Pixel (标题) + Monocraft (代码) + Unifont (正文) ✅
 - **NavBar 字体**: 改为 Ark Pixel，与标题统一 ✅
 - **Design Tokens 计划**: Phase 10 三层令牌架构计划完成 ✅
+- **Phase 10: Design Tokens 实施**: vars.css 三层令牌重构，16 组件变量替换 ✅
+- **Phase 10.1: 清理**: 冗余文件/变量清理 ✅
+- **Phase 10.2: 视觉修复**: 代码块暗色主题、3D按钮布局修复、滚动条/间距 ✅
+- **HomeHero 重构**: CSS background → `<img>` + 叠加层结构 ✅
+- **hasHero frontmatter**: 控制页面顶部 padding，替换脆弱的负 margin ✅
+- **HomeIntro 图片边框**: `mc-border` → `pixel-border` ✅
+- **BlogCard 间距微调**: padding 1rem→1.5rem，按钮缩小 ✅
+- **overflow-x 修复**: `html { overflow-x: hidden }` 解决 100vw 横向滚动条 ✅
 
 ## 剩余待办
 
-- **Phase 10: Design Tokens 实施**: 重构 `vars.css`（三层令牌），替换 16 个组件硬编码值，构建验证
+- **字体方案收尾**: Cubic 11 像素字体声明暂移除，待后续 reintroduce
+- **docs 内容完善**: 各文档页的具体内容填充
+- **README 更新**: 反映最新组件和架构变更

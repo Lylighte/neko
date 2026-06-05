@@ -1,53 +1,49 @@
 # Phase 10.2 — 组件页视觉问题修复
 
 > 日期: 2026-06-05
-> 状态: 待执行
+> 状态: ✅ 已完成
 > 前置: Phase 10.1 已完成
-> 来源: 视觉模型对 `/docs/components` 页面的审查反馈
 
 ---
 
-## 问题分级
+## 执行记录
 
-| 级别 | 问题 | 影响 |
-|---|---|---|
-| 🔴 P0 | 代码块白色背景 | 深色主题下光污染，最刺眼 |
-| 🟠 P1 | 代码块使用像素字体 | 代码可读性差 |
-| 🟠 P1 | Button 3D 对比度不足 | 按钮"消失"在背景中 |
-| 🟡 P2 | 侧边栏 Active 状态弱 | 仅细绿线，辨识度低 |
-| 🟡 P2 | Props 表格无行分隔线 | 数据粘在一起 |
-| 🟡 P2 | 组件副标题颜色太淡 | 几乎看不清 |
-| 🟢 P3 | 演示区与代码块间距 | 视觉粘连 |
-| 🟢 P3 | 滚动条样式 | 默认灰白滚动条突兀 |
-| 🟢 P3 | Switch 组件视觉关联弱 | OFF 文字距离远 |
+### P0 — 代码块暗色背景 ✅
+- `config.ts` 配置 `markdown.theme: 'github-dark'`
+- `vars.css` 覆盖 7 个 `--vp-code-*` 变量（暗色背景、行高亮色、复制按钮、标签栏）
 
----
+### P1 — 3D 按钮布局跳动 ✅
+- 根因：模板 `:style` 中 `height` 在按下时从 `$height` 变为 `calc($height - offset)`，配合 `transition: all` 产生布局动画
+- 修复：`height` 固定为 `$props.height`，按下效果由 `translateY` + `::after` box-shadow 承担
+- 额外：Button 对比度(P1) 和像素代码字体(P1) 因 scope 缩减跳过
 
-## 现状调查
+### P2 — 跳过（用户要求缩减 scope）⏭️
+- 侧边栏 active / Props 表格行分隔线 / 组件副标题颜色
 
-### 1. 代码块背景 (P0)
+### P3 — 滚动条 + 间距 + Switch ✅
+- 滚动条暗色样式
+- 演示区与代码块间距加大
+- Switch 组件文字 gap 缩小
 
-**根因**: VitePress 默认使用 Shiki 代码高亮，但 `config.ts` 中**未配置 `markdown.theme`**，导致 Shiki 回退到亮色主题 → 白色背景。
+### 后续额外工作
 
-**现状**:
-- `config.ts`: 无 `markdown` 配置项
-- `vars.css` L215-217: `code, pre, kbd, samp { font-family: var(--pixel-font-code); }` — 仅设字体，且错误地将代码块设为像素字体
+### HomeHero 重构
+- CSS background → `<img>` + 叠加层，object-fit 可控
+- `html { overflow-x: hidden }` 修复 100vw 横向滚动条
+- `margin-bottom: 3rem` 与后续内容间距
+- `hasHero` frontmatter 控制页顶 padding（`with-hero { padding-top: 0 }`）
 
-### 2. 代码块字体 (P1)
+### HomeIntro 图片边框
+- `mc-border`（未定义类）→ `pixel-border`
 
-**根因**: `vars.css` 中 `code, pre` 选择器强制使用 `--pixel-font-code`（Monocraft/Unifont 像素字体），导致代码难以辨认。
+### BlogCard
+- 内容区 padding: 1rem → 1.5rem
+- ReadMore 按钮 padding: 0.4rem 1rem
 
-### 3. Button 3D 对比度 (P1)
-
-**现状**: `--pixel-btn-3d-bg: #313233` vs 页面背景 `--pixel-color-bg: #171615`，对比度仅约 2.5:1，远低于 WCAG AA 要求的 4.5:1。
-
-### 4. 侧边栏 Active (P2)
-
-**现状** (`DocsSidebar.vue` L123-127):
-```css
-.sidebar-item.active {
-  color: var(--pixel-green-light);
-  border-left-color: var(--pixel-green);
+### 接手说明
+- 参考 `vars.css` 中 `--vp-code-*` 块可快速定位代码块变量
+- `HomeHero.vue` 已改为 `<img>` 结构，叠加层内容通过 prop 传入
+- 所有提交均在 `branch: template/vitepress`
   background: var(--pixel-sidebar-active-bg); /* rgba(60,133,39,0.1) — 极淡 */
 }
 ```

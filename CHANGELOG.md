@@ -177,3 +177,34 @@
 - `README.md`：字体栈说明 + 替换/移除指南
 - `dev-notes/pixel-font-plan.md`：Unifont 分片方案计划
 - 构建验证通过（2.17s）
+
+---
+
+## 10 — Design Tokens 三层架构
+
+**Branch:** `template/vitepress`
+
+将 `vars.css` 重构为三层令牌架构（原始值 → 语义 → 组件），替换 16 个组件的硬编码值。
+
+### 10A — 三层令牌重构
+- `vars.css` 重新组织为 Layer 1 Primitives / Layer 2 Semantic / Layer 3 Component
+- 组件中直接引用的 CSS 值提取为 `--pixel-*` 变量
+- 变量命名规范：`--pixel-{category}-{role}[-{variant}]`
+
+### 10B — 代码块暗色主题 & 视觉修复
+- 配置 `markdown.theme: 'github-dark'` 固定暗色代码高亮
+- 覆盖 `--vp-code-block-bg` / `--vp-code-line-highlight-color` 等 7 个 VitePress 内置变量
+- 修复 3D 按钮按下时高度变化导致布局跳动的 bug（移除 height calc，纯 transform）
+- 滚动条暗色主题样式
+- Switch 组件间距调整（gap: 1rem → 0.5rem）
+
+### 10C — HomeHero 重构 & 布局治理
+- HomeHero CSS background → `<img>` + 叠加层结构（可加边框、object-fit 控制）
+- `html { overflow-x: hidden }` 修复 100vw 导致的横向滚动条
+- HomeHero 通过 `margin-bottom: 3rem` 与后续内容隔离
+- 引入 `hasHero` frontmatter 控制页面顶部 padding（index.md / about.md）
+- `.page-container.with-hero { padding-top: 0 }` 替换脆弱的负 margin 方案
+
+### 10D — HomeIntro & BlogCard 微调
+- HomeIntro 图片 `mc-border`（未定义）→ `pixel-border`，5 张图片获得像素外框
+- BlogCard 内容区 padding 1rem → 1.5rem，按钮 padding 缩小
