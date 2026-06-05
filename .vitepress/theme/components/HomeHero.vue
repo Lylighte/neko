@@ -1,38 +1,23 @@
 <script lang="ts" setup>
 defineProps({
-  title: {
-    type: String,
-    default: 'Your Organization',
-  },
-  subtitle: {
-    type: String,
-    default: '',
-  },
-  description: {
-    type: String,
-    default: '',
-  },
-  logo: {
-    type: String,
-    default: '/logo.svg',
-  },
-  background: {
-    type: String,
-    default: '',
-  },
+  title: { type: String, default: 'Your Organization' },
+  subtitle: { type: String, default: '' },
+  description: { type: String, default: '' },
+  logo: { type: String, default: '/logo.svg' },
+  background: { type: String, default: '' },
 })
-
-const bgStyle = (bg: string) => {
-  if (bg) return { backgroundImage: `url(${bg})` }
-  return {
-    background: 'var(--pixel-hero-gradient)',
-  }
-}
 </script>
 
 <template>
-  <div class="hero" :style="bgStyle($props.background)">
-    <div class="hero-content">
+  <div class="hero">
+    <img
+      v-if="$props.background"
+      :src="$props.background"
+      alt="hero"
+      class="hero-image"
+    />
+    <div v-else class="hero-gradient"></div>
+    <div class="hero-overlay">
       <div class="logo-area">
         <img v-if="$props.logo" :src="$props.logo" alt="logo" class="hero-logo" />
         <h1 class="hero-title">{{ $props.title }}</h1>
@@ -48,33 +33,47 @@ const bgStyle = (bg: string) => {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   min-height: 40rem;
-  display: flex;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   position: relative;
-  text-shadow: var(--pixel-shadow-text);
+  overflow: hidden;
 }
 
-.hero-content {
+.hero-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: var(--pixel-hero-gradient);
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 40rem;
   display: flex;
+  align-items: center;
 }
 
 .logo-area {
-  width: 50%;
+  width: 40%;
   min-width: 25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 2rem;
   padding-left: 10%;
   padding-right: 10%;
   background-color: var(--pixel-hero-overlay);
   backdrop-filter: blur(2px);
-  padding: 2rem;
-  height: 100%;
   justify-content: center;
+  align-self: stretch;
+  text-shadow: var(--pixel-shadow-text);
 }
 
 .hero-logo {

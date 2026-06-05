@@ -28,7 +28,7 @@ defineProps({
       </div>
     </div>
     <div v-else :class="$props.right ? 'intro-left' : 'intro-right'">
-      <img :src="$props.image" alt="image" class="intro-image mc-border" />
+      <img :src="$props.image" alt="image" class="intro-image pixel-border" />
       <div class="intro-text">
         <p>{{ $props.title }}</p>
         <span>{{ $props.description }}</span>
