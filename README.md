@@ -1,6 +1,6 @@
-# Minecraft Community Template
+# Pixel UI Template
 
-A VitePress-based template with Minecraft-themed UI components. Designed for community portals, game servers, and creative projects.
+A VitePress-based template with retro pixel-style UI components. Designed for community portals, game servers, and creative projects.
 
 ## Quick Start
 
@@ -52,7 +52,7 @@ All page content is in Markdown files at the repository root:
 | `blog/index.md` | Blog listing |
 | `blog/welcome.md` | Sample blog post |
 | `blog/community-update.md` | Sample blog post |
-| `docs/index.md` | Document archive |
+| `docs/index.md` | Documentation hub |
 
 ### Add Blog Posts
 
@@ -78,10 +78,10 @@ Customize colors in `.vitepress/theme/styles/vars.css`:
 
 ```css
 :root {
-  --minecraft-green: #3c8527;
-  --minecraft-green-light: #6cc349;
-  --minecraft-green-dark: #2a641c;
-  --background-color: var(--minecraft-dark);
+  --pixel-green: #3c8527;
+  --pixel-green-light: #6cc349;
+  --pixel-green-dark: #2a641c;
+  --background-color: var(--pixel-dark);
   --background-card: #313131;
 }
 ```
@@ -97,7 +97,3 @@ npm run preview
 ```
 
 The built files are in `.vitepress/dist/`. Deploy to any static hosting (GitHub Pages, Netlify, Vercel, etc.).
-
----
-
-NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.

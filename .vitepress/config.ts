@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Your Organization',
-  description: 'A Minecraft-themed community portal',
+  title: 'Pixel UI',
+  description: 'A VitePress template with retro pixel-style UI components',
   srcExclude: ['dev-notes/**', 'AGENTS.md', 'CHANGELOG.md', 'README.md', 'LICENSE'],
   themeConfig: {
     nav: [
