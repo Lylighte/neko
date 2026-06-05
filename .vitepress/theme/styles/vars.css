@@ -13,9 +13,9 @@ html {
   /* ───────────────────────────────────────────
      Layer 1: Primitives
      ─────────────────────────────────────────── */
-  --pixel-green: #3c8527;
-  --pixel-green-light: #6cc349;
-  --pixel-green-dark: #2a641c;
+  --pixel-green: #d84b4b;
+  --pixel-green-light: #e48181;
+  --pixel-green-dark: #7e1b1b;
   --pixel-gray-light: #747271;
   --pixel-gray: #3d3938;
   --pixel-gray-dark: #262524;
@@ -36,7 +36,7 @@ html {
   --pixel-color-accent: var(--pixel-green);
   --pixel-color-accent-light: var(--pixel-green-light);
   --pixel-color-accent-dark: var(--pixel-green-dark);
-  --pixel-color-accent-soft: rgba(60, 133, 39, 0.1);
+  --pixel-color-accent-soft: rgba(216, 75, 75, 0.1);
   --pixel-color-border: var(--pixel-gray);
   --pixel-color-border-dark: #000;
 
@@ -133,9 +133,9 @@ html {
   --pixel-nav-bg: rgba(0, 0, 0, 0.5);
   --pixel-nav-border: var(--pixel-border);
   --pixel-nav-shadow: var(--pixel-shadow-hard);
-  --pixel-nav-slider-bg: #7e0c6b;
-  --pixel-nav-slider-border-top: #9b428c;
-  --pixel-nav-slider-border-bottom: #46073b;
+  --pixel-nav-slider-bg: #c43030;
+  --pixel-nav-slider-border-top: #e06060;
+  --pixel-nav-slider-border-bottom: #8a1a1a;
   --pixel-nav-item-text-hover: #fff;
 
   /* PixelDialog */
@@ -156,7 +156,7 @@ html {
 
   /* HomeHero */
   --pixel-hero-overlay: var(--pixel-color-bg-overlay);
-  --pixel-hero-gradient: linear-gradient(135deg, #2a641c 0%, #171615 50%, #3c8527 100%);
+  --pixel-hero-gradient: linear-gradient(135deg, #7e1b1b 0%, #171615 50%, #d84b4b 100%);
   --pixel-hero-title-color: #fff;
 
   /* SiteFooter */
