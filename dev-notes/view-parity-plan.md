@@ -1,6 +1,6 @@
 # Step 13 — View Parity Plan
 
-**Status:** 📋 PLANNING
+**Status:** ✅ COMPLETED (13A + 13B + 13C done)
 **Goal:** Bring 3 remaining VitePress pages up to par with their `template-cleanup` counterparts.
 
 ---

@@ -1,6 +1,6 @@
 # Step 12 — Custom Layout Migration Plan
 
-**Status:** 📋 PLANNING
+**Status:** ✅ COMPLETED — Layout.vue deployed, NavBar ported, CSS overrides working, no !important.
 **Goal:** Replace VitePress default layout with custom Minecraft-themed `Layout.vue` to bridge the gap between `template-cleanup` and `template/vitepress`.
 
 ---

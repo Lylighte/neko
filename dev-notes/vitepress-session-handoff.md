@@ -4,6 +4,19 @@
 
 This is a Vite + Vue 3 + TypeScript SPA originally built for NMO (Nanjing University Minecraft Association). After backend stripping and template optimization, it's now a functional static SPA. The next phase is to migrate it to a **VitePress template** on a new **branch from `template-cleanup`**.
 
+## Outcome (2025-06-05)
+
+✅ Migration complete on `template/vitepress`. Build passes. Key deliverables:
+
+- Custom `Layout.vue` (replaces DefaultTheme) → Minecraft NavBar, SiteFooter, ScrollToTop
+- 12 themed components (Button x3, Input, Textarea, Switch, Dialog, HomeHero, HomeIntro, BlogCard, LinkCard, ArticleView, DocTree, DocViewer)
+- CSS variable system with Minecraft palette
+- 6 Markdown pages: index, about, blog (3), docs → docs tree browser
+- Cleaned public/ (no PDF.js, no NMO assets, 2 curated backgrounds)
+- Dev notes moved to `dev-notes/`, excluded from VitePress build
+
+Remaining: Step 11 (git rm src/), push to origin, branch `template/vitepress-docs`.
+
 ## Current State
 
 - **Branch:** `template-cleanup` (source material)

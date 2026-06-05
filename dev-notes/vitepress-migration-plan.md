@@ -1,7 +1,7 @@
 # VitePress Migration Plan
 
 **Branch:** `template/vitepress` ← branched from `template-cleanup`
-**Status:** 📋 PLANNING (strategy revised: in-place transform, not orphan)
+**Status:** ✅ COMPLETED — Steps 1-13 done. Step 11 (final src/ cleanup) + 14A (docs branch) remaining.
 **Prerequisite:** Template Page Optimization Plan — ✅ COMPLETED (all 5 phases)
 
 ---
