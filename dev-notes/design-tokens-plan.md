@@ -143,7 +143,7 @@ Layer 3: 组件令牌 (Component Tokens) 【推荐】
 - `npx vitepress build` 确保编译无报错
 - `npx vitepress preview` 启动预览，人工遍历以下页面：
   - 首页 — 检查 Hero、Intro、按钮颜色/阴影
-  - 博客列表 — 检查 BlogCard 背景/文字
+  - 新闻列表 — 检查 NewsCard 背景/文字
   - 文档页 — 检查 DocsSidebar 边框/高亮
   - 关于页 — 检查整体排版
 - 对比替换前后的视觉效果，确认无偏差
@@ -159,7 +159,7 @@ Layer 3: 组件令牌 (Component Tokens) 【推荐】
 | `NavBar.vue` | 替换硬编码值 |
 | `HomeHero.vue` | 替换硬编码值 |
 | `HomeIntro.vue` | 替换硬编码值 |
-| `BlogCard.vue` | 替换硬编码值 |
+| `NewsCard.vue` | 替换硬编码值 |
 | `LinkCard.vue` | 替换硬编码值 |
 | `ArticleView.vue` | 替换硬编码值 |
 | `DocsSidebar.vue` | 替换硬编码值 |
@@ -209,7 +209,7 @@ Layer 3: 组件令牌 (Component Tokens) 【推荐】
 | `--pixel-nav-slider-bg` | `#7e0c6b` | NavBar |
 | `--pixel-dialog-overlay` | `var(--pixel-color-bg-overlay)` | PixelDialog |
 | `--pixel-dialog-bg` | `var(--pixel-color-bg-card)` | PixelDialog |
-| `--pixel-card-bg` | `var(--pixel-color-bg-card)` | BlogCard, LinkCard |
+| `--pixel-card-bg` | `var(--pixel-color-bg-card)` | NewsCard, LinkCard |
 | `--pixel-card-shadow` | `var(--pixel-shadow-soft)` | LinkCard |
 | `--pixel-sidebar-bg` | `var(--pixel-color-bg-card)` | DocsSidebar |
 | `--pixel-sidebar-border` | `var(--pixel-border)` | DocsSidebar |

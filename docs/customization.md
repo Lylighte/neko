@@ -30,7 +30,7 @@ Add, remove, or reorder nav items in `config.ts`:
 themeConfig: {
   nav: [
     { text: 'Home', link: '/' },
-    { text: 'Blog', link: '/blog/' },
+    { text: 'News', link: '/news/' },
     { text: 'About', link: '/about' },
     { text: 'Docs', link: '/docs/' },
   ],
@@ -71,7 +71,7 @@ Replace images in `public/background/`:
 | `hero-bg.jpg` | Home page hero section |
 | `bg.jpg` | Home page feature sections |
 | `15.jpg` | Home page / About page |
-| `44.jpg` | Home page / Blog cards |
+| `44.jpg` | Home page / News cards |
 | `bgbtn.jpg` | Classic button texture |
 
 ## Footer

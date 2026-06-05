@@ -21,7 +21,7 @@
 - **HomeHero 重构**: CSS background → `<img>` + 叠加层结构 ✅
 - **hasHero frontmatter**: 控制页面顶部 padding，替换脆弱的负 margin ✅
 - **HomeIntro 图片边框**: `mc-border` → `pixel-border` ✅
-- **BlogCard 间距微调**: padding 1rem→1.5rem，按钮缩小 ✅
+- **NewsCard 间距微调**: padding 1rem→1.5rem，按钮缩小 ✅
 - **overflow-x 修复**: `html { overflow-x: hidden }` 解决 100vw 横向滚动条 ✅
 
 ## 剩余待办

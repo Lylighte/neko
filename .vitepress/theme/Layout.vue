@@ -12,9 +12,9 @@ const route = useRoute()
 
 const hasHero = computed(() => !!frontmatter.value.hasHero)
 
-const isBlogPost = computed(() => {
+const isNewsPost = computed(() => {
   const path = route.path
-  return path.startsWith('/blog/') && path !== '/blog/' && path !== '/blog'
+  return path.startsWith('/news/') && path !== '/news/' && path !== '/news'
 })
 
 // Docs sub-pages get a sidebar layout; /docs/ itself is the index (no sidebar)
@@ -24,7 +24,7 @@ const isDocsPage = computed(() => {
 })
 
 const articleProps = computed(() => {
-  if (!isBlogPost.value) return null
+  if (!isNewsPost.value) return null
   const fm = frontmatter.value
   return {
     title: fm.title,

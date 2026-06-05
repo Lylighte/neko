@@ -24,7 +24,7 @@ import ScrollToTop from './components/ScrollToTop.vue'
 // Layout Components
 import HomeHero from './components/HomeHero.vue'
 import HomeIntro from './components/HomeIntro.vue'
-import BlogCard from './components/BlogCard.vue'
+import NewsCard from './components/NewsCard.vue'
 import LinkCard from './components/LinkCard.vue'
 import DocsSidebar from './components/DocsSidebar.vue'
 import SiteFooter from './components/SiteFooter.vue'
@@ -45,7 +45,7 @@ export default {
     // Register layout components for use in Markdown
     app.component('HomeHero', HomeHero)
     app.component('HomeIntro', HomeIntro)
-    app.component('BlogCard', BlogCard)
+    app.component('NewsCard', NewsCard)
         app.component('LinkCard', LinkCard)
     app.component('DocsSidebar', DocsSidebar)
     app.component('SiteFooter', SiteFooter)

@@ -41,7 +41,7 @@ my-site/
 │       └── data/              # Static data
 ├── index.md                   # Home page
 ├── about.md                   # About page
-├── blog/                      # Blog posts
+├── news/                      # News posts
 ├── docs/                      # Documentation pages
 └── public/                    # Static assets
     ├── logo.svg
@@ -61,6 +61,6 @@ my-site/
 ## Next Steps
 
 - **[Customization](/docs/customization)** — Change colors, logo, and backgrounds
-- **[Blogging Guide](/docs/blogging)** — Write your first blog post
+- **[News Guide](/docs/news)** — Write your first news post
 - **[Component Reference](/docs/components)** — Explore available UI components
 - **[Deployment](/docs/deployment)** — Build and publish your site

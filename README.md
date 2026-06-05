@@ -49,14 +49,14 @@ All page content is in Markdown files at the repository root:
 |------|---------|
 | `index.md` | Home page (hero + feature sections) |
 | `about.md` | About page |
-| `blog/index.md` | Blog listing |
-| `blog/welcome.md` | Sample blog post |
-| `blog/community-update.md` | Sample blog post |
+| `news/index.md` | News listing |
+| `news/welcome.md` | Sample news post |
+| `news/community-update.md` | Sample news post |
 | `docs/index.md` | Documentation hub |
 
-### Add Blog Posts
+### Add News Posts
 
-Create a new `.md` file in the `blog/` directory with frontmatter:
+Create a new `.md` file in the `news/` directory with frontmatter:
 
 ```md
 ---
@@ -70,7 +70,7 @@ author: Your Name
 Content goes here...
 ```
 
-Then add a `<BlogCard>` to `blog/index.md`.
+Then add a `<NewsCard>` to `news/index.md`.
 
 ### CSS Variables
 

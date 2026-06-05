@@ -36,7 +36,7 @@ const updateActiveIndex = (path: string) => {
   let bestIdx = 0
   let bestLen = 0
   navItems.value.forEach((item, index) => {
-    // Match: exact or prefix (e.g. /blog/hello matches /blog/)
+    // Match: exact or prefix (e.g. /news/hello matches /news/)
     if (path.startsWith(item.url) && item.url.length > bestLen) {
       bestIdx = index
       bestLen = item.url.length

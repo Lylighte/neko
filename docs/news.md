@@ -2,21 +2,21 @@
 layout: page
 ---
 
-# Blogging Guide
+# News Guide
 
-Write and publish blog posts with rich formatting and metadata.
+Write and publish news posts with rich formatting and metadata.
 
 ## Creating a Post
 
-Create a new `.md` file in the `blog/` directory:
+Create a new `.md` file in the `news/` directory:
 
 ```
-blog/my-first-post.md
+news/my-first-post.md
 ```
 
 ## Frontmatter
 
-Every blog post needs YAML frontmatter at the top:
+Every news post needs YAML frontmatter at the top:
 
 ```yaml
 ---
@@ -44,16 +44,16 @@ category: General
 | `cover` | No | Hero cover image path |
 | `category` | No | Post category label |
 
-## Adding to the Blog Listing
+## Adding to the News Listing
 
-After creating a post, add a `<BlogCard>` to `blog/index.md`:
+After creating a post, add a `<NewsCard>` to `news/index.md`:
 
 ```html
-<BlogCard
+<NewsCard
   title="My First Post"
   brief="A short description that appears in the card preview."
   image="/background/44.jpg"
-  link="/blog/my-first-post"
+  link="/news/my-first-post"
 />
 ```
 
@@ -62,7 +62,7 @@ After creating a post, add a `<BlogCard>` to `blog/index.md`:
 | `title` | Card title |
 | `brief` | Short description text |
 | `image` | Card background image |
-| `link` | URL to the blog post |
+| `link` | URL to the news post |
 
 ## Markdown Features
 

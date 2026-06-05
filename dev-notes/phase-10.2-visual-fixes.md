@@ -36,7 +36,7 @@
 ### HomeIntro 图片边框
 - `mc-border`（未定义类）→ `pixel-border`
 
-### BlogCard
+### NewsCard
 - 内容区 padding: 1rem → 1.5rem
 - ReadMore 按钮 padding: 0.4rem 1rem
 

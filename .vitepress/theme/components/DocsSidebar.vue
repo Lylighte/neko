@@ -16,7 +16,7 @@ const nav = [
   {
     title: 'Writing Content',
     items: [
-      { text: 'Blogging Guide', link: '/docs/blogging' },
+      { text: 'News Guide', link: '/docs/news' },
       { text: 'Component Reference', link: '/docs/components' },
     ],
   },

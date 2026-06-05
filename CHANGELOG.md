@@ -39,7 +39,7 @@
 
 - 安装 VitePress 1.6，创建 `.vitepress/config.ts` 和主题入口
 - 从 `src/` 移植 12 个 Minecraft 风格组件到 `.vitepress/theme/components/`
-- 创建 6 个 Markdown 页面替代 SPA 视图（index、about、blog×3、docs）
+- 创建 6 个 Markdown 页面替代 SPA 视图（index、about、news×3、docs）
 - 清理 `public/`：移除 PDF.js（~10MB）、NMO 专属资源、62 张背景图 → 精选保留
 - 建立 CSS 变量系统（Minecraft 调色板、按钮/输入框精灵图）
 - 开发笔记移至 `dev-notes/`，排除出 VitePress 构建
@@ -66,10 +66,10 @@
 
 将剩余 3 个 VitePress 页面对齐到 `template-cleanup` 的视觉效果。
 
-### 5A — Blog Post Detail
+### 5A — News Post Detail
 - 创建 `ArticleView.vue`：封面图、作者信息栏（头像+名称+标签）、日期显示
-- `Layout.vue` 自动检测博客路由，包裹 `<ArticleView>`
-- 博客文章支持 YAML frontmatter（title、date、author、cover、category）
+- `Layout.vue` 自动检测新闻路由，包裹 `<ArticleView>`
+- 新闻文章支持 YAML frontmatter（title、date、author、cover、category）
 
 ### 5B — About Page Links
 - 创建 `LinkCard.vue`：带背景图的链接卡片网格
@@ -102,7 +102,7 @@
 将 `docs/` 从迁移产物占位改造为模板内置使用指南，完成 README 和 config 的去 Minecraft 化。
 
 ### 7A — 13C 文档改造
-- 重写 `docs.ts`：替换 8 个旧占位文档为 5 个真实指南（Quick Start、Customization、Blogging、Components、Deployment）
+- 重写 `docs.ts`：替换 8 个旧占位文档为 5 个真实指南（Quick Start、Customization、News、Components、Deployment）
 - 重写 `docs/index.md` 为指南入口页
 - `demo.md` 组件展示内容迁入 `docs/components.md`
 - 移除 Nav 中的 Demo 链接
@@ -125,7 +125,7 @@
 
 ### 8A — DocsBrowser SPA → 原生 .md + DocsSidebar
 - 新建 `DocsSidebar.vue`：可折叠分组侧边栏，硬编码导航结构
-- 新建 5 个 `docs/*.md`：quick-start、customization、deployment、blogging、components
+- 新建 5 个 `docs/*.md`：quick-start、customization、deployment、news、components
 - 修改 `Layout.vue`：docs 路由自动渲染 DocsSidebar + 内容区
 - 修改 `docs/index.md`：LinkCard 网格入口替代旧 DocsBrowser
 - 修改 `index.ts`：注册 DocsSidebar 组件
@@ -205,6 +205,6 @@
 - 引入 `hasHero` frontmatter 控制页面顶部 padding（index.md / about.md）
 - `.page-container.with-hero { padding-top: 0 }` 替换脆弱的负 margin 方案
 
-### 10D — HomeIntro & BlogCard 微调
+### 10D — HomeIntro & NewsCard 微调
 - HomeIntro 图片 `mc-border`（未定义）→ `pixel-border`，5 张图片获得像素外框
-- BlogCard 内容区 padding 1rem → 1.5rem，按钮 padding 缩小
+- NewsCard 内容区 padding 1rem → 1.5rem，按钮 padding 缩小
