@@ -92,3 +92,27 @@
   - FooterBar.vue（已移植为 SiteFooter.vue）
   - NavBar.vue（已移植为 .vitepress/theme/components/NavBar.vue）
 - 每批构建验证通过
+
+---
+
+## 7 — Docs Overhaul & De-Minecraft
+
+**Branch:** `template/vitepress`
+
+将 `docs/` 从迁移产物占位改造为模板内置使用指南，完成 README 和 config 的去 Minecraft 化。
+
+### 7A — 13C 文档改造
+- 重写 `docs.ts`：替换 8 个旧占位文档为 5 个真实指南（Quick Start、Customization、Blogging、Components、Deployment）
+- 重写 `docs/index.md` 为指南入口页
+- `demo.md` 组件展示内容迁入 `docs/components.md`
+- 移除 Nav 中的 Demo 链接
+
+### 7B — README 重写
+- 标题和描述去 Minecraft 化，改用 Pixel 命名
+- 更新 CSS 变量示例（`--minecraft-*` → `--pixel-*`）
+- 更新组件名引用（`MinecraftButton` → `PixelButton`）
+- 更新文档链接指向新的 `docs/` 指南
+
+### 7C — Config 更新
+- `title` 和 `description` 去 Minecraft 化
+- Nav 链接精简（移除 Demo，Docs 指向新指南）
