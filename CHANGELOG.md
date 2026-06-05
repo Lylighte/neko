@@ -208,3 +208,31 @@
 ### 10D — HomeIntro & NewsCard 微调
 - HomeIntro 图片 `mc-border`（未定义）→ `pixel-border`，5 张图片获得像素外框
 - NewsCard 内容区 padding 1rem → 1.5rem，按钮 padding 缩小
+
+---
+
+## 11 — blog/ → news/ 重命名
+
+**Branch:** `template/vitepress`
+
+将 `blog/` 及相关引用重命名为 `news/`，对齐"组织门户"定位。
+
+- `git mv` 重命名：`blog/` → `news/`、`docs/blogging.md` → `docs/news.md`、`BlogCard.vue` → `NewsCard.vue`
+- 编辑 12 个引用文件（config、Layout、NavBar、DocsSidebar、index.ts、README、docs、dev-notes 等）
+- 全量 grep 残留检查，零遗漏
+- 构建验证通过
+
+---
+
+## 12 — 全站换色（绿色 → 红色）
+
+**Branch:** `template/vitepress`
+
+将主题色从绿色 `#3c8527` 更换为红色 `#d84b4b`。
+
+- 更新 Layer 1 基色：`--pixel-green` → `#d84b4b`，light `#e48181`，dark `#7e1b1b`
+- 更新 `--pixel-color-accent-soft` 透明度基色
+- NavBar 滑块从紫色 `#7e0c6b` 更换为红色 `#c43030`
+- Hero 渐层更新为红色系
+- 所有 `.vue` 组件通过变量引用自动跟随
+- 构建验证通过（2.31s）
