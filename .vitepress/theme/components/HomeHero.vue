@@ -62,14 +62,14 @@ defineProps({
 }
 
 .logo-area {
-  width: 40%;
-  min-width: 25rem;
+  width: var(--pixel-hero-content-width, 40%);
+  min-width: var(--pixel-hero-content-min-width, 25rem);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2rem;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: var(--pixel-hero-padding-inline);
+  padding-right: var(--pixel-hero-padding-inline);
   background-color: var(--pixel-hero-overlay);
   backdrop-filter: blur(2px);
   justify-content: center;

@@ -28,7 +28,7 @@ html {
   --pixel-color-bg: var(--pixel-dark);
   --pixel-color-bg-page: #0f0e0d;
   --pixel-color-bg-card: #313131;
-  --pixel-color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --pixel-color-bg-overlay: rgba(0, 0, 0, 0.7);
   --pixel-color-bg-input: #616161;
   --pixel-color-text: rgba(255, 255, 255, 0.8);
   --pixel-color-text-muted: rgba(255, 255, 255, 0.7);
@@ -158,6 +158,9 @@ html {
   --pixel-hero-overlay: var(--pixel-color-bg-overlay);
   --pixel-hero-gradient: linear-gradient(135deg, #7e1b1b 0%, #171615 50%, #d84b4b 100%);
   --pixel-hero-title-color: #fff;
+  --pixel-hero-padding-inline: 5%;
+  --pixel-hero-content-width: 40%;
+  --pixel-hero-content-min-width: 25rem;
 
   /* SiteFooter */
   --pixel-footer-title: #fff;

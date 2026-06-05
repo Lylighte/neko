@@ -236,3 +236,20 @@
 - Hero 渐层更新为红色系
 - 所有 `.vue` 组件通过变量引用自动跟随
 - 构建验证通过（2.31s）
+
+---
+
+## 13 — CSS 变量品牌中立化重命名
+
+**Branch:** `template/vitepress`
+
+将 `--pixel-green*` 重命名为 `--pixel-brand*`，消除绿色名与红色值的矛盾，未来换色无需改名。
+
+- Layer 1：`--pixel-green` → `--pixel-brand`（及 light/dark）
+- Layer 2：`--pixel-color-accent` 引用同步更新
+- 6 个 `.vue` 组件变量引用更新：ArticleView、DocsSidebar、HomeHero、LinkCard、NewsCard、SiteFooter
+- `404.md` 内联样式修复
+- 文档 `docs/customization.md` 和 `README.md` 同步更新变量名及色值
+- `--pixel-hero-*` 布局参数（padding、width、min-width）抽入 vars.css
+- 全量 grep 零残留
+- 构建验证通过（2.33s）
