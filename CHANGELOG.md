@@ -253,3 +253,38 @@
 - `--pixel-hero-*` 布局参数（padding、width、min-width）抽入 vars.css
 - 全量 grep 零残留
 - 构建验证通过（2.33s）
+
+---
+
+## 14 — 全站动效增强
+
+**Branch:** `template/vitepress`
+
+从修复 Bug、激活闲置动画、补齐体验缺口三层递进优化动效。
+
+### 14A — Bug 修复
+- **NavBar**：`@click.prevent` 阻止 SPA 路由跳转 → 改为 `@click`，恢复导航功能
+- **ScrollToTop**：透传无效 `type` prop 导致按钮永不隐藏 → 改用 `v-show` + `.visible` class 控制 `opacity`/`pointer-events`
+
+### 14B — 页面级过渡
+- `Layout.vue` 用 `<Transition name="page" mode="out-in">` 包裹内容区，路由切换有淡入淡出（0.2s）
+- 定义 `.page-enter-from`、`.page-leave-to` 等 CSS 类
+
+### 14C — 进场动画
+- HomeHero `.logo-area` → `animation: fade-in-left 0.8s ease`
+- HomeIntro `.intro-box` → `animation: fade-in 0.8s ease`
+- `animations.css` 补充 `fade-in-down`（修正方向为从上滑入）
+
+### 14D — 杂项
+- `html { scroll-behavior: smooth }` 全站平滑滚动
+- LinkCard 补齐 `transition: transform 0.3s ease` + hover `scale(1.05)`
+- `prefers-reduced-motion` 规则注释掉（用户系统偏左为减少动效时覆盖）
+- 构建验证通过（2.20s）
+
+---
+
+## 15 — UI 精灵图替换计划
+
+**Branch:** `template/vitepress`
+
+（计划阶段，详见 `dev-notes/ui-sprite-to-css-plan.md`）
