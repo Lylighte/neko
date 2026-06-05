@@ -67,6 +67,7 @@ const bgStyle = (bg: string) => {
   min-width: 25rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding-left: 10%;
   padding-right: 10%;
   background-color: rgba(0, 0, 0, 0.5);

@@ -35,7 +35,9 @@ const articleProps = computed(() => {
       <ArticleView v-if="articleProps" v-bind="articleProps">
         <Content />
       </ArticleView>
-      <Content v-else />
+      <div v-else class="page-container">
+        <Content />
+      </div>
     </main>
     <SiteFooter />
     <ScrollToTop />
@@ -55,5 +57,12 @@ const articleProps = computed(() => {
 .minecraft-layout :deep(.VPDocFooter),
 .minecraft-layout :deep(.VPLocalNav) {
   display: none;
+}
+
+/* Constrain text-heavy pages (about, etc.) for readability */
+.page-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
 }
 </style>
