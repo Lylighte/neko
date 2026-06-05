@@ -15,8 +15,6 @@ const textareaText = ref('')
 
 All built-in Pixel UI components available for use in your Markdown pages.
 
----
-
 ## Button
 
 Three button variants with click sound and hover/press states.
@@ -44,8 +42,6 @@ Three button variants with click sound and hover/press states.
 ```html
 <PixelButton sound-url="">Mute Button</PixelButton>
 ```
-
----
 
 ## Button Classic
 
@@ -86,8 +82,6 @@ Text input with pixel-art border.
 <PixelInput v-model="inputText" />
 ```
 
----
-
 ## Textarea
 
 Multi-line input with auto-resize.
@@ -97,8 +91,6 @@ Multi-line input with auto-resize.
 ```html
 <PixelTextarea v-model="textareaText" />
 ```
-
----
 
 ## Switch
 
@@ -112,8 +104,6 @@ Toggle switch with on/off sprites.
 ```html
 <PixelSwitch v-model="switchOn" />
 ```
-
----
 
 ## Dialog
 
@@ -140,8 +130,6 @@ Modal dialog with title, content slot, and footer buttons.
 </PixelDialog>
 ```
 
----
-
 ## Border Utility
 
 Apply `.pixel-border` class for the pixel-art border frame.
@@ -155,8 +143,6 @@ Apply `.pixel-border` class for the pixel-art border frame.
   <p>Content inside .pixel-border</p>
 </div>
 ```
-
----
 
 ## Props Reference
 

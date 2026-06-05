@@ -27,7 +27,7 @@ const soundOn = (url: string) => {
     class="pixel-button-3d"
     :class="{ 'is-pressed': pressed }"
     :style="{
-      height: pressed ? `calc(${$props.height} - 12px)` : $props.height,
+      height: pressed ? `calc(${$props.height} - var(--pixel-btn-3d-offset))` : $props.height,
     }"
     @click="soundOn($props.soundUrl)"
     @mousedown="pressed = true"
@@ -47,7 +47,7 @@ const soundOn = (url: string) => {
   background-color: #313233;
   border: 2px solid rgba(0, 0, 0, 0.4);
   transition: all 0.1s ease-in-out;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--pixel-shadow-hard);
 }
 
 .pixel-button-3d:hover::after {
@@ -55,8 +55,8 @@ const soundOn = (url: string) => {
 }
 
 .pixel-button-3d.is-pressed {
-  transform: translateY(12px);
-  margin-bottom: 12px;
+  transform: translateY(var(--pixel-btn-3d-offset));
+  margin-bottom: var(--pixel-btn-3d-offset);
 }
 
 .pixel-button-3d.is-pressed::after {

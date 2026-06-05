@@ -33,9 +33,9 @@ const soundOn = (url: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: var(--pixel-btn-text);
   padding: 1rem;
-  outline: 2px solid #000;
+  outline: var(--pixel-btn-border);
   border: 2px solid;
   background-color: #c6c6c6;
   border-image: var(--btn-border-image);
@@ -52,7 +52,7 @@ const soundOn = (url: string) => {
 .pixel-button:hover {
   color: #fff;
   outline: 2px solid #fff;
-  background-color: #43a01c;
+  background-color: var(--pixel-btn-bg-hover);
   border-image: var(--btn-border-image-hover);
 }
 
@@ -64,7 +64,7 @@ const soundOn = (url: string) => {
 .pixel-button:active:hover {
   color: #fff;
   outline: 2px solid #fff;
-  background-color: #43a01c;
+  background-color: var(--pixel-btn-bg-hover);
   border-image: url('/UI/button_pressed.png') 1;
 }
 </style>

@@ -47,7 +47,7 @@ onUnmounted(() => {
   width: 3rem;
   bottom: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--pixel-z-overlay);
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;

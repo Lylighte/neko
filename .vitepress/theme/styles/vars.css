@@ -1,5 +1,14 @@
+/* ═══════════════════════════════════════════════════════════
+   Design Tokens — Three-Layer Architecture
+   Layer 1: Primitives (原始调色板)
+   Layer 2: Semantic Tokens (语义令牌)
+   Layer 3: Component Tokens (组件令牌)
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-  /* Pixel palette */
+  /* ───────────────────────────────────────────
+     Layer 1: Primitives
+     ─────────────────────────────────────────── */
   --pixel-green: #3c8527;
   --pixel-green-light: #6cc349;
   --pixel-green-dark: #2a641c;
@@ -8,30 +17,136 @@
   --pixel-gray-dark: #262524;
   --pixel-dark: #171615;
 
-  /* Backgrounds */
-  --background-color: var(--pixel-dark);
-  --background-page: #0f0e0d;
-  --background-card: #313131;
+  /* ───────────────────────────────────────────
+     Layer 2: Semantic Tokens
+     ─────────────────────────────────────────── */
+  /* Colors */
+  --pixel-color-bg: var(--pixel-dark);
+  --pixel-color-bg-page: #0f0e0d;
+  --pixel-color-bg-card: #313131;
+  --pixel-color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --pixel-color-bg-input: #616161;
+  --pixel-color-text: rgba(255, 255, 255, 0.8);
+  --pixel-color-text-muted: rgba(255, 255, 255, 0.7);
+  --pixel-color-text-inverse: #000;
+  --pixel-color-accent: var(--pixel-green);
+  --pixel-color-accent-light: var(--pixel-green-light);
+  --pixel-color-accent-dark: var(--pixel-green-dark);
+  --pixel-color-accent-soft: rgba(60, 133, 39, 0.1);
+  --pixel-color-border: var(--pixel-gray);
+  --pixel-color-border-dark: #000;
 
-  /* Button sprites (overridable) */
+  /* Typography */
+  --pixel-font-heading: 'Ark Pixel', 'Unifont', monospace;
+  --pixel-font-code: 'Monocraft', 'Unifont', monospace;
+  --pixel-font-body: 'Unifont', monospace;
+  --pixel-font-size-s: 0.875rem;
+  --pixel-font-size-m: 1rem;
+  --pixel-font-size-l: 1.5rem;
+  --pixel-font-size-xl: 2rem;
+  --pixel-line-height: 1.7;
+
+  /* Spacing */
+  --pixel-space-xs: 0.25rem;
+  --pixel-space-s: 0.5rem;
+  --pixel-space-m: 1rem;
+  --pixel-space-l: 2rem;
+  --pixel-space-xl: 3rem;
+
+  /* Shadows */
+  --pixel-shadow-soft: 4px 4px rgba(0, 0, 0, 0.5);
+  --pixel-shadow-hard: 4px 4px rgba(0, 0, 0, 0.7);
+  --pixel-shadow-text: 2px 2px rgba(0, 0, 0, 0.5);
+
+  /* Borders */
+  --pixel-border: 2px solid var(--pixel-color-border);
+  --pixel-border-dark: 2px solid var(--pixel-color-border-dark);
+
+  /* Transitions */
+  --pixel-transition-fast: 0.1s ease-in-out;
+  --pixel-transition: 0.3s ease;
+  --pixel-transition-slow: 0.3s ease-in-out;
+
+  /* Misc */
+  --pixel-radius: 0;
+  --pixel-offset-3d: 12px;
+  --pixel-z-overlay: 512;
+  --pixel-z-nav: 1024;
+  --pixel-z-dialog: 2048;
+
+  /* ───────────────────────────────────────────
+     Layer 3: Component Tokens
+     ─────────────────────────────────────────── */
+  /* Button sprites (shared) */
   --btn-border-image: url('/UI/button_normal.png') 1;
   --btn-border-image-hover: url('/UI/button_hover.png') 1;
   --btn-border-image-active: url('/UI/button_pressed_hover.png') 1;
 
-  /* Classic button */
-  --btn-classic-bg: #999 url('/background/bgbtn.jpg') center/cover;
+  /* PixelButton */
+  --pixel-btn-bg: var(--pixel-color-accent);
+  --pixel-btn-bg-hover: var(--pixel-color-accent-light);
+  --pixel-btn-text: var(--pixel-color-text-inverse);
+  --pixel-btn-border: var(--pixel-border-dark);
+
+  /* PixelButtonClassic */
+  --pixel-btn-classic-bg: #999 url('/background/bgbtn.jpg') center/cover;
+
+  /* PixelButton3D */
+  --pixel-btn-3d-offset: 12px;
 
   /* Input sprites */
   --input-border-image: url('/UI/text-input.png') 1;
 
-  /* Base */
-  line-height: 1.5;
+  /* PixelInput / PixelTextarea */
+  --pixel-input-bg: var(--pixel-color-bg-input);
+  --pixel-input-border: var(--pixel-border-dark);
+  --pixel-input-text: #fff;
+
+  /* NavBar */
+  --pixel-nav-bg: rgba(0, 0, 0, 0.5);
+  --pixel-nav-border: var(--pixel-border);
+  --pixel-nav-shadow: var(--pixel-shadow-hard);
+  --pixel-nav-slider-bg: #7e0c6b;
+  --pixel-nav-slider-border-top: #9b428c;
+  --pixel-nav-slider-border-bottom: #46073b;
+
+  /* PixelDialog */
+  --pixel-dialog-overlay: var(--pixel-color-bg-overlay);
+  --pixel-dialog-bg: var(--pixel-color-bg-card);
+
+  /* Cards (BlogCard, LinkCard) */
+  --pixel-card-bg: var(--pixel-color-bg-card);
+  --pixel-card-shadow: var(--pixel-shadow-soft);
+
+  /* DocsSidebar */
+  --pixel-sidebar-bg: var(--pixel-color-bg-card);
+  --pixel-sidebar-border: var(--pixel-border);
+  --pixel-sidebar-active-bg: var(--pixel-color-accent-soft);
+
+  /* HomeHero */
+  --pixel-hero-overlay: var(--pixel-color-bg-overlay);
+
+  /* SiteFooter */
+  --pixel-footer-text: var(--pixel-color-text-muted);
+
+  /* ───────────────────────────────────────────
+     Backward compat aliases
+     ─────────────────────────────────────────── */
+  --background-color: var(--pixel-color-bg);
+  --background-page: var(--pixel-color-bg-page);
+  --background-card: var(--pixel-color-bg-card);
+  --btn-classic-bg: var(--pixel-btn-classic-bg);
+
+  /* ───────────────────────────────────────────
+     Base
+     ─────────────────────────────────────────── */
+  line-height: var(--pixel-line-height);
   font-weight: 400;
   letter-spacing: 1px;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: var(--background-color);
+  color: var(--pixel-color-text);
+  background-color: var(--pixel-color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -39,17 +154,17 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* ── VitePress default variable overrides ── */
-  --vp-c-bg: var(--background-color);
-  --vp-c-bg-elv: var(--background-card);
-  --vp-c-bg-soft: var(--background-card);
-  --vp-c-text-1: rgba(255, 255, 255, 0.8);
+  --vp-c-bg: var(--pixel-color-bg);
+  --vp-c-bg-elv: var(--pixel-color-bg-card);
+  --vp-c-bg-soft: var(--pixel-color-bg-card);
+  --vp-c-text-1: var(--pixel-color-text);
   --vp-c-text-2: rgba(255, 255, 255, 0.6);
   --vp-c-border: #909399;
-  --vp-c-divider: var(--pixel-gray);
-  --vp-c-brand-1: var(--pixel-green-light);
-  --vp-c-brand-2: var(--pixel-green);
-  --vp-c-brand-3: var(--pixel-green-dark);
-  --vp-nav-bg-color: rgba(0, 0, 0, 0.5);
+  --vp-c-divider: var(--pixel-color-border);
+  --vp-c-brand-1: var(--pixel-color-accent-light);
+  --vp-c-brand-2: var(--pixel-color-accent);
+  --vp-c-brand-3: var(--pixel-color-accent-dark);
+  --vp-nav-bg-color: var(--pixel-nav-bg);
   --vp-layout-max-width: 100%;
 }
 
@@ -57,25 +172,21 @@
   box-sizing: border-box;
 }
 
-/* ── Pixel Font Stack ── */
-/* Headings: Ark Pixel 12px proportional (zh_cn + latin), fallback to Unifont */
+/* ── Pixel Font Stack (global selectors → Layer 2) ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ark Pixel', 'Unifont', monospace;
+  font-family: var(--pixel-font-heading);
 }
 
-/* Code: Monocraft, fallback to Unifont */
 code, pre, kbd, samp {
-  font-family: 'Monocraft', 'Unifont', monospace;
+  font-family: var(--pixel-font-code);
 }
 
-/* Body: Unifont pixel font */
 body {
-  font-family: 'Unifont', monospace;
+  font-family: var(--pixel-font-body);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: var(--pixel-line-height);
 }
 
-/* Optional pixel body text — use class="pixel-text" */
 .pixel-text {
   font-family: 'Unifont', 'Ark Pixel', monospace;
   font-size: 18px;

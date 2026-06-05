@@ -37,8 +37,8 @@ defineProps<{
   border-bottom: 2px solid var(--pixel-green-dark);
   background-position: center;
   background-size: cover;
-  background-color: var(--background-card);
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+  background-color: var(--pixel-card-bg);
+  box-shadow: var(--pixel-card-shadow);
   cursor: pointer;
   text-decoration: none;
   overflow: hidden;

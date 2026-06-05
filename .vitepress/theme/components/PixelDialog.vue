@@ -107,7 +107,7 @@ onMounted(() => {
   flex-direction: column;
 
   padding: 1rem;
-  z-index: 1025;
+  z-index: var(--pixel-z-dialog);
   min-width: 720px;
 
   transition: all 0.3s ease-in-out;

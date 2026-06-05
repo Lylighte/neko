@@ -13,12 +13,9 @@
 - **dev-notes 清理**: 移除 4 个已完成计划文档 ✅
 - **docs 一致性检查**: 侧边栏链接与文件一一对应 ✅
 - **像素字体实施**: Ark Pixel (标题) + Monocraft (代码) + Unifont (正文) ✅
+- **NavBar 字体**: 改为 Ark Pixel，与标题统一 ✅
+- **Design Tokens 计划**: Phase 10 三层令牌架构计划完成 ✅
 
 ## 剩余待办
 
-无。项目核心功能已完整实现。
-
-- 下载 Ark Pixel 12px、Monocraft、Unifont woff2
-- 编写 `fonts.css`（@font-face + unicode-range 分片）
-- 应用到标题/代码/正文
-- 构建验证
+- **Phase 10: Design Tokens 实施**: 重构 `vars.css`（三层令牌），替换 16 个组件硬编码值，构建验证

@@ -130,7 +130,7 @@ defineProps<{
 .article-author-meta {
   margin-top: 1rem;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--pixel-color-text-muted);
   text-align: center;
   line-height: 1.6;
 }
@@ -144,7 +144,7 @@ defineProps<{
 
 .meta-value {
   display: block;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
 }
 
 .article-content {
@@ -187,7 +187,7 @@ defineProps<{
 }
 
 .article-text :deep(code) {
-  background: var(--background-card);
+  background: var(--pixel-card-bg);
   padding: 0.15rem 0.4rem;
   font-size: 0.9em;
 }
@@ -196,7 +196,7 @@ defineProps<{
   border-left: 4px solid var(--pixel-green);
   margin: 1rem 0;
   padding: 0.5rem 1rem;
-  background: rgba(60, 133, 39, 0.1);
+  background: var(--pixel-color-accent-soft);
 }
 
 @media screen and (max-width: 768px) {

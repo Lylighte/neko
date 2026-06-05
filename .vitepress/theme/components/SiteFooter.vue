@@ -52,7 +52,7 @@ const iconMap: Record<string, unknown> = {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: var(--background-color);
+  background-color: var(--pixel-color-bg);
   border-top: 1px solid #909399;
   margin-top: 3rem;
 }
@@ -73,7 +73,7 @@ const iconMap: Record<string, unknown> = {
 
 .footer-description span {
   margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--pixel-footer-text);
 }
 
 #copyright {
@@ -106,7 +106,7 @@ const iconMap: Record<string, unknown> = {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
   text-decoration: none;
 }
 

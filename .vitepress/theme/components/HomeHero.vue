@@ -54,7 +54,7 @@ const bgStyle = (bg: string) => {
   background-position: center;
   background-size: cover;
   position: relative;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: var(--pixel-shadow-text);
 }
 
 .hero-content {
@@ -70,7 +70,7 @@ const bgStyle = (bg: string) => {
   align-items: flex-start;
   padding-left: 10%;
   padding-right: 10%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--pixel-hero-overlay);
   backdrop-filter: blur(2px);
   padding: 2rem;
   height: 100%;
@@ -101,7 +101,7 @@ const bgStyle = (bg: string) => {
   font-size: 1.15rem;
   font-weight: bold;
   margin-top: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--pixel-color-text);
 }
 
 @media screen and (max-width: 623px) {

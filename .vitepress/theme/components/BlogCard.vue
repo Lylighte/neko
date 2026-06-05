@@ -51,7 +51,7 @@ defineProps({
 .overview-card {
   display: flex;
   width: 100%;
-  background-color: var(--background-card);
+  background-color: var(--pixel-card-bg);
   margin-bottom: 1.5rem;
   overflow: hidden;
 }
@@ -85,7 +85,7 @@ defineProps({
 .overview-title {
   font-size: 1.3rem;
   cursor: pointer;
-  color: #fff;
+  color: var(--pixel-color-text);
   text-decoration: none;
   user-select: none;
   margin-bottom: 0.5rem;
@@ -97,7 +97,7 @@ defineProps({
 
 .overview-brief {
   flex: 1;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
   margin: 0 0 1rem 0;
   user-select: none;
 }

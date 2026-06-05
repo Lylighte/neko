@@ -29,9 +29,9 @@ const soundOn = (url: string) => {
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
-  background: var(--btn-classic-bg);
+  background: var(--pixel-btn-classic-bg);
   image-rendering: pixelated;
-  border: 2px solid #000;
+  border: var(--pixel-btn-border);
 }
 
 .pixel-button-classic[activated='true'] .title {

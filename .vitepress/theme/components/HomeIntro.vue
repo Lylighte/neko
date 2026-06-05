@@ -82,13 +82,13 @@ defineProps({
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 0 1rem 0;
-  color: #fff;
+  color: var(--pixel-color-text);
 }
 
 .intro-text span {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
 }
 
 @media screen and (max-width: 768px) {

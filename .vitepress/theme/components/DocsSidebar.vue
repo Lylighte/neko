@@ -64,8 +64,8 @@ const isActive = (link: string) => {
   width: 14rem;
   flex-shrink: 0;
   padding: 1rem 0;
-  background: var(--background-card);
-  border-right: 2px solid var(--pixel-gray);
+  background: var(--pixel-sidebar-bg);
+  border-right: var(--pixel-sidebar-border);
   min-height: calc(100vh - 8rem);
   overflow-y: auto;
 }
@@ -86,7 +86,7 @@ const isActive = (link: string) => {
   padding: 0.4rem 1rem;
   cursor: pointer;
   user-select: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--pixel-color-text-muted);
 }
 
 .sidebar-group-header:hover {
@@ -110,20 +110,20 @@ const isActive = (link: string) => {
   display: block;
   padding: 0.3rem 1rem;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--pixel-color-text-muted);
   text-decoration: none;
   border-left: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
 }
 
 .sidebar-item:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--pixel-color-text);
 }
 
 .sidebar-item.active {
   color: var(--pixel-green-light);
   border-left-color: var(--pixel-green);
-  background: rgba(60, 133, 39, 0.1);
+  background: var(--pixel-sidebar-active-bg);
 }
 
 @media screen and (max-width: 768px) {
@@ -131,7 +131,7 @@ const isActive = (link: string) => {
     width: 100%;
     min-height: auto;
     border-right: none;
-    border-bottom: 2px solid var(--pixel-gray);
+    border-bottom: var(--pixel-sidebar-border);
   }
 }
 </style>

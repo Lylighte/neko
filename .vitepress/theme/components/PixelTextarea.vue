@@ -18,9 +18,9 @@ const model = defineModel<string>({
   letter-spacing: 1px;
   padding: 0.2rem;
   border: 2px solid;
-  background-color: #616161;
-  color: #fff;
-  outline: 2px solid black;
+  background-color: var(--pixel-input-bg);
+  color: var(--pixel-input-text);
+  outline: var(--pixel-input-border);
   border-image: var(--input-border-image);
   overflow-y: hidden;
 }

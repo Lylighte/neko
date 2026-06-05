@@ -101,10 +101,10 @@ const sliderStyle = computed(() => {
   height: calc(1rem + 28px);
   display: flex;
   border-radius: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid gray;
+  background-color: var(--pixel-nav-bg);
+  border: var(--pixel-nav-border);
   position: relative;
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--pixel-nav-shadow);
   opacity: 1;
   overflow: hidden;
 }
@@ -121,9 +121,9 @@ const sliderStyle = computed(() => {
   z-index: 1;
   transition: color 0.3s ease;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--pixel-color-text);
   text-decoration: none;
-  font-family: 'Ark Pixel', 'Unifont', monospace;
+  font-family: var(--pixel-font-heading);
 }
 
 .nav-item:hover {
@@ -142,13 +142,13 @@ const sliderStyle = computed(() => {
 
 .slider-box {
   box-sizing: border-box;
-  background-color: #7e0c6b;
+  background-color: var(--pixel-nav-slider-bg);
   border-radius: 0;
-  border-top: 4px solid #9b428c;
-  border-bottom: 4px solid #46073b;
+  border-top: 4px solid var(--pixel-nav-slider-border-top);
+  border-bottom: 4px solid var(--pixel-nav-slider-border-bottom);
   height: 100%;
   width: 100%;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--pixel-shadow-soft);
 }
 
 @media screen and (max-width: 480px) {
