@@ -116,3 +116,34 @@
 ### 7C — Config 更新
 - `title` 和 `description` 去 Minecraft 化
 - Nav 链接精简（移除 Demo，Docs 指向新指南）
+
+---
+
+## 8 — Docs Architecture Redesign & Final Polish
+
+**Branch:** `template/vitepress`
+
+### 8A — DocsBrowser SPA → 原生 .md + DocsSidebar
+- 新建 `DocsSidebar.vue`：可折叠分组侧边栏，硬编码导航结构
+- 新建 5 个 `docs/*.md`：quick-start、customization、deployment、blogging、components
+- 修改 `Layout.vue`：docs 路由自动渲染 DocsSidebar + 内容区
+- 修改 `docs/index.md`：LinkCard 网格入口替代旧 DocsBrowser
+- 修改 `index.ts`：注册 DocsSidebar 组件
+
+### 8B — 旧文件清理
+- 删除 `DocsBrowser.vue`、`DocTree.vue`、`DocViewer.vue`（旧 SPA 三件套）
+- 删除 `docs.ts`（旧数据层）
+- 删除 `demo.md`（内容已迁入 `docs/components.md`）
+
+### 8C — 项目治理
+- 新建 `AGENTS.md`：模型约束指令（摧毁性操作、构建验证、Git 操作、项目约定）
+- `config.ts` 添加 `srcExclude` 排除项目文件（dev-notes、AGENTS、CHANGELOG、README、LICENSE）
+
+### 8D — 去 Minecraft 化收尾
+- `config.ts`：title → "Pixel UI"，description 移除 Minecraft 引用
+- `README.md`：项目名 → "Pixel UI Template"，CSS 变量示例更新为 `--pixel-*`，移除 Mojang 免责声明
+
+### 8E — 像素字体方案
+- 制定三层字体栈计划：Ark Pixel 12px（标题）+ Monocraft（代码）+ 系统字体（正文）
+- Unifont 作为 fallback + 可选 `.pixel-text` 工具类
+- 计划文档：`dev-notes/pixel-font-plan.md`
