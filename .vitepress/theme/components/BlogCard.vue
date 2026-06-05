@@ -78,7 +78,7 @@ defineProps({
 .overview-content {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.5rem;
   flex: 1;
 }
 
@@ -104,6 +104,7 @@ defineProps({
 
 .overview-button {
   align-self: flex-start;
+  padding: 0.4rem 1rem;
 }
 
 @media screen and (max-width: 600px) {
