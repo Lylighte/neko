@@ -1,4 +1,4 @@
-.mc-border {
+.pixel-border {
   box-sizing: border-box;
   color: #fff;
   background-color: color-mix(in srgb, white, black 75%);

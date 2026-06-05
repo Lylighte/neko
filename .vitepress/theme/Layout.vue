@@ -29,7 +29,7 @@ const articleProps = computed(() => {
 </script>
 
 <template>
-  <div class="minecraft-layout">
+  <div class="pixel-layout">
     <NavBar />
     <main class="main-content">
       <ArticleView v-if="articleProps" v-bind="articleProps">
@@ -45,17 +45,17 @@ const articleProps = computed(() => {
 </template>
 
 <style>
-/* ── Match VitePress dark palette to Minecraft ── */
-.minecraft-layout {
+/* ── Match VitePress dark palette to Pixel ── */
+.pixel-layout {
   min-height: 100vh;
   background-color: var(--background-color);
 }
 
 /* Remove default VitePress nav, sidebar, doc footer */
-.minecraft-layout :deep(.VPNav),
-.minecraft-layout :deep(.VPSidebar),
-.minecraft-layout :deep(.VPDocFooter),
-.minecraft-layout :deep(.VPLocalNav) {
+.pixel-layout :deep(.VPNav),
+.pixel-layout :deep(.VPSidebar),
+.pixel-layout :deep(.VPDocFooter),
+.pixel-layout :deep(.VPLocalNav) {
   display: none;
 }
 

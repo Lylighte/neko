@@ -1,15 +1,15 @@
 :root {
-  /* Minecraft palette */
-  --minecraft-green: #3c8527;
-  --minecraft-green-light: #6cc349;
-  --minecraft-green-dark: #2a641c;
-  --minecraft-gray-light: #747271;
-  --minecraft-gray: #3d3938;
-  --minecraft-gray-dark: #262524;
-  --minecraft-dark: #171615;
+  /* Pixel palette */
+  --pixel-green: #3c8527;
+  --pixel-green-light: #6cc349;
+  --pixel-green-dark: #2a641c;
+  --pixel-gray-light: #747271;
+  --pixel-gray: #3d3938;
+  --pixel-gray-dark: #262524;
+  --pixel-dark: #171615;
 
   /* Backgrounds */
-  --background-color: var(--minecraft-dark);
+  --background-color: var(--pixel-dark);
   --background-page: #0f0e0d;
   --background-card: #313131;
 
@@ -45,10 +45,10 @@
   --vp-c-text-1: rgba(255, 255, 255, 0.8);
   --vp-c-text-2: rgba(255, 255, 255, 0.6);
   --vp-c-border: #909399;
-  --vp-c-divider: var(--minecraft-gray);
-  --vp-c-brand-1: var(--minecraft-green-light);
-  --vp-c-brand-2: var(--minecraft-green);
-  --vp-c-brand-3: var(--minecraft-green-dark);
+  --vp-c-divider: var(--pixel-gray);
+  --vp-c-brand-1: var(--pixel-green-light);
+  --vp-c-brand-2: var(--pixel-green);
+  --vp-c-brand-3: var(--pixel-green-dark);
   --vp-nav-bg-color: rgba(0, 0, 0, 0.5);
   --vp-layout-max-width: 100%;
 }

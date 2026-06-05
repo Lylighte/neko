@@ -76,10 +76,10 @@ defineProps<{
   bottom: 1rem;
   left: 1rem;
   background: rgba(0, 0, 0, 0.6);
-  color: var(--minecraft-green-light);
+  color: var(--pixel-green-light);
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;
-  border: 1px solid var(--minecraft-green);
+  border: 1px solid var(--pixel-green);
 }
 
 .article-body {
@@ -103,7 +103,7 @@ defineProps<{
   width: 5rem;
   height: 5rem;
   border-radius: 2px;
-  border: 2px solid var(--minecraft-green);
+  border: 2px solid var(--pixel-green);
   object-fit: cover;
   image-rendering: pixelated;
 }
@@ -156,7 +156,7 @@ defineProps<{
   font-size: 1.8rem;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--minecraft-gray);
+  border-bottom: 2px solid var(--pixel-gray);
 }
 
 .article-text {
@@ -193,7 +193,7 @@ defineProps<{
 }
 
 .article-text :deep(blockquote) {
-  border-left: 4px solid var(--minecraft-green);
+  border-left: 4px solid var(--pixel-green);
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   background: rgba(60, 133, 39, 0.1);

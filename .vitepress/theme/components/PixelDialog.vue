@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, ref, watch } from 'vue'
-import MinecraftButtonClassic from './MinecraftButtonClassic.vue'
+import PixelButtonClassic from './PixelButtonClassic.vue'
 
 const modelValue = defineModel<boolean>({ default: false })
 const emits = defineEmits(['confirm'])
@@ -59,21 +59,21 @@ onMounted(() => {
     :style="{ opacity: opacity }"
     @click.self="closeDialog"
   >
-    <div class="dialog mc-border" @click.stop>
+    <div class="dialog pixel-border" @click.stop>
       <text class="dialog-title" v-if="props.title.trim() !== ''">{{ props.title }}</text>
       <slot></slot>
       <slot name="footer">
         <div class="dialog-footer">
-          <MinecraftButtonClassic class="dialog-footer-btn" @click="closeDialog">
+          <PixelButtonClassic class="dialog-footer-btn" @click="closeDialog">
             {{ props.cancelText }}
-          </MinecraftButtonClassic>
-          <MinecraftButtonClassic
+          </PixelButtonClassic>
+          <PixelButtonClassic
             class="dialog-footer-btn"
             style="margin-left: 1rem"
             @click="onConfirm"
           >
             {{ props.confirmText }}
-          </MinecraftButtonClassic>
+          </PixelButtonClassic>
         </div>
       </slot>
     </div>

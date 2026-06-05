@@ -31,7 +31,7 @@ const flick = (soundUrl: string) => {
 
 <template>
   <input
-    class="minecraft-switch"
+    class="pixel-switch"
     type="checkbox"
     :checked="model"
     @click="flick($props.soundUrl)"
@@ -39,7 +39,7 @@ const flick = (soundUrl: string) => {
 </template>
 
 <style lang="css" scoped>
-.minecraft-switch {
+.pixel-switch {
   appearance: none;
   color: transparent;
   width: 60px;
@@ -47,7 +47,7 @@ const flick = (soundUrl: string) => {
   background-image: url('/UI/toggle_off.png');
 }
 
-.minecraft-switch:hover {
+.pixel-switch:hover {
   appearance: none;
   color: transparent;
   width: 60px;
@@ -55,15 +55,15 @@ const flick = (soundUrl: string) => {
   background-image: url('/UI/toggle_off_hover.png');
 }
 
-.minecraft-switch:checked {
+.pixel-switch:checked {
   background-image: url('/UI/toggle_on.png');
 }
 
-.minecraft-switch:checked:hover {
+.pixel-switch:checked:hover {
   background-image: url('/UI/toggle_on_hover.png');
 }
 
-.minecraft-switch[new=''] {
+.pixel-switch[new=''] {
   appearance: none;
   color: transparent;
   width: 60px;
@@ -71,7 +71,7 @@ const flick = (soundUrl: string) => {
   background-image: url('/UI/toggle_off_new.png');
 }
 
-.minecraft-switch[new='']:checked {
+.pixel-switch[new='']:checked {
   background-image: url('/UI/toggle_on_new.png');
 }
 </style>

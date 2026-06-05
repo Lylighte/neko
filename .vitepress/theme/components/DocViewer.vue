@@ -67,7 +67,7 @@ function renderMarkdown(md: string): string {
   font-size: 1.6rem;
   margin: 0 0 0.75rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--minecraft-gray);
+  border-bottom: 2px solid var(--pixel-gray);
 }
 
 .doc-meta {
@@ -105,12 +105,12 @@ function renderMarkdown(md: string): string {
   font-size: 0.9em;
 }
 .doc-body :deep(blockquote) {
-  border-left: 4px solid var(--minecraft-green);
+  border-left: 4px solid var(--pixel-green);
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   background: rgba(60, 133, 39, 0.1);
 }
-.doc-body :deep(strong) { color: var(--minecraft-green-light); }
+.doc-body :deep(strong) { color: var(--pixel-green-light); }
 
 .doc-empty {
   display: flex;

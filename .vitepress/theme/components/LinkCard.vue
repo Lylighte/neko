@@ -31,10 +31,10 @@ defineProps<{
   position: relative;
   width: 15rem;
   height: 15rem;
-  border-top: 2px solid var(--minecraft-green-light);
-  border-left: 2px solid var(--minecraft-green);
-  border-right: 2px solid var(--minecraft-green);
-  border-bottom: 2px solid var(--minecraft-green-dark);
+  border-top: 2px solid var(--pixel-green-light);
+  border-left: 2px solid var(--pixel-green);
+  border-right: 2px solid var(--pixel-green);
+  border-bottom: 2px solid var(--pixel-green-dark);
   background-position: center;
   background-size: cover;
   background-color: var(--background-card);

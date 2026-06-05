@@ -8,16 +8,16 @@ import 'vitepress/theme'
 // Custom styles
 import './styles/vars.css'
 import './styles/animations.css'
-import './styles/mc-border.css'
+import './styles/pixel-border.css'
 
 // UI Components
-import MinecraftButton from './components/MinecraftButton.vue'
-import MinecraftButtonClassic from './components/MinecraftButtonClassic.vue'
-import MinecraftButton3D from './components/MinecraftButton3D.vue'
-import MinecraftInput from './components/MinecraftInput.vue'
-import MinecraftTextarea from './components/MinecraftTextarea.vue'
-import MinecraftSwitch from './components/MinecraftSwitch.vue'
-import MinecraftDialog from './components/MinecraftDialog.vue'
+import PixelButton from './components/PixelButton.vue'
+import PixelButtonClassic from './components/PixelButtonClassic.vue'
+import PixelButton3D from './components/PixelButton3D.vue'
+import PixelInput from './components/PixelInput.vue'
+import PixelTextarea from './components/PixelTextarea.vue'
+import PixelSwitch from './components/PixelSwitch.vue'
+import PixelDialog from './components/PixelDialog.vue'
 import ScrollToTop from './components/ScrollToTop.vue'
 
 // Layout Components
@@ -33,14 +33,14 @@ import SiteFooter from './components/SiteFooter.vue'
 export default {
   Layout,
   enhanceApp({ app }) {
-    // Register all Minecraft UI components globally
-    app.component('MinecraftButton', MinecraftButton)
-    app.component('MinecraftButtonClassic', MinecraftButtonClassic)
-    app.component('MinecraftButton3D', MinecraftButton3D)
-    app.component('MinecraftInput', MinecraftInput)
-    app.component('MinecraftTextarea', MinecraftTextarea)
-    app.component('MinecraftSwitch', MinecraftSwitch)
-    app.component('MinecraftDialog', MinecraftDialog)
+    // Register all Pixel UI components globally
+    app.component('PixelButton', PixelButton)
+    app.component('PixelButtonClassic', PixelButtonClassic)
+    app.component('PixelButton3D', PixelButton3D)
+    app.component('PixelInput', PixelInput)
+    app.component('PixelTextarea', PixelTextarea)
+    app.component('PixelSwitch', PixelSwitch)
+    app.component('PixelDialog', PixelDialog)
     app.component('ScrollToTop', ScrollToTop)
 
     // Register layout components for use in Markdown

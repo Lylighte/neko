@@ -61,7 +61,7 @@ defineExpose({ docTree })
   flex-shrink: 0;
   padding: 1rem 0;
   background: var(--background-card);
-  border-right: 2px solid var(--minecraft-gray);
+  border-right: 2px solid var(--pixel-gray);
   min-height: calc(100vh - 8rem);
   overflow-y: auto;
 }
@@ -70,8 +70,8 @@ defineExpose({ docTree })
   font-weight: bold;
   font-size: 1rem;
   padding: 0 1rem 0.75rem 1rem;
-  color: var(--minecraft-green-light);
-  border-bottom: 1px solid var(--minecraft-gray);
+  color: var(--pixel-green-light);
+  border-bottom: 1px solid var(--pixel-gray);
   margin-bottom: 0.5rem;
 }
 
@@ -113,7 +113,7 @@ defineExpose({ docTree })
 
 .tree-item.active {
   background: rgba(60, 133, 39, 0.2);
-  color: var(--minecraft-green-light);
+  color: var(--pixel-green-light);
 }
 
 .tree-children {
@@ -125,7 +125,7 @@ defineExpose({ docTree })
     width: 100%;
     min-height: auto;
     border-right: none;
-    border-bottom: 2px solid var(--minecraft-gray);
+    border-bottom: 2px solid var(--pixel-gray);
   }
 }
 </style>

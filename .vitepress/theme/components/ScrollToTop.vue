@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import MinecraftButton from './MinecraftButton.vue'
+import PixelButton from './PixelButton.vue'
 
 const scrollToTop = () => {
   if (typeof window === 'undefined') return
@@ -29,14 +29,14 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <MinecraftButton
+  <PixelButton
     class="scroll-to-top"
     :sound-url="''"
     @click="scrollToTop"
     :type="shouldShow ? 'show' : 'hide'"
   >
     ↑
-  </MinecraftButton>
+  </PixelButton>
 </template>
 
 <style lang="css" scoped>

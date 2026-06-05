@@ -111,7 +111,7 @@ const iconMap: Record<string, unknown> = {
 }
 
 .link-item:hover {
-  color: var(--minecraft-green-light);
+  color: var(--pixel-green-light);
 }
 
 .link-icon {

@@ -23,26 +23,26 @@ Three button variants with click sound and hover/press states.
 
 ### Default
 
-<MinecraftButton>Default Button</MinecraftButton>
+<PixelButton>Default Button</PixelButton>
 
 ```html
-<MinecraftButton>Default Button</MinecraftButton>
+<PixelButton>Default Button</PixelButton>
 ```
 
 ### Dark
 
-<MinecraftButton dark>Dark Button</MinecraftButton>
+<PixelButton dark>Dark Button</PixelButton>
 
 ```html
-<MinecraftButton dark>Dark Button</MinecraftButton>
+<PixelButton dark>Dark Button</PixelButton>
 ```
 
 ### Mute (no click sound)
 
-<MinecraftButton sound-url="">Mute Button</MinecraftButton>
+<PixelButton sound-url="">Mute Button</PixelButton>
 
 ```html
-<MinecraftButton sound-url="">Mute Button</MinecraftButton>
+<PixelButton sound-url="">Mute Button</PixelButton>
 ```
 
 ---
@@ -51,10 +51,10 @@ Three button variants with click sound and hover/press states.
 
 Full-width textured button with hover highlight.
 
-<MinecraftButtonClassic>Classic Button</MinecraftButtonClassic>
+<PixelButtonClassic>Classic Button</PixelButtonClassic>
 
 ```html
-<MinecraftButtonClassic>Classic Button</MinecraftButtonClassic>
+<PixelButtonClassic>Classic Button</PixelButtonClassic>
 ```
 
 ---
@@ -63,13 +63,13 @@ Full-width textured button with hover highlight.
 
 Pressable 3D button with depth effect.
 
-<MinecraftButton3D>3D Button</MinecraftButton3D>
+<PixelButton3D>3D Button</PixelButton3D>
 
-<MinecraftButton3D height="10rem">Tall 3D Button</MinecraftButton3D>
+<PixelButton3D height="6rem">Tall 3D Button</PixelButton3D>
 
 ```html
-<MinecraftButton3D>3D Button</MinecraftButton3D>
-<MinecraftButton3D height="10rem">Tall 3D Button</MinecraftButton3D>
+<PixelButton3D>3D Button</PixelButton3D>
+<PixelButton3D height="6rem">Tall 3D Button</PixelButton3D>
 ```
 
 ---
@@ -78,12 +78,12 @@ Pressable 3D button with depth effect.
 
 Text input with pixel-art border.
 
-<MinecraftInput v-model="inputText" />
+<PixelInput v-model="inputText" />
 
 <p v-if="inputText">You typed: <strong>{{ inputText }}</strong></p>
 
 ```html
-<MinecraftInput v-model="inputText" />
+<PixelInput v-model="inputText" />
 ```
 
 ---
@@ -92,10 +92,10 @@ Text input with pixel-art border.
 
 Multi-line input with auto-resize.
 
-<MinecraftTextarea v-model="textareaText" style="width:100%;min-height:6rem" />
+<PixelTextarea v-model="textareaText" style="width:100%;min-height:6rem" />
 
 ```html
-<MinecraftTextarea v-model="textareaText" />
+<PixelTextarea v-model="textareaText" />
 ```
 
 ---
@@ -105,12 +105,12 @@ Multi-line input with auto-resize.
 Toggle switch with on/off sprites.
 
 <div style="display:flex;align-items:center;gap:1rem;margin:1rem 0">
-  <MinecraftSwitch v-model="switchOn" />
+  <PixelSwitch v-model="switchOn" />
   <span>{{ switchOn ? 'ON' : 'OFF' }}</span>
 </div>
 
 ```html
-<MinecraftSwitch v-model="switchOn" />
+<PixelSwitch v-model="switchOn" />
 ```
 
 ---
@@ -119,17 +119,17 @@ Toggle switch with on/off sprites.
 
 Modal dialog with title, content slot, and footer buttons.
 
-<MinecraftButton @click="dialogOpen = true">Open Dialog</MinecraftButton>
+<PixelButton @click="dialogOpen = true">Open Dialog</PixelButton>
 
-<MinecraftDialog v-model="dialogOpen" title="Confirm Action" @confirm="dialogOpen = false">
+<PixelDialog v-model="dialogOpen" title="Confirm Action" @confirm="dialogOpen = false">
   <p>Are you sure you want to proceed?</p>
   <p style="color:#aaa;font-size:0.9rem">This action cannot be undone.</p>
-</MinecraftDialog>
+</PixelDialog>
 
 ```html
-<MinecraftButton @click="dialogOpen = true">Open Dialog</MinecraftButton>
+<PixelButton @click="dialogOpen = true">Open Dialog</PixelButton>
 
-<MinecraftDialog
+<PixelDialog
   v-model="dialogOpen"
   title="Confirm Action"
   cancel-text="Cancel"
@@ -137,22 +137,22 @@ Modal dialog with title, content slot, and footer buttons.
   @confirm="dialogOpen = false"
 >
   <p>Are you sure you want to proceed?</p>
-</MinecraftDialog>
+</PixelDialog>
 ```
 
 ---
 
 ## Border Utility
 
-Apply `.mc-border` class for the pixel-art border frame.
+Apply `.pixel-border` class for the pixel-art border frame.
 
-<div class="mc-border" style="padding:2rem;text-align:center;max-width:400px;margin:1rem auto">
-  <p>Content inside <code>.mc-border</code></p>
+<div class="pixel-border" style="padding:2rem;text-align:center;max-width:400px;margin:1rem auto">
+  <p>Content inside <code>.pixel-border</code></p>
 </div>
 
 ```html
-<div class="mc-border">
-  <p>Content inside .mc-border</p>
+<div class="pixel-border">
+  <p>Content inside .pixel-border</p>
 </div>
 ```
 
@@ -160,40 +160,40 @@ Apply `.mc-border` class for the pixel-art border frame.
 
 ## Props Reference
 
-### MinecraftButton
+### PixelButton
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `dark` | `boolean` | `false` | Dark color scheme |
 | `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL (empty to mute) |
 
-### MinecraftButtonClassic
+### PixelButtonClassic
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
 
-### MinecraftButton3D
+### PixelButton3D
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `height` | `string` | `'12rem'` | Button height (CSS value) |
+| `height` | `string` | `'6rem'` | Button height (CSS value) |
 | `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
 
-### MinecraftInput / MinecraftTextarea
+### PixelInput / PixelTextarea
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `model-value` | `string` | `''` | v-model binding |
 
-### MinecraftSwitch
+### PixelSwitch
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `model-value` | `boolean` | `false` | v-model binding |
 | `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
 
-### MinecraftDialog
+### PixelDialog
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|

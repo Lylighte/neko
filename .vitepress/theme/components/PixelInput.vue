@@ -5,11 +5,11 @@ const model = defineModel<string>({
 </script>
 
 <template>
-  <input class="minecraft-input" type="text" v-model="model" />
+  <input class="pixel-input" type="text" v-model="model" />
 </template>
 
 <style lang="css" scoped>
-.minecraft-input {
+.pixel-input {
   letter-spacing: 1px;
   padding: 2px;
   border: 2px solid;
@@ -20,7 +20,7 @@ const model = defineModel<string>({
   font-size: 1rem;
 }
 
-.minecraft-input:disabled {
+.pixel-input:disabled {
   color: #aaa;
   background-color: #424242;
 }

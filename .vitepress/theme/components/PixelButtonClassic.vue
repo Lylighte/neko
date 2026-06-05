@@ -15,7 +15,7 @@ const soundOn = (url: string) => {
 </script>
 
 <template>
-  <div class="minecraft-button-classic" @click="soundOn($props.soundUrl)">
+  <div class="pixel-button-classic" @click="soundOn($props.soundUrl)">
     <div class="title">
       <slot></slot>
     </div>
@@ -23,7 +23,7 @@ const soundOn = (url: string) => {
 </template>
 
 <style lang="css" scoped>
-.minecraft-button-classic {
+.pixel-button-classic {
   height: 3rem;
   width: 100%;
   cursor: pointer;
@@ -34,7 +34,7 @@ const soundOn = (url: string) => {
   border: 2px solid #000;
 }
 
-.minecraft-button-classic[activated='true'] .title {
+.pixel-button-classic[activated='true'] .title {
   background-color: rgba(100, 100, 255, 0.45);
   text-shadow: 2px 2px #202013cc;
   color: #ffffa0;
@@ -43,13 +43,13 @@ const soundOn = (url: string) => {
     inset 2px 2px #fff5;
 }
 
-.minecraft-button-classic:hover .title {
+.pixel-button-classic:hover .title {
   background-color: rgba(100, 100, 255, 0.45);
   text-shadow: 2px 2px #202013cc;
   color: #ffffa0;
 }
 
-.minecraft-button-classic:active .title {
+.pixel-button-classic:active .title {
   box-shadow:
     inset -2px -4px #0004,
     inset 2px 2px #fff5;

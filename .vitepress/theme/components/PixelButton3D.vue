@@ -24,7 +24,7 @@ const soundOn = (url: string) => {
 
 <template>
   <div
-    class="minecraft-button-3d"
+    class="pixel-button-3d"
     :class="{ 'is-pressed': pressed }"
     :style="{
       height: pressed ? `calc(${$props.height} - 12px)` : $props.height,
@@ -39,7 +39,7 @@ const soundOn = (url: string) => {
 </template>
 
 <style lang="css" scoped>
-.minecraft-button-3d {
+.pixel-button-3d {
   padding: 1rem 2rem;
   position: relative;
   cursor: pointer;
@@ -50,22 +50,22 @@ const soundOn = (url: string) => {
   box-shadow: 4px 4px rgba(0, 0, 0, 0.7);
 }
 
-.minecraft-button-3d:hover::after {
+.pixel-button-3d:hover::after {
   background-color: #ffffff08;
 }
 
-.minecraft-button-3d.is-pressed {
+.pixel-button-3d.is-pressed {
   transform: translateY(12px);
   margin-bottom: 12px;
 }
 
-.minecraft-button-3d.is-pressed::after {
+.pixel-button-3d.is-pressed::after {
   box-shadow:
     2px 2px 0 0 rgba(178, 178, 178, 0.5) inset,
     -2px -2px 0 0 rgba(153, 153, 153, 0.5) inset;
 }
 
-.minecraft-button-3d::after {
+.pixel-button-3d::after {
   display: block;
   content: '';
   position: absolute;

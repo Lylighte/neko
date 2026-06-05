@@ -20,7 +20,7 @@ const soundOn = (url: string) => {
 
 <template>
   <div
-    :class="$props.dark ? 'minecraft-button dark' : 'minecraft-button'"
+    :class="$props.dark ? 'pixel-button dark' : 'pixel-button'"
     @click="soundOn($props.soundUrl)"
   >
     <slot></slot>
@@ -28,7 +28,7 @@ const soundOn = (url: string) => {
 </template>
 
 <style lang="css" scoped>
-.minecraft-button {
+.pixel-button {
   user-select: none;
   display: flex;
   align-items: center;
@@ -42,26 +42,26 @@ const soundOn = (url: string) => {
   cursor: pointer;
 }
 
-.minecraft-button.dark {
+.pixel-button.dark {
   color: #fff;
   outline: 2px solid #333;
   background-color: #303030;
   border-image: var(--btn-border-image);
 }
 
-.minecraft-button:hover {
+.pixel-button:hover {
   color: #fff;
   outline: 2px solid #fff;
   background-color: #43a01c;
   border-image: var(--btn-border-image-hover);
 }
 
-.minecraft-button:active {
+.pixel-button:active {
   background-color: #8b8b8b;
   border-image: var(--btn-border-image-active);
 }
 
-.minecraft-button:active:hover {
+.pixel-button:active:hover {
   color: #fff;
   outline: 2px solid #fff;
   background-color: #43a01c;

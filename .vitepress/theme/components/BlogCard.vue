@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import MinecraftButton from './MinecraftButton.vue'
+import PixelButton from './PixelButton.vue'
 
 defineProps({
   title: {
@@ -38,11 +38,11 @@ defineProps({
     <div class="overview-content">
       <a :href="$props.link" class="overview-title">{{ $props.title }}</a>
       <p class="overview-brief">{{ $props.brief }}</p>
-      <MinecraftButton class="overview-button" :sound-url="''">
+      <PixelButton class="overview-button" :sound-url="''">
         <a :href="$props.link" style="color: inherit; text-decoration: none">
           {{ $props.buttonText }} &gt;
         </a>
-      </MinecraftButton>
+      </PixelButton>
     </div>
   </div>
 </template>
@@ -92,7 +92,7 @@ defineProps({
 }
 
 .overview-title:hover {
-  color: var(--minecraft-green-light);
+  color: var(--pixel-green-light);
 }
 
 .overview-brief {
