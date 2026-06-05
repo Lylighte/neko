@@ -123,6 +123,7 @@ const sliderStyle = computed(() => {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  font-family: 'Ark Pixel', 'Unifont', monospace;
 }
 
 .nav-item:hover {
