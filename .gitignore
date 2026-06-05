@@ -18,6 +18,10 @@ coverage
 .vitepress/dist
 .vitepress/cache
 
+# Font temporary files
+public/fonts/*.zip
+public/fonts/*-temp/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
