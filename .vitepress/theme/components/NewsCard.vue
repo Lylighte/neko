@@ -92,7 +92,7 @@ defineProps({
 }
 
 .overview-title:hover {
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
 }
 
 .overview-brief {

@@ -93,7 +93,7 @@ defineProps({
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
   margin: 0.5rem 0 0 0;
 }
 

@@ -78,9 +78,9 @@ Customize colors in `.vitepress/theme/styles/vars.css`:
 
 ```css
 :root {
-  --pixel-green: #3c8527;
-  --pixel-green-light: #6cc349;
-  --pixel-green-dark: #2a641c;
+  --pixel-brand: #d84b4b;
+  --pixel-brand-light: #e48181;
+  --pixel-brand-dark: #7e1b1b;
   --background-color: var(--pixel-dark);
   --background-card: #313131;
 }

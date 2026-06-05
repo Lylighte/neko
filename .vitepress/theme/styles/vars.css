@@ -13,9 +13,9 @@ html {
   /* ───────────────────────────────────────────
      Layer 1: Primitives
      ─────────────────────────────────────────── */
-  --pixel-green: #d84b4b;
-  --pixel-green-light: #e48181;
-  --pixel-green-dark: #7e1b1b;
+  --pixel-brand: #d84b4b;
+  --pixel-brand-light: #e48181;
+  --pixel-brand-dark: #7e1b1b;
   --pixel-gray-light: #747271;
   --pixel-gray: #3d3938;
   --pixel-gray-dark: #262524;
@@ -33,9 +33,9 @@ html {
   --pixel-color-text: rgba(255, 255, 255, 0.8);
   --pixel-color-text-muted: rgba(255, 255, 255, 0.7);
   --pixel-color-text-inverse: #000;
-  --pixel-color-accent: var(--pixel-green);
-  --pixel-color-accent-light: var(--pixel-green-light);
-  --pixel-color-accent-dark: var(--pixel-green-dark);
+  --pixel-color-accent: var(--pixel-brand);
+  --pixel-color-accent-light: var(--pixel-brand-light);
+  --pixel-color-accent-dark: var(--pixel-brand-dark);
   --pixel-color-accent-soft: rgba(216, 75, 75, 0.1);
   --pixel-color-border: var(--pixel-gray);
   --pixel-color-border-dark: #000;

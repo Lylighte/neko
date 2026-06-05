@@ -110,11 +110,11 @@ const iconNames: Record<string, string> = {
 }
 
 .highlight-name {
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
 }
 
 #declaration a {
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -147,7 +147,7 @@ const iconNames: Record<string, string> = {
 }
 
 .link-item:hover {
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
 }
 
 .link-icon {

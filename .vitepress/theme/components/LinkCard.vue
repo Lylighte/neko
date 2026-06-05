@@ -31,10 +31,10 @@ defineProps<{
   position: relative;
   width: 15rem;
   height: 15rem;
-  border-top: 2px solid var(--pixel-green-light);
-  border-left: 2px solid var(--pixel-green);
-  border-right: 2px solid var(--pixel-green);
-  border-bottom: 2px solid var(--pixel-green-dark);
+  border-top: 2px solid var(--pixel-brand-light);
+  border-left: 2px solid var(--pixel-brand);
+  border-right: 2px solid var(--pixel-brand);
+  border-bottom: 2px solid var(--pixel-brand-dark);
   background-position: center;
   background-size: cover;
   background-color: var(--pixel-card-bg);

@@ -43,9 +43,9 @@ All colors are defined as CSS custom properties in `.vitepress/theme/styles/vars
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `--pixel-green` | `#3c8527` | Primary accent color |
-| `--pixel-green-light` | `#6cc349` | Light accent (hover states) |
-| `--pixel-green-dark` | `#2a641c` | Dark accent (active states) |
+| `--pixel-brand` | `#d84b4b` | Primary accent color |
+| `--pixel-brand-light` | `#e48181` | Light accent (hover states) |
+| `--pixel-brand-dark` | `#7e1b1b` | Dark accent (active states) |
 | `--pixel-gray-light` | `#747271` | Light gray (borders) |
 | `--pixel-gray` | `#3d3938` | Mid gray (card backgrounds) |
 | `--pixel-gray-dark` | `#262524` | Dark gray (surface) |
@@ -56,9 +56,9 @@ Example — switch to a blue theme:
 
 ```css
 :root {
-  --pixel-green: #2563eb;
-  --pixel-green-light: #60a5fa;
-  --pixel-green-dark: #1d4ed8;
+  --pixel-brand: #2563eb;
+  --pixel-brand-light: #60a5fa;
+  --pixel-brand-dark: #1d4ed8;
 }
 ```
 

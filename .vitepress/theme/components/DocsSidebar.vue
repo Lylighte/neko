@@ -74,7 +74,7 @@ const isActive = (link: string) => {
   font-weight: bold;
   font-size: 1rem;
   padding: 0 1rem 0.75rem 1rem;
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
   border-bottom: 1px solid var(--pixel-gray);
   margin-bottom: 0.5rem;
 }
@@ -121,8 +121,8 @@ const isActive = (link: string) => {
 }
 
 .sidebar-item.active {
-  color: var(--pixel-green-light);
-  border-left-color: var(--pixel-green);
+  color: var(--pixel-brand-light);
+  border-left-color: var(--pixel-brand);
   background: var(--pixel-sidebar-active-bg);
 }
 

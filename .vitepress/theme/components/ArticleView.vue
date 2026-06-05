@@ -76,10 +76,10 @@ defineProps<{
   bottom: 1rem;
   left: 1rem;
   background: var(--pixel-article-category-bg);
-  color: var(--pixel-green-light);
+  color: var(--pixel-brand-light);
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;
-  border: 1px solid var(--pixel-green);
+  border: 1px solid var(--pixel-brand);
 }
 
 .article-body {
@@ -103,7 +103,7 @@ defineProps<{
   width: 5rem;
   height: 5rem;
   border-radius: 2px;
-  border: 2px solid var(--pixel-green);
+  border: 2px solid var(--pixel-brand);
   object-fit: cover;
   image-rendering: pixelated;
 }
@@ -193,7 +193,7 @@ defineProps<{
 }
 
 .article-text :deep(blockquote) {
-  border-left: 4px solid var(--pixel-green);
+  border-left: 4px solid var(--pixel-brand);
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   background: var(--pixel-color-accent-soft);
