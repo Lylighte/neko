@@ -160,10 +160,11 @@ html {
   --pixel-hero-title-color: #fff;
 
   /* SiteFooter */
-  --pixel-footer-text: var(--pixel-color-text-muted);
+  --pixel-footer-title: #fff;
+  --pixel-footer-text: #ccc;
   --pixel-footer-border: #909399;
   --pixel-footer-copyright: rgb(128, 128, 128);
-  --pixel-footer-declaration: #666;
+  --pixel-footer-declaration: #999;
 
   /* ArticleView */
   --pixel-article-category-bg: rgba(0, 0, 0, 0.6);

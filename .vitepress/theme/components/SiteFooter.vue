@@ -4,22 +4,36 @@ import BilibiliIcon from './icons/BilibiliIcon.vue'
 import GithubIcon from './icons/GithubIcon.vue'
 import QQIcon from './icons/QQIcon.vue'
 
-const { theme } = useData()
+const { theme, site } = useData()
 
 const iconMap: Record<string, unknown> = {
   github: GithubIcon,
   bilibili: BilibiliIcon,
   qq: QQIcon,
 }
+
+const iconNames: Record<string, string> = {
+  github: 'GitHub',
+  bilibili: 'Bilibili',
+  qq: 'QQ',
+}
 </script>
 
 <template>
   <div class="footer-area">
     <div class="footer-description">
-      <p class="footer-name">{{ theme.siteTitle || 'Your Organization' }}</p>
-      <span>{{ theme.siteDescription || '' }}</span>
-      <span id="copyright">
+      <p class="footer-name">{{ site.title || 'Your Organization' }}</p>
+      <span>{{ site.description || '' }}</span>
+      <span id="copyright" v-if="theme.footer?.copyright">
+        {{ theme.footer.copyright }}
+      </span>
+      <span id="copyright" v-else>
         © {{ new Date().getFullYear() }} - All rights reserved
+      </span>
+      <span id="declaration">
+        Theme <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> is powered by
+        <a href="https://github.com/RandomLemon/neco" target="_blank" rel="noopener">neco</a>. Thanks to
+        <span class="highlight-name">int15</span> &amp; <span class="highlight-name">kingcq</span> for their work.
       </span>
       <span id="declaration">
         NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR
@@ -39,7 +53,7 @@ const iconMap: Record<string, unknown> = {
           rel="noopener"
         >
           <component :is="iconMap[link.icon]" class="link-icon" v-if="link.icon && iconMap[link.icon]" />
-          {{ link.text || link.link }}
+          {{ link.text || iconNames[link.icon] || link.link }}
         </a>
       </div>
     </div>
@@ -61,18 +75,19 @@ const iconMap: Record<string, unknown> = {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  max-width: 30rem;
+  max-width: 40rem;
 }
 
 .footer-name {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  color: var(--pixel-footer-title);
 }
 
 .footer-description span {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   color: var(--pixel-footer-text);
 }
 
@@ -82,9 +97,25 @@ const iconMap: Record<string, unknown> = {
 }
 
 #declaration {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--pixel-footer-declaration);
-  margin-top: 0.5rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  line-height: 1.3;
+}
+
+.highlight-name {
+  color: var(--pixel-green-light);
+}
+
+#declaration a {
+  color: var(--pixel-green-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#declaration a:hover {
+  color: #fff;
 }
 
 .footer-links {

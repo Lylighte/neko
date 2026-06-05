@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Pixel UI',
+  title: 'Pixel Eco',
   description: 'A VitePress template with retro pixel-style UI components',
   srcExclude: ['dev-notes/**', 'AGENTS.md', 'CHANGELOG.md', 'README.md', 'LICENSE'],
   markdown: {
@@ -15,11 +15,10 @@ export default defineConfig({
       { text: 'Docs', link: '/docs/' },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' },
+      { icon: 'github', link: 'https://github.com', text: 'GitHub Repo' } as any,
     ],
     footer: {
-      message: '',
-      copyright: '',
+      copyright: '© 2026-Present Pixel Eco. All rights reserved.',
     },
   },
 })
