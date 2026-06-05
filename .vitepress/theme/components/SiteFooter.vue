@@ -39,6 +39,11 @@ const iconNames: Record<string, string> = {
         NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR
         MICROSOFT.
       </span>
+      <!-- ICP备案 — 取消注释并填入备案号即可启用
+      <span id="declaration">
+        <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">皖ICP备2025XXXXXX号</a>
+      </span>
+      -->
     </div>
 
     <div class="footer-links">
