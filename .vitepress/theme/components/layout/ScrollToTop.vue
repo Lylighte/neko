@@ -32,7 +32,6 @@ onUnmounted(() => {
   <PixelButton
     class="scroll-to-top"
     :class="{ visible: shouldShow }"
-    :sound-url="''"
     @click="scrollToTop"
   >
     ↑

@@ -30,7 +30,7 @@ const soundOn = (url: string) => {
 <style lang="css" scoped>
 .pixel-button {
   user-select: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--pixel-btn-text);

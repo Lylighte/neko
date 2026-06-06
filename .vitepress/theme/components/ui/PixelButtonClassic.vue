@@ -24,14 +24,16 @@ const soundOn = (url: string) => {
 
 <style lang="css" scoped>
 .pixel-button-classic {
+  display: inline-flex;
+  align-items: center;
   height: 3rem;
-  width: 100%;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
   background: var(--pixel-btn-classic-bg);
   image-rendering: pixelated;
   border: var(--pixel-btn-border);
+  box-sizing: border-box;
 }
 
 .pixel-button-classic[activated='true'] .title {
@@ -59,9 +61,8 @@ const soundOn = (url: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  height: 100%;
+  flex: 1;
+  align-self: stretch;
   padding-bottom: 0.3em;
 
   color: var(--pixel-btn-classic-text);

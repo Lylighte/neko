@@ -38,11 +38,11 @@ defineProps({
     <div class="overview-content">
       <a :href="$props.link" class="overview-title">{{ $props.title }}</a>
       <p class="overview-brief">{{ $props.brief }}</p>
-      <PixelButton3D class="overview-button">
-        <a :href="$props.link" style="color: inherit; text-decoration: none">
+      <a :href="$props.link" class="overview-button-wrap">
+        <PixelButton3D class="overview-button">
           {{ $props.buttonText }} &gt;
-        </a>
-      </PixelButton3D>
+        </PixelButton3D>
+      </a>
     </div>
   </div>
 </template>
@@ -102,8 +102,12 @@ defineProps({
   user-select: none;
 }
 
-.overview-button {
+.overview-button-wrap {
+  text-decoration: none;
   align-self: flex-start;
+}
+
+.overview-button {
   padding: 0.4rem 1rem;
 }
 

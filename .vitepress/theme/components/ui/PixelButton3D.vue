@@ -40,6 +40,8 @@ const soundOn = (url: string) => {
 
 <style lang="css" scoped>
 .pixel-button-3d {
+  display: inline-flex;
+  flex-direction: column;
   padding: 1rem 2rem;
   position: relative;
   cursor: pointer;
@@ -48,6 +50,7 @@ const soundOn = (url: string) => {
   border: 2px solid var(--pixel-btn-3d-border);
   transition: all 0.1s ease-in-out;
   box-shadow: var(--pixel-shadow-hard);
+  box-sizing: border-box;
 }
 
 .pixel-button-3d:hover::after {
