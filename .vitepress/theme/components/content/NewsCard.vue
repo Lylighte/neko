@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import PixelButton from '../ui/PixelButton.vue'
+import PixelButton3D from '../ui/PixelButton3D.vue'
 
 defineProps({
   title: {
@@ -38,11 +38,11 @@ defineProps({
     <div class="overview-content">
       <a :href="$props.link" class="overview-title">{{ $props.title }}</a>
       <p class="overview-brief">{{ $props.brief }}</p>
-      <PixelButton class="overview-button" :sound-url="''">
+      <PixelButton3D class="overview-button">
         <a :href="$props.link" style="color: inherit; text-decoration: none">
           {{ $props.buttonText }} &gt;
         </a>
-      </PixelButton>
+      </PixelButton3D>
     </div>
   </div>
 </template>

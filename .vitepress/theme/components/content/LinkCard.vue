@@ -2,8 +2,8 @@
   <a
     class="link-card"
     :href="link.url"
-    target="_blank"
-    rel="noopener"
+    :target="isExternal(link.url) ? '_blank' : undefined"
+    :rel="isExternal(link.url) ? 'noopener' : undefined"
     :style="{ backgroundImage: link.image ? `url(${link.image})` : undefined }"
   >
     <div class="link-content">
@@ -14,6 +14,10 @@
 </template>
 
 <script lang="ts" setup>
+const isExternal = (url: string) => {
+  return url.startsWith('http://') || url.startsWith('https://')
+}
+
 defineProps<{
   link: {
     name: string

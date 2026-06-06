@@ -58,14 +58,24 @@ Full-width textured button with hover highlight.
 
 Pressable 3D button with depth effect.
 
-<PixelButton3D>3D Button</PixelButton3D>
-
-<PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
+<div class="demo-3d-row">
+  <PixelButton3D>3D Button</PixelButton3D>
+  <PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
+</div>
 
 ```html
 <PixelButton3D>3D Button</PixelButton3D>
 <PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
 ```
+
+<style>
+.demo-3d-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  min-height: 10rem;
+}
+</style>
 
 ---
 

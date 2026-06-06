@@ -35,8 +35,8 @@ const soundOn = (url: string) => {
   justify-content: center;
   color: var(--pixel-btn-text);
   padding: 1rem;
-  outline: var(--pixel-btn-border);
-  border: 2px solid var(--pixel-btn-outline-dark);
+  outline: 2px solid transparent;
+  border: 2px solid transparent;
   background-color: var(--pixel-btn-bg-base);
   box-shadow:
     inset 2px 2px 0 0 var(--pixel-btn-shadow-light),
@@ -46,7 +46,7 @@ const soundOn = (url: string) => {
 
 .pixel-button.dark {
   color: var(--pixel-btn-text-hover);
-  outline: 2px solid var(--pixel-btn-outline-dark);
+  outline: 2px solid transparent;
   background-color: var(--pixel-btn-bg-dark);
   box-shadow:
     inset 2px 2px 0 0 var(--pixel-btn-shadow-light),

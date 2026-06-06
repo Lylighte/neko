@@ -4,7 +4,7 @@ import { ref } from 'vue'
 defineProps({
   height: {
     type: String,
-    default: '6rem',
+    default: '4rem',
   },
   soundUrl: {
     type: String,
@@ -27,7 +27,7 @@ const soundOn = (url: string) => {
     class="pixel-button-3d"
     :class="{ 'is-pressed': pressed }"
     :style="{
-      height: $props.height,
+      height: pressed ? `calc(${$props.height} - var(--pixel-btn-3d-offset))` : $props.height,
     }"
     @click="soundOn($props.soundUrl)"
     @mousedown="pressed = true"
@@ -56,6 +56,7 @@ const soundOn = (url: string) => {
 
 .pixel-button-3d.is-pressed {
   transform: translateY(var(--pixel-btn-3d-offset));
+  margin-bottom: var(--pixel-btn-3d-offset);
 }
 
 .pixel-button-3d.is-pressed::after {
@@ -74,9 +75,9 @@ const soundOn = (url: string) => {
   height: 100%;
   z-index: 1;
   box-shadow:
-    0 -12px 0 0 var(--pixel-btn-3d-shadow-top) inset,
+    0 calc(-1 * var(--pixel-btn-3d-offset)) 0 0 var(--pixel-btn-3d-shadow-top) inset,
     2px 2px 0 0 var(--pixel-btn-3d-highlight) inset,
-    -2px -16px 0 0 var(--pixel-btn-3d-shadow-bottom) inset;
+    -2px calc(-1 * var(--pixel-btn-3d-offset) - 4px) 0 0 var(--pixel-btn-3d-shadow-bottom) inset;
   mix-blend-mode: hard-light;
   pointer-events: none;
   transition: all 0.1s ease-in-out;
