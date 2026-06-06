@@ -4,7 +4,7 @@ export default defineConfig({
   title: 'Pixel Eco',
   description: 'A VitePress template with retro pixel-style UI components',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
   ],
   srcExclude: ['dev-notes/**', 'AGENTS.md', 'CHANGELOG.md', 'README.md', 'LICENSE'],
   markdown: {

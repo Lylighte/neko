@@ -3,7 +3,7 @@ defineProps({
   title: { type: String, default: 'Your Organization' },
   subtitle: { type: String, default: '' },
   description: { type: String, default: '' },
-  logo: { type: String, default: '/logo.svg' },
+  logo: { type: String, default: '/logo.png' },
   background: { type: String, default: '' },
 })
 </script>

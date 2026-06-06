@@ -7,7 +7,7 @@ hasHero: true
   title="Your Organization"
   subtitle="Minecraft Community"
   description="Building a vibrant community where creativity meets technology. We foster an inclusive environment for learning, collaboration, and growth."
-  logo="/logo.svg"
+  logo="/logo.png"
   background="/background/44.jpg"
 />
 

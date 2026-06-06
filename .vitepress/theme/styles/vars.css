@@ -31,8 +31,8 @@ html {
   --pixel-color-bg-card: #313131;
   --pixel-color-bg-overlay: rgba(0, 0, 0, 0.7);
   --pixel-color-bg-input: #616161;
-  --pixel-color-text: rgba(255, 255, 255, 0.8);
-  --pixel-color-text-muted: rgba(255, 255, 255, 0.7);
+  --pixel-color-text: rgba(255, 255, 255, 0.9);
+  --pixel-color-text-muted: rgba(255, 255, 255, 0.8);
   --pixel-color-text-inverse: #000;
   --pixel-color-accent: var(--pixel-brand);
   --pixel-color-accent-light: var(--pixel-brand-light);
@@ -171,10 +171,10 @@ html {
 
   /* SiteFooter */
   --pixel-footer-title: #fff;
-  --pixel-footer-text: #ccc;
+  --pixel-footer-text: #ddd;
   --pixel-footer-border: #909399;
-  --pixel-footer-copyright: rgb(128, 128, 128);
-  --pixel-footer-declaration: #999;
+  --pixel-footer-copyright: #999;
+  --pixel-footer-declaration: #aaa;
 
   /* ArticleView */
   --pixel-article-category-bg: rgba(0, 0, 0, 0.6);
@@ -208,7 +208,7 @@ html {
   --vp-c-bg-elv: var(--pixel-color-bg-card);
   --vp-c-bg-soft: var(--pixel-color-bg-card);
   --vp-c-text-1: var(--pixel-color-text);
-  --vp-c-text-2: rgba(255, 255, 255, 0.6);
+  --vp-c-text-2: rgba(255, 255, 255, 0.7);
   --vp-c-border: #909399;
   --vp-c-divider: var(--pixel-color-border);
   --vp-c-brand-1: var(--pixel-color-accent-light);
