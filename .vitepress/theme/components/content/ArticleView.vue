@@ -61,7 +61,7 @@ defineProps<{
 .article-cover {
   position: relative;
   width: 100%;
-  max-height: 24rem;
+  height: 24rem;
   overflow: hidden;
 }
 
@@ -69,6 +69,7 @@ defineProps<{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .article-cover-category {

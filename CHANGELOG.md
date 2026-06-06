@@ -321,6 +321,7 @@
 - PixelButton 普通态描边透明
 - PixelButton3D 恢复原版下沉效果（translateY + margin-bottom + height 缩减）
 - 像素边框变量化（`--pixel-border-outer` / `--pixel-border-highlight` / `--pixel-border-shadow` / `--pixel-border-fill`）
+- ArticleView 顶图改为固定高度 24rem 居中裁剪
 
 ### 构建验证
 - 5 次提交，每次构建通过，最终构建 2.30s
