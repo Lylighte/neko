@@ -351,3 +351,38 @@
 
 ### 构建验证
 - 构建通过（2.32s）
+
+---
+
+## 17 — Pixel Eco Logo 设计
+
+**Branch:** `template/vitepress`
+
+用 8×8 像素砖块图案替换旧绿色 Logo，贴合 Pixel Eco 理念。
+
+### 17A — Logo 设计
+- 8×8 画布，错缝砌砖布局：砖块 1 (0,0)-(1,5)、砖块 2 (3,2)-(4,7)、砖块 3 (6,0)-(7,5)
+- 间线透明，砖块实心填充
+- 左上光照 3D 着色：高光 `#e48181` → 基色 `#d84b4b` → 过渡 `#c43a3a` → 阴影 `#7e1b1b`
+- 输出 `public/logo.svg`（viewBox 0 0 8 8，渲染 192×192）
+
+### 17B — Favicon 配置
+- `config.ts` 添加 `head` 配置，引用 `/logo.svg` 作为 favicon
+
+### 构建验证
+- 构建通过
+
+---
+
+## 18 — 字体抗锯齿优化
+
+**Branch:** `template/vitepress`
+
+关闭 VitePress 默认的字体抗锯齿设置，提升像素字体边缘锐利度。
+
+- `vars.css`：`text-rendering: optimizeLegibility` → `optimizeSpeed`
+- `vars.css`：`-webkit-font-smoothing: antialiased` → `none`
+- `vars.css`：`-moz-osx-font-smoothing: grayscale` → `unset`
+
+### 构建验证
+- 构建通过（2.65s）

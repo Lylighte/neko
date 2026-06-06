@@ -2,7 +2,7 @@
 
 ## 已完成
 
-（截至 Phase 15，完整日志见 CHANGELOG.md）
+（截至 Phase 18，完整日志见 CHANGELOG.md）
 
 - **docs 架构重构**: DocsBrowser SPA → 原生 `.md` + DocsSidebar ✅
 - **AGENTS.md**: 约束指令写入 ✅
@@ -19,6 +19,9 @@
 - **SiteFooter 变量抽取**: hero padding/width/min-width 抽入 vars.css ✅
 - **全站动效增强 (Phase 14)**: NavBar/ScrollToTop 修复、页面过渡、入场动画、平滑滚动 ✅
 - **Phase 15 — UI 精灵图 → CSS**: PixelButton/PixelInput/pixel-border CSS 替换，PixelSwitch 移除，Classic 纹理替换，组件目录重排 ✅
+- **Phase 16 — 全站字体方案复查**: 注释/变量修正，5 组件标题字体修复 ✅
+- **Phase 17 — Pixel Eco Logo**: 8×8 砖块 Logo + favicon 配置 ✅
+- **Phase 18 — 字体抗锯齿优化**: 关闭抗锯齿提升像素字体锐利度 ✅
 
 ## 待执行
 
@@ -44,6 +47,14 @@
 
 ## 剩余待办
 
-- **字体方案收尾**: Cubic 11 像素字体声明暂移除，待后续 reintroduce
+- **字体方案收尾**: ✅
 - **docs 内容完善**: 各文档页的具体内容填充
 - **README 更新**: 反映最新组件和架构变更
+- **Logo 重制**：设计当前主题的新 Logo ✅
+- **字号对齐计划**: 统一字号为像素字体原生尺寸的整数倍
+
+## 发布前准备
+
+- **RSS 订阅**: 添加 RSS feed 支持
+- **SEO 优化**: 更新 meta 标签，提交 sitemap
+- **Lighthouse 优化**: 确保性能、可访问性、最佳实践得分高
