@@ -2,18 +2,17 @@
 layout: page
 ---
 
-# Documentation
+# 文档
 
-Everything you need to customize and use this template. All docs are standard Markdown files — edit them directly in the `docs/` directory.
-
+这里包含使用和自定义本模板所需的一切内容。所有文档均为标准 Markdown 文件 — 直接在 `docs/` 目录中编辑即可。
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 2rem 0;">
 
-<LinkCard :link="{ name: 'Quick Start', url: '/docs/quick-start', image: '/background/19.jpg', description: 'Install, run, and understand the project structure.' }" />
-<LinkCard :link="{ name: 'Customization', url: '/docs/customization', image: '/background/15.jpg', description: 'Change colors, logo, backgrounds, and navigation.' }" />
-<LinkCard :link="{ name: 'Deployment', url: '/docs/deployment', image: '/background/44.jpg', description: 'Build for production and deploy to static hosting.' }" />
-<LinkCard :link="{ name: 'News Guide', url: '/docs/news', image: '/background/28.jpg', description: 'Write posts with frontmatter, NewsCards, and Markdown.' }" />
-<!-- <LinkCard :link="{ name: 'Component Reference', url: '/docs/components', image: '/background/15.jpg', description: 'Explore all Pixel UI and layout components with live demos.' }" /> -->
+<LinkCard :link="{ name: '快速开始', url: '/docs/quick-start', image: '/background/19.jpg', description: '安装、运行并了解项目结构。' }" />
+<LinkCard :link="{ name: '自定义', url: '/docs/customization', image: '/background/15.jpg', description: '修改颜色、Logo、背景和导航。' }" />
+<LinkCard :link="{ name: '部署', url: '/docs/deployment', image: '/background/44.jpg', description: '构建生产版本并部署到静态托管。' }" />
+<LinkCard :link="{ name: '新闻指南', url: '/docs/news', image: '/background/28.jpg', description: '使用 frontmatter、NewsCard 和 Markdown 撰写文章。' }" />
+<LinkCard :link="{ name: '组件参考', url: '/docs/components', image: '/background/15.jpg', description: '浏览所有 Pixel UI 和布局组件的在线演示。' }" />
 
 </div>
 

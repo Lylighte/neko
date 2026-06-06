@@ -2,57 +2,61 @@
 layout: page
 ---
 
-# Customization
+# 自定义
 
-Make the template your own — change the branding, colors, and layout.
+让模板成为你自己的——更改品牌标识、颜色和布局。
 
-## Site Identity
+## 站点标识
 
-Edit `.vitepress/config.ts`:
+编辑 `.vitepress/config.ts`：
 
 ```ts
 export default defineConfig({
-  title: 'My Site',
-  description: 'A pixel-themed site built with VitePress',
+  title: '我的站点',
+  description: '基于 VitePress 的像素风格站点',
   // ...
 })
 ```
 
 ## Logo
 
-Replace `public/logo.svg` with your own SVG logo. The logo appears in the navigation bar and home page hero.
+替换 `public/logo.png` 为你自己的 Logo。Logo 会出现在导航栏和首页 Hero 中。
 
-## Navigation
+- **`public/logo.png`** — 主 Logo（192×192 PNG）
+- **`public/logo.svg`** — 设计源文件（8×8 viewBox）
+- **`public/favicon.ico`** — 浏览器标签页图标
 
-Add, remove, or reorder nav items in `config.ts`:
+## 导航
+
+在 `config.ts` 中添加、移除或重新排序导航项：
 
 ```ts
 themeConfig: {
   nav: [
-    { text: 'Home', link: '/' },
-    { text: 'News', link: '/news/' },
-    { text: 'About', link: '/about' },
-    { text: 'Docs', link: '/docs/' },
+    { text: '首页', link: '/' },
+    { text: '新闻', link: '/news/' },
+    { text: '关于', link: '/about' },
+    { text: '文档', link: '/docs/' },
   ],
 }
 ```
 
-## Colors
+## 颜色
 
-All colors are defined as CSS custom properties in `.vitepress/theme/styles/vars.css`. Override them to match your brand:
+所有颜色在 `.vitepress/theme/styles/vars.css` 中定义为 CSS 自定义属性。覆盖它们以匹配你的品牌：
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `--pixel-brand` | `#d84b4b` | Primary accent color |
-| `--pixel-brand-light` | `#e48181` | Light accent (hover states) |
-| `--pixel-brand-dark` | `#7e1b1b` | Dark accent (active states) |
-| `--pixel-gray-light` | `#747271` | Light gray (borders) |
-| `--pixel-gray` | `#3d3938` | Mid gray (card backgrounds) |
-| `--pixel-gray-dark` | `#262524` | Dark gray (surface) |
-| `--pixel-dark` | `#171615` | Page background |
-| `--background-card` | `#313131` | Card/panel background |
+| 变量 | 默认值 | 描述 |
+|------|--------|------|
+| `--pixel-brand` | `#d84b4b` | 品牌主色 |
+| `--pixel-brand-light` | `#e48181` | 浅色（悬停态） |
+| `--pixel-brand-dark` | `#7e1b1b` | 深色（按下态） |
+| `--pixel-gray-light` | `#747271` | 浅灰（边框） |
+| `--pixel-gray` | `#3d3938` | 中灰（卡片背景） |
+| `--pixel-gray-dark` | `#262524` | 深灰（表面） |
+| `--pixel-dark` | `#171615` | 页面背景 |
+| `--background-card` | `#313131` | 卡片/面板背景 |
 
-Example — switch to a blue theme:
+示例 — 切换为蓝色主题：
 
 ```css
 :root {
@@ -62,36 +66,36 @@ Example — switch to a blue theme:
 }
 ```
 
-## Background Images
+## 背景图片
 
-Replace images in `public/background/`:
+替换 `public/background/` 中的图片：
 
-| File | Used In |
-|------|---------|
-| `15.jpg` | Home page / About page |
-| `19.jpg` | Home page feature sections |
-| `28.jpg` | News / Docs cards |
-| `44.jpg` | Home page / News cards |
-| `bgbtn.png` | Classic button texture |
+| 文件 | 使用位置 |
+|------|----------|
+| `15.jpg` | 首页 / 关于页 |
+| `19.jpg` | 首页特色栏目 |
+| `28.jpg` | 新闻 / 文档卡片 |
+| `44.jpg` | 首页 / 新闻卡片 |
+| `bgbtn.png` | Classic 按钮纹理 |
 
-## Footer
+## 页脚
 
-Edit the footer in `config.ts`:
+在 `config.ts` 中编辑页脚：
 
 ```ts
 footer: {
-  message: 'Released under the MIT License.',
-  copyright: 'Copyright © 2025 My Site',
+  message: '基于 MIT 许可协议发布。',
+  copyright: 'Copyright © 2025 我的站点',
 }
 ```
 
-## Social Links
+## 社交链接
 
-Add GitHub, Twitter, Discord, etc.:
+添加 GitHub、Twitter、Discord 等：
 
 ```ts
 socialLinks: [
-  { icon: 'github', link: 'https://github.com/you' },
-  { icon: 'twitter', link: 'https://twitter.com/you' },
+  { icon: 'github', link: 'https://github.com/你' },
+  { icon: 'twitter', link: 'https://twitter.com/你' },
 ]
 ```

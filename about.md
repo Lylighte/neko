@@ -4,42 +4,42 @@ hasHero: true
 ---
 
 <HomeHero
-  title="About Us"
-  subtitle="Our Story & Mission"
-  description="To build an inclusive environment where players of all skill levels can gather, share ideas, and work together on amazing projects."
+  title="关于我们"
+  subtitle="我们的故事与使命"
+  description="构建一个包容的环境，让各种水平的创作者都能聚集在一起，分享想法，共同完成精彩的项目。"
   background="/background/15.jpg"
 />
 
-# About Us
+# 关于我们
 
-## Our Mission
+## 我们的使命
 
-To build an inclusive environment where players of all skill levels can gather, share ideas, and work together on amazing projects.
+构建一个包容的环境，让各种水平的创作者都能聚集在一起，分享想法，共同完成精彩的项目。
 
-## What We Do
+## 我们做什么
 
-- **Community Builds** — Collaborative construction projects
-- **Events & Contests** — Regular themed challenges and competitions
-- **Knowledge Sharing** — Tutorials, tips, and best practices
-- **Social Gatherings** — Casual meetups and game nights
+- **社区项目** — 协作创意与技术项目
+- **活动与竞赛** — 定期主题挑战和比赛
+- **知识分享** — 教程、技巧和最佳实践
+- **社交聚会** — 轻松的线上聚会和社区之夜
 
 <HomeIntro
-  title="More About Us"
-  description="From our humble beginnings as a small group of friends to a thriving community of builders, redstone engineers, and explorers — our story is one of creativity and camaraderie."
+  title="了解更多"
+  description="从最初几个朋友的小团体，到如今汇聚了设计师、开发者和创意人才的繁荣社区——我们的故事充满了创造力与友谊。"
   image="/background/15.jpg"
 />
 
 <HomeIntro
-  title="Join the Adventure"
-  description="Whether you're a seasoned player or just starting out, there's a place for you here. Build your dream castle, automate farms with redstone, or simply hang out with friends."
+  title="加入这场冒险"
+  description="无论你是经验丰富的创作者还是刚刚起步，这里都有你的位置。打造你的梦想项目，探索新想法，或者只是和朋友们一起放松。"
   image="/background/44.jpg"
   :right="true"
 />
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 3rem 0;">
 
-<LinkCard :link="{ name: 'GitHub', url: 'https://github.com', image: '/background/bgbtn.png', description: 'Browse our open-source projects and contribute code.' }" />
-<LinkCard :link="{ name: 'Discord', url: '#', image: '/background/15.jpg', description: 'Join our community chat for real-time discussion and events.' }" />
-<LinkCard :link="{ name: 'Forum', url: '#', image: '/background/44.jpg', description: 'Share builds, post tutorials, and connect with other players.' }" />
+<LinkCard :link="{ name: 'GitHub', url: 'https://github.com', image: '/background/bgbtn.png', description: '浏览我们的开源项目，贡献代码。' }" />
+<LinkCard :link="{ name: 'Discord', url: '#', image: '/background/15.jpg', description: '加入社区聊天，参与实时讨论和活动。' }" />
+<LinkCard :link="{ name: '论坛', url: '#', image: '/background/44.jpg', description: '分享作品、发布教程，与其他创作者交流。' }" />
 
 </div>

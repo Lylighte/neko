@@ -1,15 +1,15 @@
-# News
+# 新闻
 
 <NewsCard
-  title="Welcome to Our Community"
-  brief="Learn about our community values, how to get started, and what makes us unique. From survival to creative, there's a place for everyone."
+  title="欢迎加入我们的社区"
+  brief="了解我们的社区价值观、如何入门，以及我们的独特之处。无论你喜欢什么方向，这里都有属于你的位置。"
   image="/background/44.jpg"
   link="/news/welcome"
 />
 
 <NewsCard
-  title="Community Update — June 2025"
-  brief="Catch up on the latest events, new projects, and upcoming activities. See what our members have been working on this month."
+  title="社区动态 — 2025 年 6 月"
+  brief="了解最新活动、新项目和即将到来的安排。看看我们的成员这个月都在忙些什么。"
   image="/background/15.jpg"
   link="/news/community-update"
 />

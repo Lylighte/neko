@@ -4,29 +4,29 @@ hasHero: true
 ---
 
 <HomeHero
-  title="Your Organization"
-  subtitle="Minecraft Community"
-  description="Building a vibrant community where creativity meets technology. We foster an inclusive environment for learning, collaboration, and growth."
+  title="我的组织"
+  subtitle="创意社区"
+  description="构建一个创意与技术交融的活力社区。我们营造包容的环境，让每个人都能学习、协作、成长。"
   logo="/logo.png"
   background="/background/44.jpg"
 />
 
 <HomeIntro
-  title="Build Amazing Things"
-  description="From grand castles to intricate redstone machines — our community members push the boundaries of what's possible in Minecraft. Share your creations and get inspired by others."
+  title="创造精彩"
+  description="从创意项目到技术创新——我们的社区成员不断突破想象的边界。分享你的作品，从他人那里获得灵感。"
   image="/background/44.jpg"
 />
 
 <HomeIntro
-  title="Learn &amp; Share"
-  description="Participate in workshops, tutorials, and community events. Whether you're a beginner or a veteran player, there's always something new to discover."
+  title="学习与分享"
+  description="参加工作坊、教程和社区活动。无论你是新手还是资深创作者，总有新东西等着你去发现。"
   image="/background/15.jpg"
   :right="true"
 />
 
 <HomeIntro
-  title="Join the Community"
-  description="Connect with fellow players who share your passion. Collaborate on projects, exchange ideas, and make lasting friendships in our welcoming community."
+  title="加入社区"
+  description="结识志同道合的创作者。协作项目、交流想法，在我们温暖的社区中建立持久的友谊。"
   image="/background/19.jpg"
 />
 

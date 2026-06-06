@@ -2,13 +2,13 @@
 layout: page
 ---
 
-# News Guide
+# 新闻指南
 
-Write and publish news posts with rich formatting and metadata.
+使用丰富的格式和元数据撰写并发布新闻文章。
 
-## Creating a Post
+## 创建文章
 
-Create a new `.md` file in the `news/` directory:
+在 `news/` 目录下新建 `.md` 文件：
 
 ```
 news/my-first-post.md
@@ -16,87 +16,101 @@ news/my-first-post.md
 
 ## Frontmatter
 
-Every news post needs YAML frontmatter at the top:
+每篇新闻文章顶部需要 YAML frontmatter：
 
 ```yaml
 ---
-title: My First Post
+title: 我的第一篇文章
 date: 2025-06-05
 author:
-  name: Your Name
+  name: 你的名字
   avatar: /background/bgbtn.png
   tags:
-    - text: Announcement
+    - text: 公告
       color: '#fff'
-      bg: '#3c8527'
+      bg: '#d84b4b'
 cover: /background/44.jpg
-category: General
+category: 综合
 ---
 ```
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `title` | Yes | Post title |
-| `date` | Yes | Publication date (YYYY-MM-DD) |
-| `author.name` | No | Author display name |
-| `author.avatar` | No | Author avatar image path |
-| `author.tags` | No | Badge tags (text, color, bg) |
-| `cover` | No | Hero cover image path |
-| `category` | No | Post category label |
+| 字段 | 必填 | 描述 |
+|------|:----:|------|
+| `title` | 是 | 文章标题 |
+| `date` | 是 | 发布日期（YYYY-MM-DD） |
+| `author.name` | 否 | 作者显示名称 |
+| `author.avatar` | 否 | 作者头像图片路径 |
+| `author.tags` | 否 | 标签徽章（text、color、bg） |
+| `cover` | 否 | 封面图路径 |
+| `category` | 否 | 文章分类标签 |
 
-## Adding to the News Listing
+## 添加到新闻列表
 
-After creating a post, add a `<NewsCard>` to `news/index.md`:
+创建文章后，在 `news/index.md` 中添加 `<NewsCard>`：
 
 ```html
 <NewsCard
-  title="My First Post"
-  brief="A short description that appears in the card preview."
+  title="我的第一篇文章"
+  brief="显示在卡片预览中的简短描述。"
   image="/background/44.jpg"
   link="/news/my-first-post"
 />
 ```
 
-| Prop | Description |
-|------|-------------|
-| `title` | Card title |
-| `brief` | Short description text |
-| `image` | Card background image |
-| `link` | URL to the news post |
+| 属性 | 描述 |
+|------|------|
+| `title` | 卡片标题 |
+| `brief` | 简短描述文字 |
+| `image` | 卡片背景图片 |
+| `link` | 文章链接 |
 
-## Markdown Features
+## Markdown 功能
 
-VitePress supports full Markdown with extensions:
+VitePress 支持完整的 Markdown 及其扩展语法：
 
-### Code Blocks
+### 代码块
 
 ```ts
-const greeting = 'Hello, world!'
+const greeting = '你好，世界！'
 console.log(greeting)
 ```
 
-### Alerts
+### 提示块
 
 ::: tip
-This is a helpful tip.
+这是一条有用的提示。
 :::
 
 ::: warning
-This is a warning.
+这是一条警告。
 :::
 
 ::: danger
-This is a dangerous warning.
+这是一条危险警告。
 :::
 
-### Images
+### 图片
 
 ```md
-![Alt text](/path/to/image.png)
+![替代文字](/path/to/image.png)
 ```
 
-### Tables
+### 表格
 
-| Header 1 | Header 2 |
-|----------|----------|
-| Cell 1   | Cell 2   |
+| 表头 1 | 表头 2 | 表头 3 |
+|--------|--------|--------|
+| 行 1   | 数据   | 更多   |
+| 行 2   | 数据   | 更多   |
+
+### 链接
+
+```md
+[内部链接](/docs/quick-start)
+[外部链接](https://example.com)
+```
+
+## 提示
+
+- 使用 16:9 宽高比的 `cover` 图片效果最佳
+- `brief` 描述控制在 150 字以内，保持卡片布局整洁
+- 新闻文章按 `date` 排序 — 使用 ISO 格式（`YYYY-MM-DD`）

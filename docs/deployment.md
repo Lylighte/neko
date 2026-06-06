@@ -2,35 +2,35 @@
 layout: page
 ---
 
-# Deployment
+# 部署
 
-Build your site for production and deploy to static hosting.
+构建站点并部署到静态托管服务。
 
-## Build
+## 构建
 
 ```bash
 npm run build
 ```
 
-The output goes to `.vitepress/dist/`. This folder contains static HTML, CSS, JS, and assets — ready to serve.
+输出目录为 `.vitepress/dist/`，包含静态 HTML、CSS、JS 和资源文件，可直接用于部署。
 
-## Preview Locally
+## 本地预览
 
 ```bash
 npm run preview
 ```
 
-This serves the built output so you can verify everything looks correct before deploying.
+在本地预览构建结果，确认一切正常后再部署。
 
-## Deploy to GitHub Pages
+## 部署到 GitHub Pages
 
-1. Push your repository to GitHub
-2. Go to **Settings → Pages**
-3. Set **Source** to **GitHub Actions**
-4. Create `.github/workflows/deploy.yml`:
+1. 将仓库推送到 GitHub
+2. 进入 **Settings → Pages**
+3. 将 **Source** 设置为 **GitHub Actions**
+4. 创建 `.github/workflows/deploy.yml`：
 
 ```yaml
-name: Deploy to GitHub Pages
+name: 部署到 GitHub Pages
 on:
   push:
     branches: [main]
@@ -50,19 +50,19 @@ jobs:
           publish_dir: .vitepress/dist
 ```
 
-## Deploy to Netlify
+## 部署到 Netlify
 
-1. Connect your Git repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `.vitepress/dist`
-4. Deploy!
+1. 在 Netlify 中连接你的 Git 仓库
+2. 构建命令：`npm run build`
+3. 发布目录：`.vitepress/dist`
+4. 部署！
 
-## Deploy to Vercel
+## 部署到 Vercel
 
-1. Import your Git repository on Vercel
-2. Framework preset: **VitePress**
-3. Vercel auto-detects build settings — just click Deploy
+1. 在 Vercel 中导入你的 Git 仓库
+2. 框架预设：**VitePress**
+3. Vercel 会自动检测构建设置 — 点击部署即可
 
-## Custom Domain
+## 自定义域名
 
-All platforms support custom domains. Follow their respective documentation to set up DNS and SSL.
+所有平台都支持自定义域名。请参考各平台的文档配置 DNS 和 SSL。

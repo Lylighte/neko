@@ -1,42 +1,42 @@
 ---
-title: Welcome to Our Community
+title: 欢迎加入我们的社区
 date: 2025-06-01
 author:
-  name: Community Team
+  name: 社区团队
   avatar: /background/44.jpg
   tags:
-    - text: Staff
+    - text: 官方
       color: '#fff'
       bg: '#7e0c6b'
-    - text: Official
+    - text: 公告
       color: '#ffffa0'
-      bg: '#3c8527'
+      bg: '#d84b4b'
 cover: /background/44.jpg
-category: Announcement
+category: 公告
 ---
 
-We're excited to have you here! Whether you're a seasoned builder, a redstone engineer, or just starting your Minecraft journey, you'll find a home with us.
+很高兴你来到这里！无论你是设计师、开发者、写作者，还是单纯在寻找一个有创意的社区，这里都欢迎你。
 
-## What We Offer
+## 我们提供什么
 
-- **Creative Freedom** — Build whatever you can imagine
-- **Supportive Community** — Friendly players ready to help
-- **Regular Events** — Competitions, workshops, and social gatherings
-- **Knowledge Base** — Tutorials and guides from experienced players
+- **创作自由** — 创造并分享你想象中的一切
+- **互助社区** — 友善的成员随时准备帮助你
+- **定期活动** — 比赛、工作坊和社交聚会
+- **知识库** — 来自资深创作者的经验教程和指南
 
-## How to Get Started
+## 如何开始
 
-1. Join our community server
-2. Introduce yourself in the forums
-3. Check out ongoing projects
-4. Start building!
+1. 加入我们的社区平台
+2. 在论坛中介绍自己
+3. 看看正在进行的项目
+4. 开始创作吧！
 
-## Community Guidelines
+## 社区准则
 
-- Be respectful and kind to all members
-- No griefing or destructive behavior
-- Collaborate and share credit
-- Have fun!
+- 尊重并友善对待所有成员
+- 禁止骚扰和破坏行为
+- 协作并共享荣誉
+- 玩得开心！
 
-We can't wait to see what you'll create!
+期待看到你的作品！
 

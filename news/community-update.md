@@ -1,35 +1,35 @@
 ---
-title: Community Update — June 2025
+title: 社区动态 — 2025 年 6 月
 date: 2025-06-15
 author:
-  name: Event Team
+  name: 活动团队
   avatar: /background/15.jpg
   tags:
-    - text: Event
+    - text: 活动
       color: '#fff'
       bg: '#1296db'
 cover: /background/15.jpg
-category: News
+category: 新闻
 ---
 
-Here's what's been happening in our community this month!
+来看看本月社区都发生了些什么！
 
-## Recent Events
+## 近期活动
 
-- **Spring Building Contest** — Congratulations to all participants! The theme was "Floating Islands" and the results were incredible.
-- **Redstone Workshop** — A hands-on session covering advanced comparator logic and auto-farming systems.
-- **Community Game Night** — An evening of mini-games and PvP tournaments.
+- **春季创意大赛** — 恭喜所有参赛者！本次主题为「浮空岛」，作品令人惊叹。
+- **设计工作坊** — 一场关于高级布局技巧和设计系统的实操课程。
+- **社区游戏之夜** — 一个充满休闲游戏和友谊赛的欢乐夜晚。
 
-## New Projects
+## 新项目
 
-- **Spawn City Expansion** — The central hub is getting a major redesign with new shops and gathering areas.
-- **Nether Highway** — Connecting all major bases with a fast travel network.
-- **Community Farm** — A shared resource farm is under construction near spawn.
+- **中心枢纽重设计** — 社区中心正在进行重大改版，新增功能和聚会区域。
+- **资源库** — 面向全体成员的教程、模板和素材共享合集。
+- **社区花园** — 一个协作创意空间正在建设中。
 
-## Upcoming
+## 即将到来
 
-- **Summer Buildathon** — A month-long collaborative build event starting July 1st
-- **PvP Tournament** — Registration opens next week
+- **夏日创作马拉松** — 为期一个月的协作活动，7 月 1 日启动
+- **设计锦标赛** — 下周开放报名
 
-Stay tuned for more updates!
+敬请期待更多更新！
 

@@ -10,62 +10,62 @@ const inputText = ref('')
 const textareaText = ref('')
 </script>
 
-# Component Reference
+# 组件参考
 
-All built-in Pixel UI components available for use in your Markdown pages.
+所有内置 Pixel UI 组件均可直接在 Markdown 页面中使用。
 
-## Button
+## 按钮
 
-Three button variants with click sound and hover/press states.
+三种按钮变体，支持点击音效和悬停/按下状态。
 
-### Default
+### 普通
 
-<PixelButton>Default Button</PixelButton>
+<PixelButton>普通按钮</PixelButton>
 
 ```html
-<PixelButton>Default Button</PixelButton>
+<PixelButton>普通按钮</PixelButton>
 ```
 
-### Dark
+### 深色
 
-<PixelButton dark>Dark Button</PixelButton>
+<PixelButton dark>深色按钮</PixelButton>
 
 ```html
-<PixelButton dark>Dark Button</PixelButton>
+<PixelButton dark>深色按钮</PixelButton>
 ```
 
-### Mute (no click sound)
+### 静音（无点击音效）
 
-<PixelButton sound-url="">Mute Button</PixelButton>
+<PixelButton sound-url="">静音按钮</PixelButton>
 
 ```html
-<PixelButton sound-url="">Mute Button</PixelButton>
+<PixelButton sound-url="">静音按钮</PixelButton>
 ```
 
-## Button Classic
+## Classic 按钮
 
-Full-width textured button with hover highlight.
+全宽纹理按钮，带悬停高亮效果。
 
-<PixelButtonClassic>Classic Button</PixelButtonClassic>
+<PixelButtonClassic>Classic 按钮</PixelButtonClassic>
 
 ```html
-<PixelButtonClassic>Classic Button</PixelButtonClassic>
+<PixelButtonClassic>Classic 按钮</PixelButtonClassic>
 ```
 
 ---
 
-## Button 3D
+## 3D 按钮
 
-Pressable 3D button with depth effect.
+带深度效果的可按压 3D 按钮。
 
 <div class="demo-3d-row">
-  <PixelButton3D>3D Button</PixelButton3D>
-  <PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
+  <PixelButton3D>3D 按钮</PixelButton3D>
+  <PixelButton3D height="9rem">高 3D 按钮</PixelButton3D>
 </div>
 
 ```html
-<PixelButton3D>3D Button</PixelButton3D>
-<PixelButton3D height="9rem">Tall 3D Button</PixelButton3D>
+<PixelButton3D>3D 按钮</PixelButton3D>
+<PixelButton3D height="9rem">高 3D 按钮</PixelButton3D>
 ```
 
 <style>
@@ -79,21 +79,21 @@ Pressable 3D button with depth effect.
 
 ---
 
-## Input
+## 输入框
 
-Text input with pixel-art border.
+带像素边框的文本输入框。
 
 <PixelInput v-model="inputText" />
 
-<p v-if="inputText">You typed: <strong>{{ inputText }}</strong></p>
+<p v-if="inputText">你输入了：<strong>{{ inputText }}</strong></p>
 
 ```html
 <PixelInput v-model="inputText" />
 ```
 
-## Textarea
+## 多行文本框
 
-Multi-line input with auto-resize.
+带自动调整大小的多行文本输入。
 
 <PixelTextarea v-model="textareaText" style="width:100%;min-height:6rem" />
 
@@ -101,77 +101,78 @@ Multi-line input with auto-resize.
 <PixelTextarea v-model="textareaText" />
 ```
 
-## Dialog
+## 对话框
 
-Modal dialog with title, content slot, and footer buttons.
+带标题、内容插槽和底部按钮的模态对话框。
 
-<PixelButton @click="dialogOpen = true">Open Dialog</PixelButton>
+<PixelButton @click="dialogOpen = true">打开对话框</PixelButton>
 
-<PixelDialog v-model="dialogOpen" title="Confirm Action" @confirm="dialogOpen = false">
-  <p>Are you sure you want to proceed?</p>
-  <p style="color:#aaa;font-size:0.9rem">This action cannot be undone.</p>
+<PixelDialog v-model="dialogOpen" title="确认操作" @confirm="dialogOpen = false">
+  <p>你确定要继续吗？</p>
+  <p style="color:#aaa;font-size:0.9rem">此操作无法撤销。</p>
 </PixelDialog>
 
 ```html
-<PixelButton @click="dialogOpen = true">Open Dialog</PixelButton>
+<PixelButton @click="dialogOpen = true">打开对话框</PixelButton>
 
 <PixelDialog
   v-model="dialogOpen"
-  title="Confirm Action"
-  cancel-text="Cancel"
-  confirm-text="Confirm"
+  title="确认操作"
+  cancel-text="取消"
+  confirm-text="确认"
   @confirm="dialogOpen = false"
 >
-  <p>Are you sure you want to proceed?</p>
+  <p>你确定要继续吗？</p>
 </PixelDialog>
 ```
 
-## Border Utility
+## 边框工具类
 
-Apply `.pixel-border` class for the pixel-art border frame.
+使用 `.pixel-border` 类为元素添加像素风格边框。
 
 <div class="pixel-border" style="padding:2rem;text-align:center;max-width:400px;margin:1rem auto">
-  <p>Content inside <code>.pixel-border</code></p>
+  <p><code>.pixel-border</code> 内部的内容</p>
 </div>
 
 ```html
 <div class="pixel-border">
-  <p>Content inside .pixel-border</p>
+  <p>内容放在 .pixel-border 内部</p>
 </div>
 ```
 
-## Props Reference
+## Props 参考
 
 ### PixelButton
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `dark` | `boolean` | `false` | Dark color scheme |
-| `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL (empty to mute) |
+| 属性 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `dark` | `boolean` | `false` | 深色主题 |
+| `sound-url` | `string` | `'/button.click.ogg'` | 点击音效 URL（设为空则静音） |
 
 ### PixelButtonClassic
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
+| 属性 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `sound-url` | `string` | `'/button.click.ogg'` | 点击音效 URL |
 
 ### PixelButton3D
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `height` | `string` | `'6rem'` | Button height (CSS value) |
-| `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
+| 属性 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `height` | `string` | `'6rem'` | 按钮高度（CSS 值） |
+| `sound-url` | `string` | `'/button.click.ogg'` | 点击音效 URL |
 
 ### PixelInput / PixelTextarea
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `model-value` | `string` | `''` | v-model binding |
+| 属性 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `model-value` | `string` | `''` | v-model 绑定值 |
 
 ### PixelDialog
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `model-value` | `boolean` | `false` | v-model for visibility |
-| `title` | `string` | `''` | Dialog title |
-| `cancel
+| 属性 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `model-value` | `boolean` | `false` | v-model 控制显示/隐藏 |
+| `title` | `string` | `''` | 对话框标题 |
+| `cancel-text` | `string` | `'Cancel'` | 取消按钮文字 |
+| `confirm-text` | `string` | `'Confirm'` | 确认按钮文字 |
