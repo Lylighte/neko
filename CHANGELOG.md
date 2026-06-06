@@ -330,8 +330,24 @@
 
 ---
 
-## 15 — UI 精灵图替换计划
+## 16 — 全站方案复查
 
 **Branch:** `template/vitepress`
 
-（计划阶段，详见 `dev-notes/ui-sprite-to-css-plan.md`）
+复查并修复全站字体方案，确保标题 Ark Pixel、代码 Monocraft、正文 Unifont 三层栈一致。
+
+### 16A — 注释与变量修复
+- `fonts.css`：注释 `System fonts` → `Unifont`，与实际实现一致
+- `vars.css`：`.pixel-text` 工具类硬编码 `'Unifont', 'Ark Pixel', monospace` → `var(--pixel-font-body)`
+
+### 16B — 组件标题字体修复
+- `NewsCard.vue`：`.overview-title` 继承 body (Unifont) → `--pixel-font-heading` (Ark Pixel)
+- `LinkCard.vue`：`.link-content p` 继承 body → `--pixel-font-heading`
+- `PixelDialog.vue`：`.dialog-title` 继承 body → `--pixel-font-heading`
+- `DocsSidebar.vue`：`.sidebar-title`、`.sidebar-group-name` 继承 body → `--pixel-font-heading`
+
+### 16C — PixelButton3D 高度微调
+- 默认高度 `4rem` → `3.6rem`
+
+### 构建验证
+- 构建通过（2.32s）

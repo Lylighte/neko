@@ -247,7 +247,7 @@ body {
 }
 
 .pixel-text {
-  font-family: 'Unifont', 'Ark Pixel', monospace;
+  font-family: var(--pixel-font-body);
   font-size: 18px;
   line-height: 1.8;
 }

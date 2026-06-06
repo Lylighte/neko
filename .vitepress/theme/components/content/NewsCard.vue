@@ -83,11 +83,12 @@ defineProps({
 }
 
 .overview-title {
+  font-family: var(--pixel-font-heading);
   font-size: 1.3rem;
   cursor: pointer;
   color: var(--pixel-color-text);
   text-decoration: none;
-  user-select: none;
+  user-select: none;  
   margin-bottom: 0.5rem;
 }
 

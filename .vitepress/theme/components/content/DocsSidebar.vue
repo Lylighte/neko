@@ -71,6 +71,7 @@ const isActive = (link: string) => {
 }
 
 .sidebar-title {
+  font-family: var(--pixel-font-heading);
   font-weight: bold;
   font-size: 1rem;
   padding: 0 1rem 0.75rem 1rem;
@@ -99,6 +100,7 @@ const isActive = (link: string) => {
 }
 
 .sidebar-group-name {
+  font-family: var(--pixel-font-heading);
   font-size: 0.9rem;
 }
 

@@ -121,6 +121,7 @@ onMounted(() => {
 }
 
 .dialog-title {
+  font-family: var(--pixel-font-heading);
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;

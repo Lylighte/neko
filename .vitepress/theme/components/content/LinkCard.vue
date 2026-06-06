@@ -61,6 +61,7 @@ defineProps<{
 }
 
 .link-content p {
+  font-family: var(--pixel-font-heading);
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
