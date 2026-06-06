@@ -36,9 +36,11 @@ const soundOn = (url: string) => {
   color: var(--pixel-btn-text);
   padding: 1rem;
   outline: var(--pixel-btn-border);
-  border: 2px solid;
+  border: 2px solid var(--pixel-btn-outline-dark);
   background-color: var(--pixel-btn-bg-base);
-  border-image: var(--btn-border-image);
+  box-shadow:
+    inset 2px 2px 0 0 var(--pixel-btn-shadow-light),
+    inset -2px -2px 0 0 var(--pixel-btn-shadow-dark);
   cursor: pointer;
 }
 
@@ -46,25 +48,33 @@ const soundOn = (url: string) => {
   color: var(--pixel-btn-text-hover);
   outline: 2px solid var(--pixel-btn-outline-dark);
   background-color: var(--pixel-btn-bg-dark);
-  border-image: var(--btn-border-image);
+  box-shadow:
+    inset 2px 2px 0 0 var(--pixel-btn-shadow-light),
+    inset -2px -2px 0 0 var(--pixel-btn-shadow-dark);
 }
 
 .pixel-button:hover {
   color: var(--pixel-btn-text-hover);
   outline: 2px solid var(--pixel-btn-outline-hover);
   background-color: var(--pixel-btn-bg-hover);
-  border-image: var(--btn-border-image-hover);
+  box-shadow:
+    inset 2px 2px 0 0 var(--pixel-btn-shadow-light-hover),
+    inset -2px -2px 0 0 var(--pixel-btn-shadow-dark-hover);
 }
 
 .pixel-button:active {
   background-color: var(--pixel-btn-bg-active);
-  border-image: var(--btn-border-image-active);
+  box-shadow:
+    inset -2px -2px 0 0 var(--pixel-btn-shadow-light),
+    inset 2px 2px 0 0 var(--pixel-btn-shadow-dark);
 }
 
 .pixel-button:active:hover {
   color: var(--pixel-btn-text-hover);
   outline: 2px solid var(--pixel-btn-outline-hover);
   background-color: var(--pixel-btn-bg-hover);
-  border-image: url('/UI/button_pressed.png') 1;
+  box-shadow:
+    inset -2px -2px 0 0 var(--pixel-btn-shadow-light-hover),
+    inset 2px 2px 0 0 var(--pixel-btn-shadow-dark-hover);
 }
 </style>

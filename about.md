@@ -38,7 +38,7 @@ To build an inclusive environment where players of all skill levels can gather, 
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 3rem 0;">
 
-<LinkCard :link="{ name: 'GitHub', url: 'https://github.com', image: '/background/bgbtn.jpg', description: 'Browse our open-source projects and contribute code.' }" />
+<LinkCard :link="{ name: 'GitHub', url: 'https://github.com', image: '/background/bgbtn.png', description: 'Browse our open-source projects and contribute code.' }" />
 <LinkCard :link="{ name: 'Discord', url: '#', image: '/background/15.jpg', description: 'Join our community chat for real-time discussion and events.' }" />
 <LinkCard :link="{ name: 'Forum', url: '#', image: '/background/44.jpg', description: 'Share builds, post tutorials, and connect with other players.' }" />
 

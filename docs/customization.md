@@ -72,7 +72,7 @@ Replace images in `public/background/`:
 | `bg.jpg` | Home page feature sections |
 | `15.jpg` | Home page / About page |
 | `44.jpg` | Home page / News cards |
-| `bgbtn.jpg` | Classic button texture |
+| `bgbtn.png` | Classic button texture |
 
 ## Footer
 

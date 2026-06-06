@@ -24,7 +24,7 @@ title: My First Post
 date: 2025-06-05
 author:
   name: Your Name
-  avatar: /background/bgbtn.jpg
+  avatar: /background/bgbtn.png
   tags:
     - text: Announcement
       color: '#fff'

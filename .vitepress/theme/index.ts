@@ -17,7 +17,6 @@ import PixelButtonClassic from './components/PixelButtonClassic.vue'
 import PixelButton3D from './components/PixelButton3D.vue'
 import PixelInput from './components/PixelInput.vue'
 import PixelTextarea from './components/PixelTextarea.vue'
-import PixelSwitch from './components/PixelSwitch.vue'
 import PixelDialog from './components/PixelDialog.vue'
 import ScrollToTop from './components/ScrollToTop.vue'
 
@@ -38,7 +37,6 @@ export default {
     app.component('PixelButton3D', PixelButton3D)
     app.component('PixelInput', PixelInput)
     app.component('PixelTextarea', PixelTextarea)
-    app.component('PixelSwitch', PixelSwitch)
     app.component('PixelDialog', PixelDialog)
     app.component('ScrollToTop', ScrollToTop)
 

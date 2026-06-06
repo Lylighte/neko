@@ -22,10 +22,16 @@
 
 ## 进行中 / 待执行
 
-- **Phase 15 — UI 精灵图 → CSS**: 计划已创建 (`dev-notes/ui-sprite-to-css-plan.md`)，待执行
-  - PixelButton、PixelSwitch、PixelInput、`.pixel-border`、Classic 按钮纹理全部 CSS 化
-  - 删除 `public/UI/` 全部 12 张 PNG + `public/background/bgbtn.jpg`
+- **Phase 15 — UI 精灵图 → CSS**: 计划已定稿 (`dev-notes/ui-sprite-to-css-plan.md`)，审查通过，**待执行**
+  - PixelButton (4×3×3) → `box-shadow` 多层叠加 ✅ 方案
+  - PixelInput (16×16) → `border-top/bottom` ✅ 方案
+  - `.pixel-border` (18×18) → `border` + `box-shadow` 5 层 ✅ 方案
+  - PixelSwitch ❌ 移除（6 张 toggle PNG 一并删除）
+  - Classic 纹理: `perlin-16x16.png` → `bgbtn.png`，`cover`→`repeat`
+  - 全站 `bgbtn.jpg` → `bgbtn.png` 路径更新（7 个 .md 文件）
+  - 删除残件: `public/UI/` 6 PNG + `public/background/bgbtn.jpg`
   - 组件目录重排 (`ui/`、`layout/`、`content/` 子目录)
+  - 执行顺序: CSS 替换 → 移除/重命名 → 路径更新 → 目录重排 → 构建验证 → 提交
 
 ## 发布计划
 

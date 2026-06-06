@@ -5,7 +5,6 @@ layout: page
 <script setup>
 import { ref } from 'vue'
 
-const switchOn = ref(false)
 const dialogOpen = ref(false)
 const inputText = ref('')
 const textareaText = ref('')
@@ -92,19 +91,6 @@ Multi-line input with auto-resize.
 <PixelTextarea v-model="textareaText" />
 ```
 
-## Switch
-
-Toggle switch with on/off sprites.
-
-<div style="display:flex;align-items:center;gap:0.5rem;margin:1rem 0">
-  <PixelSwitch v-model="switchOn" />
-  <span>{{ switchOn ? 'ON' : 'OFF' }}</span>
-</div>
-
-```html
-<PixelSwitch v-model="switchOn" />
-```
-
 ## Dialog
 
 Modal dialog with title, content slot, and footer buttons.
@@ -185,5 +171,4 @@ Apply `.pixel-border` class for the pixel-art border frame.
 |------|------|---------|-------------|
 | `model-value` | `boolean` | `false` | v-model for visibility |
 | `title` | `string` | `''` | Dialog title |
-| `cancel-text` | `string` | `'Cancel'` | Cancel button text |
-| `confirm-text` | `string` | `'Confirm'` | Confirm button text |
+| `cancel

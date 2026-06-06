@@ -39,7 +39,7 @@ export default defineConfig({
 | `public/background/bg.jpg` | Secondary background image |
 | `public/background/15.jpg` | Feature section image |
 | `public/background/44.jpg` | Feature section image |
-| `public/background/bgbtn.jpg` | Button background texture |
+| `public/background/bgbtn.png` | Button background texture |
 
 ### Edit Content
 

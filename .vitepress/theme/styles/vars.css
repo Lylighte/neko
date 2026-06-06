@@ -82,10 +82,11 @@ html {
   /* ───────────────────────────────────────────
      Layer 3: Component Tokens
      ─────────────────────────────────────────── */
-  /* Button sprites (shared) */
-  --btn-border-image: url('/UI/button_normal.png') 1;
-  --btn-border-image-hover: url('/UI/button_hover.png') 1;
-  --btn-border-image-active: url('/UI/button_pressed_hover.png') 1;
+  /* PixelButton — 3D bevel shadow colors */
+  --pixel-btn-shadow-light: rgba(255, 255, 255, 0.4);
+  --pixel-btn-shadow-dark: rgba(0, 0, 0, 0.4);
+  --pixel-btn-shadow-light-hover: var(--pixel-brand-light);
+  --pixel-btn-shadow-dark-hover: var(--pixel-brand-dark);
 
   /* PixelButton */
   --pixel-btn-bg: var(--pixel-color-accent);
@@ -100,7 +101,7 @@ html {
   --pixel-btn-outline-hover: #fff;
 
   /* PixelButtonClassic */
-  --pixel-btn-classic-bg: #999 url('/background/bgbtn.jpg') center/cover;
+  --pixel-btn-classic-bg: #999 url('/background/bgbtn.png') repeat;
   --pixel-btn-classic-active-bg: rgba(100, 100, 255, 0.45);
   --pixel-btn-classic-active-text: #ffffa0;
   --pixel-btn-classic-active-shadow: 2px 2px #202013cc;
@@ -120,8 +121,9 @@ html {
   --pixel-btn-3d-highlight: rgba(178, 178, 178, 0.5);
   --pixel-btn-3d-shadow-bottom: rgba(153, 153, 153, 0.5);
 
-  /* Input sprites */
-  --input-border-image: url('/UI/text-input.png') 1;
+  /* PixelInput / PixelTextarea — recessed border */
+  --pixel-input-shadow-dark: #545454;
+  --pixel-input-shadow-light: #c6c6c6;
 
   /* PixelInput / PixelTextarea */
   --pixel-input-bg: var(--pixel-color-bg-input);
@@ -139,9 +141,13 @@ html {
   --pixel-nav-slider-border-bottom: #8a1a1a;
   --pixel-nav-item-text-hover: #fff;
 
-  /* PixelDialog */
+  /* PixelDialog / .pixel-border */
   --pixel-dialog-overlay: var(--pixel-color-bg-overlay);
   --pixel-dialog-bg: var(--pixel-color-bg-card);
+  --pixel-border-outer: #000;
+  --pixel-border-highlight: #fff;
+  --pixel-border-shadow: #555;
+  --pixel-border-fill: #c6c6c6;
 
   /* Cards (BlogCard, LinkCard) */
   --pixel-card-bg: var(--pixel-color-bg-card);
