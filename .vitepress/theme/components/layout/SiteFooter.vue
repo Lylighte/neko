@@ -22,7 +22,7 @@ const iconNames: Record<string, string> = {
 <template>
   <div class="footer-area">
     <div class="footer-description">
-      <p class="footer-name">{{ site.title || '我的组织' }}</p>
+      <p class="footer-name">{{ site.title || '像素生态' }}</p>
       <span>{{ site.description || '' }}</span>
       <span id="copyright" v-if="theme.footer?.copyright">
         {{ theme.footer.copyright }}
@@ -31,12 +31,18 @@ const iconNames: Record<string, string> = {
         © {{ new Date().getFullYear() }} - 保留所有权利
       </span>
       <span id="declaration">
-        主题 <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> 灵感来源于
+        主题 <a href="https://github.com" target="_blank" rel="noopener">Pixel Eco</a> 灵感来源于
         <a href="https://github.com/RandomLemon/neco" target="_blank" rel="noopener">neco</a>。感谢
         <span class="highlight-name">int15</span> 与 <span class="highlight-name">kingcq</span> 的贡献。
       </span>
-      <!-- Minecraft 免责声明已移除 -->
-      <!-- ICP备案 — 取消注释并填入备案号即可启用
+      <!--
+      <span id="declaration">
+        NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR
+        MICROSOFT.
+      </span>
+      -->
+      <!-- ICP备案 — 取消注释并填入备案号即可启用 -->
+      <!--
       <span id="declaration">
         <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">皖ICP备2025XXXXXX号</a>
       </span>

@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Pixel Eco',
-  description: 'A VitePress template with retro pixel-style UI components',
+  title: '像素生态 - Pixel Eco',
+  description: '基于 VitePress 的像素风格 UI 组件模板',
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
   ],
@@ -18,10 +18,10 @@ export default defineConfig({
       { text: 'Docs', link: '/docs/' },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com', text: 'GitHub Repo' } as any,
+      { icon: 'github', link: 'https://github.com', text: '仓库地址' } as any,
     ],
     footer: {
-      copyright: '© 2026-Present Pixel Eco. All rights reserved.',
+      copyright: '© 2026-Present Pixel Eco. 保留所有权利。',
     },
   },
 })

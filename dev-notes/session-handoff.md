@@ -2,7 +2,7 @@
 
 ## 已完成
 
-（截至 Phase 18，完整日志见 CHANGELOG.md）
+（截至 Phase 25，完整日志见 CHANGELOG.md）
 
 - **docs 架构重构**: DocsBrowser SPA → 原生 `.md` + DocsSidebar ✅
 - **AGENTS.md**: 约束指令写入 ✅
@@ -27,10 +27,15 @@
 - **Phase 21 — 背景图清理**: bg.jpg/header-bg.jpg 替换为 19.jpg/28.jpg 并删除 ✅
 - **Phase 22 — Docs 内容完善 & README 重写**: 全站去游戏化、docs 修复补全、README 中文重写、系统记忆更新 ✅
 - **Phase 23 — 全站中文化**: 所有预置文本（页面内容、docs 文档、组件演示）全部改写为中文 ✅
+- **Phase 24 — 主题组件文本中文化**: DocsSidebar/SiteFooter/ArticleView/NewsCard/PixelDialog 文本中文 ✅
+- **Phase 25 — Config 中文化 & Docs 补充 & 免责声明保留**: description/copyright 中文、docs 新增文档管理指南、Minecraft 免责声明注释保留 ✅
 
 ## 待执行
 
-（无）
+- **发布前准备**:
+  1. CHANGELOG 转为用户可读版本（含项目来源 + archive 链接）
+  2. GitHub release + 当前仓库 archive
+  3. 新仓库继续开发（不保留 git history）
 
 ## 发布计划
 

@@ -453,3 +453,103 @@
 
 ### 构建验证
 - 构建通过（2.51s）
+
+---
+
+## 21 — 背景图清理
+
+**Branch:** `template/vitepress`
+
+清理零引用的旧背景图，精简资源目录。
+
+- 替换 `bg.jpg` → `19.jpg`、`header-bg.jpg` → `28.jpg`
+- 删除 `public/background/bg.jpg` 和 `public/background/header-bg.jpg`
+- 验证零引用残留
+
+### 构建验证
+- 构建通过
+
+---
+
+## 22 — Docs 内容完善 & 全站去游戏化
+
+**Branch:** `template/vitepress`
+
+填充文档内容，移除所有 Minecraft 特有术语，定位为通用社区模板。
+
+### 22A — 页面内容去游戏化
+- `index.md`：副标题、描述文字移除 Minecraft/redstone 引用
+- `about.md`：活动描述、角色称谓替换为通用社区语言
+- `news/welcome.md`、`news/community-update.md`：frontmatter + 正文全部重写
+- `package.json`：`minecraft-community-template` → `pixel-eco-template`
+
+### 22B — Docs 修复补全
+- `docs/index.md`：取消 Component Reference 链接注释
+- `docs/quick-start.md`：移除已删除的 `public/UI/`，更新项目结构树
+- `docs/customization.md`：Logo 节修正（PNG 为主，SVG 为源文件）
+- `docs/news.md`：补全截断的 Tables/Links/Tips 内容
+
+### 22C — README 中文重写
+- 全文中文，新增技术栈表、项目结构树、内置组件表
+
+### 22D — 系统记忆更新
+- `/memories/repo/neko.md` 重写，反映 Phase 21 后真实状态
+
+### 构建验证
+- 构建通过（2.32s）
+
+---
+
+## 23 — 全站中文化
+
+**Branch:** `template/vitepress`
+
+将所有页面、文档、组件演示的预置文本全部改写为中文。
+
+### 23A — 页面内容中文化
+- `index.md`、`about.md`：Hero/Intro 标题+描述全部中文
+- `news/index.md`、`welcome.md`、`community-update.md`：全部中文
+- `404.md`：返回链接中文
+
+### 23B — Docs 文档中文化
+- `docs/index.md`、`quick-start.md`、`customization.md`、`deployment.md`、`news.md`：全部中文
+
+### 23C — 组件演示文本中文化
+- `docs/components.md`：标题、按钮文字、Props 表全部中文
+
+### 构建验证
+- 构建通过（2.38s）
+
+---
+
+## 24 — 主题组件文本中文化
+
+**Branch:** `template/vitepress`
+
+将 Vue 组件模板中的英文标签、默认文字、标题全部替换为中文。
+
+- `DocsSidebar.vue`：导航分组 "Getting Started"→"入门指南"、"Writing Content"→"内容创作"；标题 "Documentation"→"文档"
+- `SiteFooter.vue`：组织名 fallback、版权声明、鸣谢中文化；"Links"→"链接"
+- `ArticleView.vue`："Published"→"发布于"、"Duration"→"持续时间"
+- `NewsCard.vue`："Read More"→"阅读更多"
+- `PixelDialog.vue`："Cancel"→"取消"、"Confirm"→"确认"
+
+### 构建验证
+- 构建通过（2.32s）
+
+---
+
+## 25 — Config 中文化 & Docs 补充 & 免责声明保留
+
+### 25A — SiteFooter 免责声明恢复
+- 将 Minecraft 免责声明以 HTML 注释形式保留（`<!-- -->` 包裹原始 `<span>`），恢复原始格式
+
+### 25B — Docs 新增「文档管理」指南
+- `docs/customization.md` 新增"文档管理"章节：新建文档页、更新 DocsSidebar、添加到文档首页
+
+### 25C — Config 中文化
+- `description`：填入"基于 VitePress 的像素风格 UI 组件模板"
+- `footer.copyright`："All rights reserved." → "保留所有权利。"
+
+### 构建验证
+- 构建通过（2.52s / 2.60s）

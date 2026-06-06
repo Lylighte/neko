@@ -99,3 +99,57 @@ socialLinks: [
   { icon: 'twitter', link: 'https://twitter.com/你' },
 ]
 ```
+
+## 文档管理
+
+添加、修改或删除文档页面，并同步更新侧边栏导航。
+
+### 新建文档页
+
+在 `docs/` 目录下创建 `.md` 文件：
+
+```bash
+docs/my-guide.md
+```
+
+顶部添加 YAML frontmatter：
+
+```md
+---
+layout: page
+---
+```
+
+### 更新侧边栏
+
+文档侧边栏导航硬编码在 `DocsSidebar.vue` 中：
+
+**文件位置：** `.vitepress/theme/components/content/DocsSidebar.vue`
+
+定位到 `nav` 数组，按以下结构编辑：
+
+```ts
+const nav = [
+  {
+    title: '分组名称',
+    items: [
+      { text: '页面标题', link: '/docs/quick-start' },
+      { text: '页面标题', link: '/docs/my-guide' },
+    ],
+  },
+]
+```
+
+| 字段 | 描述 |
+|------|------|
+| `title` | 分组标题（如"入门指南""内容创作"） |
+| `items[].text` | 侧边栏显示的文字 |
+| `items[].link` | 页面链接，`/docs/文件名` |
+
+### 添加到文档首页
+
+在 `docs/index.md` 中添加对应的 `<LinkCard>`：
+
+```html
+<LinkCard :link="{ name: '指南名称', url: '/docs/my-guide', image: '/background/19.jpg', description: '简短描述' }" />
+```

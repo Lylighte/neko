@@ -4,8 +4,8 @@ hasHero: true
 ---
 
 <HomeHero
-  title="我的组织"
-  subtitle="创意社区"
+  title="像素生态"
+  subtitle="创意驱动的社区"
   description="构建一个创意与技术交融的活力社区。我们营造包容的环境，让每个人都能学习、协作、成长。"
   logo="/logo.png"
   background="/background/44.jpg"
