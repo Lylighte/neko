@@ -386,3 +386,44 @@
 
 ### 构建验证
 - 构建通过（2.65s）
+
+---
+
+## 19 — 字号对齐 12px 网格
+
+**Branch:** `template/vitepress`
+
+基于 unitsPerEm 实测数据，将全站字号对齐到像素字体的整数倍网格。
+
+### 19A — 实测数据
+- 使用 fontTools 检查三种字体设计指标：
+  - Ark Pixel: unitsPerEm=1200，整数倍 ppem=12/16/20/24/30…
+  - Monocraft: unitsPerEm=1080，整数倍 ppem=12/15/18/20/24…
+  - Unifont: unitsPerEm=64，整数倍 ppem=8/16/32
+- 三者无共同整数倍 ppem，按用途分场景取舍
+
+### 19B — 方案确定
+采用"分用途对齐"策略：
+| 层级 | 字号 | 对齐 |
+|------|:----:|------|
+| 小字 `-s` | 12px | Ark✅ Mono✅ (禁用 Unifont) |
+| 正文 `-m` | 16px | Uni✅ Ark✅ |
+| 大标题 `-l` / h1 | 24px | Ark✅ Mono✅ |
+| 次标题 h2 | 20px | Ark✅ Mono✅ |
+| h3+ | 16px | 与正文一致 |
+| 超大 `-xl` | 32px | 装饰性尺寸，不保证对齐 |
+
+### 19C — vars.css 调整
+- `--pixel-font-size-s`: 0.875rem(14px) → 0.75rem(12px)
+- 字号变量增加注释标注对齐情况
+- 新增 `h1`(24px)、`h2`(20px)、`h3+`(16px) 显式字号声明
+
+### 19D — 组件字号对齐
+- NewsCard `.overview-title`: 1.3rem → 1.25rem(20px)
+- LinkCard `.link-content p`: 1.2rem → 1.25rem(20px)
+- PixelDialog `.dialog-title`: 1.2rem → 1.25rem(20px)
+- SiteFooter `.footer-name`: 1.2rem → 1.25rem(20px)，加 heading 字体
+- SiteFooter `#declaration`: 0.7rem → 0.75rem(12px)
+
+### 构建验证
+- 构建通过（2.35s）

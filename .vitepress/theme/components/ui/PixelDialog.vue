@@ -122,7 +122,7 @@ onMounted(() => {
 
 .dialog-title {
   font-family: var(--pixel-font-heading);
-  font-size: 1.2rem;
+  font-size: 1.25rem;   /* 20px — Ark Pixel 对齐 */
   font-weight: bold;
   margin-bottom: 1rem;
   user-select: none;

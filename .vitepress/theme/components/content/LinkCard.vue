@@ -62,7 +62,7 @@ defineProps<{
 
 .link-content p {
   font-family: var(--pixel-font-heading);
-  font-size: 1.2rem;
+  font-size: 1.25rem;   /* 20px — Ark Pixel 对齐 */
   font-weight: bold;
   margin: 0;
   color: var(--pixel-linkcard-title-color);

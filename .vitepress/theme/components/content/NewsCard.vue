@@ -84,7 +84,7 @@ defineProps({
 
 .overview-title {
   font-family: var(--pixel-font-heading);
-  font-size: 1.3rem;
+  font-size: 1.25rem;   /* 20px — Ark Pixel 对齐 */
   cursor: pointer;
   color: var(--pixel-color-text);
   text-decoration: none;

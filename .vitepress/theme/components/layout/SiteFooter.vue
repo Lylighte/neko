@@ -84,7 +84,8 @@ const iconNames: Record<string, string> = {
 }
 
 .footer-name {
-  font-size: 1.2rem;
+  font-family: var(--pixel-font-heading);
+  font-size: 1.25rem;   /* 20px — Ark Pixel 对齐 */
   font-weight: bold;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
@@ -102,7 +103,7 @@ const iconNames: Record<string, string> = {
 }
 
 #declaration {
-  font-size: 0.7rem;
+  font-size: 0.75rem;   /* 12px — 最小对齐尺寸 */
   color: var(--pixel-footer-declaration);
   margin-top: 0.15rem;
   margin-bottom: 0.15rem;
