@@ -34,10 +34,11 @@ export default defineConfig({
 
 | File | Purpose |
 |------|---------|
-| `public/logo.svg` | Site logo (SVG recommended) |
-| `public/background/hero-bg.jpg` | Home page hero background |
-| `public/background/bg.jpg` | Secondary background image |
+| `public/logo.svg` | Site logo (design source) |
+| `public/logo.png` | Site logo (primary) |
 | `public/background/15.jpg` | Feature section image |
+| `public/background/19.jpg` | Feature section image |
+| `public/background/28.jpg` | Feature section image |
 | `public/background/44.jpg` | Feature section image |
 | `public/background/bgbtn.png` | Button background texture |
 

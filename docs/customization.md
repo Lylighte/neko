@@ -68,9 +68,9 @@ Replace images in `public/background/`:
 
 | File | Used In |
 |------|---------|
-| `hero-bg.jpg` | Home page hero section |
-| `bg.jpg` | Home page feature sections |
 | `15.jpg` | Home page / About page |
+| `19.jpg` | Home page feature sections |
+| `28.jpg` | News / Docs cards |
 | `44.jpg` | Home page / News cards |
 | `bgbtn.png` | Classic button texture |
 

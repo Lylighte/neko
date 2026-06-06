@@ -27,6 +27,6 @@ hasHero: true
 <HomeIntro
   title="Join the Community"
   description="Connect with fellow players who share your passion. Collaborate on projects, exchange ideas, and make lasting friendships in our welcoming community."
-  image="/background/bg.jpg"
+  image="/background/19.jpg"
 />
 
