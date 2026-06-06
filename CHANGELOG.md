@@ -278,6 +278,52 @@
 ### 14D — 杂项
 - `html { scroll-behavior: smooth }` 全站平滑滚动
 - LinkCard 补齐 `transition: transform 0.3s ease` + hover `scale(1.05)`
+
+---
+
+## 15 — UI 精灵图 → CSS 替换
+
+**Branch:** `template/vitepress`
+
+用纯 CSS 替代所有精灵图引用，外观完全由 CSS 变量控制。
+
+### 15A — PixelButton border-image → box-shadow
+- 4 张 3×3 精灵图（button_normal/hover/pressed/pressed_hover）→ `box-shadow` 多层叠加
+- 5 个交互态（normal/hover/active/dark/active:hover）全覆盖
+- Normal/dark 用固定灰度，hover/active 用品牌色变量自动跟随
+
+### 15B — PixelInput border-image → border
+- `text-input.png`（16×16）→ `border-top/bottom` 纯色边（上暗下亮）
+
+### 15C — .pixel-border / PixelDialog border-image → border + box-shadow
+- `dialog_background_hollow_4.png`（18×18）→ `border` 方向色 + `outline` 描边 + `box-shadow` 填充
+- 增加 `img.pixel-border` 回退（padding + bg-color）兼容 `<img>` 元素
+
+### 15D — PixelSwitch 移除
+- 组件 `PixelSwitch.vue` 删除 + 6 张 toggle PNG 一并删除
+- `docs/components.md` 移除 PixelSwitch 段落和 Props 表
+- `index.ts` 取消注册
+
+### 15E — Classic 按钮纹理替换
+- `bgbtn.jpg`（196×15 cover）→ `bgbtn.png`（16×16 噪声图 repeat）
+- 全站 7 个 `.md` 文件引用路径同步更新
+
+### 15F — 精灵图文件清理
+- 删除 `public/UI/` 全部 12 张 PNG + `public/background/bgbtn.jpg`
+
+### 15G — 组件目录重排
+- 15 个组件归入 `ui/`（6）、`layout/`（5）、`content/`（4）子目录
+- `index.ts`、`Layout.vue`、`SiteFooter.vue`、`NewsCard.vue`、`ScrollToTop.vue` 导入路径同步更新
+
+### 15H — 修复
+- LinkCard `target="_blank"` → 仅外部链接新窗口，内部 SPA 跳转
+- NewsCard PixelButton → PixelButton3D，修复点击命中区域（外层 `<a>` 包裹）
+- PixelButton 普通态描边透明
+- PixelButton3D 恢复原版下沉效果（translateY + margin-bottom + height 缩减）
+- 像素边框变量化（`--pixel-border-outer` / `--pixel-border-highlight` / `--pixel-border-shadow` / `--pixel-border-fill`）
+
+### 构建验证
+- 5 次提交，每次构建通过，最终构建 2.30s
 - `prefers-reduced-motion` 规则注释掉（用户系统偏左为减少动效时覆盖）
 - 构建验证通过（2.20s）
 
