@@ -3,7 +3,7 @@ title: Community Update — June 2025
 date: 2025-06-15
 author:
   name: Event Team
-  avatar: /background/bgbtn.png
+  avatar: /background/15.jpg
   tags:
     - text: Event
       color: '#fff'

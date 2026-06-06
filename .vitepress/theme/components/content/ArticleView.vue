@@ -20,7 +20,9 @@ defineProps<{
     <div class="article-body">
       <!-- Author sidebar -->
       <aside v-if="author" class="article-author">
-        <img :src="author.avatar" :alt="author.name" class="article-author-avatar" />
+        <div class="article-author-avatar pixel-border">
+          <img :src="author.avatar" :alt="author.name" />
+        </div>
         <div class="article-author-name">{{ author.name }}</div>
         <div v-if="author.tags" class="article-author-tags">
           <span
@@ -103,10 +105,17 @@ defineProps<{
 .article-author-avatar {
   width: 5rem;
   height: 5rem;
-  border-radius: 2px;
-  border: 2px solid var(--pixel-brand);
+  overflow: hidden;
+  padding: 5px;
+  background-color: var(--pixel-border-fill);
+}
+
+.article-author-avatar img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   image-rendering: pixelated;
+  display: block;
 }
 
 .article-author-name {

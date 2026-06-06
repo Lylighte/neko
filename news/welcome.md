@@ -3,7 +3,7 @@ title: Welcome to Our Community
 date: 2025-06-01
 author:
   name: Community Team
-  avatar: /background/bgbtn.png
+  avatar: /background/44.jpg
   tags:
     - text: Staff
       color: '#fff'

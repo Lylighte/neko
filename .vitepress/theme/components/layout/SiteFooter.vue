@@ -31,7 +31,7 @@ const iconNames: Record<string, string> = {
         © {{ new Date().getFullYear() }} - All rights reserved
       </span>
       <span id="declaration">
-        Theme <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> is powered by
+        Theme <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> is inspired by
         <a href="https://github.com/RandomLemon/neco" target="_blank" rel="noopener">neco</a>. Thanks to
         <span class="highlight-name">int15</span> &amp; <span class="highlight-name">kingcq</span> for their work.
       </span>
@@ -74,6 +74,7 @@ const iconNames: Record<string, string> = {
   background-color: var(--pixel-color-bg);
   border-top: 1px solid var(--pixel-footer-border);
   margin-top: 3rem;
+  animation: fade-in-up 0.6s ease;
 }
 
 .footer-description {

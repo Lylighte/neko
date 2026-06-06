@@ -65,7 +65,13 @@ const articleProps = computed(() => {
 /* ── Match VitePress dark palette to Pixel ── */
 .pixel-layout {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--pixel-color-bg);
+}
+
+.main-content {
+  flex: 1;
 }
 
 /* Remove default VitePress nav, sidebar, doc footer */
