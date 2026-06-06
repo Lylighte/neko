@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
-import NavBar from './components/NavBar.vue'
-import SiteFooter from './components/SiteFooter.vue'
-import ScrollToTop from './components/ScrollToTop.vue'
-import ArticleView from './components/ArticleView.vue'
-import DocsSidebar from './components/DocsSidebar.vue'
+import NavBar from './components/layout/NavBar.vue'
+import SiteFooter from './components/layout/SiteFooter.vue'
+import ScrollToTop from './components/layout/ScrollToTop.vue'
+import ArticleView from './components/content/ArticleView.vue'
+import DocsSidebar from './components/content/DocsSidebar.vue'
 
 const { frontmatter } = useData()
 const route = useRoute()

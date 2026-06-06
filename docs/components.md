@@ -158,13 +158,6 @@ Apply `.pixel-border` class for the pixel-art border frame.
 |------|------|---------|-------------|
 | `model-value` | `string` | `''` | v-model binding |
 
-### PixelSwitch
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `model-value` | `boolean` | `false` | v-model binding |
-| `sound-url` | `string` | `'/button.click.ogg'` | Click sound URL |
-
 ### PixelDialog
 
 | Prop | Type | Default | Description |

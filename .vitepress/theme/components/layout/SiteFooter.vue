@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useData } from 'vitepress'
-import BilibiliIcon from './icons/BilibiliIcon.vue'
-import GithubIcon from './icons/GithubIcon.vue'
-import QQIcon from './icons/QQIcon.vue'
+import BilibiliIcon from '../icons/BilibiliIcon.vue'
+import GithubIcon from '../icons/GithubIcon.vue'
+import QQIcon from '../icons/QQIcon.vue'
 
 const { theme, site } = useData()
 

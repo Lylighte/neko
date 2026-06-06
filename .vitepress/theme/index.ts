@@ -12,21 +12,21 @@ import './styles/animations.css'
 import './styles/pixel-border.css'
 
 // UI Components
-import PixelButton from './components/PixelButton.vue'
-import PixelButtonClassic from './components/PixelButtonClassic.vue'
-import PixelButton3D from './components/PixelButton3D.vue'
-import PixelInput from './components/PixelInput.vue'
-import PixelTextarea from './components/PixelTextarea.vue'
-import PixelDialog from './components/PixelDialog.vue'
-import ScrollToTop from './components/ScrollToTop.vue'
+import PixelButton from './components/ui/PixelButton.vue'
+import PixelButtonClassic from './components/ui/PixelButtonClassic.vue'
+import PixelButton3D from './components/ui/PixelButton3D.vue'
+import PixelInput from './components/ui/PixelInput.vue'
+import PixelTextarea from './components/ui/PixelTextarea.vue'
+import PixelDialog from './components/ui/PixelDialog.vue'
+import ScrollToTop from './components/layout/ScrollToTop.vue'
 
 // Layout Components
-import HomeHero from './components/HomeHero.vue'
-import HomeIntro from './components/HomeIntro.vue'
-import NewsCard from './components/NewsCard.vue'
-import LinkCard from './components/LinkCard.vue'
-import DocsSidebar from './components/DocsSidebar.vue'
-import SiteFooter from './components/SiteFooter.vue'
+import HomeHero from './components/layout/HomeHero.vue'
+import HomeIntro from './components/layout/HomeIntro.vue'
+import NewsCard from './components/content/NewsCard.vue'
+import LinkCard from './components/content/LinkCard.vue'
+import DocsSidebar from './components/content/DocsSidebar.vue'
+import SiteFooter from './components/layout/SiteFooter.vue'
 
 export default {
   Layout,

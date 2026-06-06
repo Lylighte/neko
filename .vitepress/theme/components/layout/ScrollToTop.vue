@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import PixelButton from './PixelButton.vue'
+import PixelButton from '../ui/PixelButton.vue'
 
 const scrollToTop = () => {
   if (typeof window === 'undefined') return

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import PixelButton from './PixelButton.vue'
+import PixelButton from '../ui/PixelButton.vue'
 
 defineProps({
   title: {
