@@ -18,6 +18,10 @@ coverage
 .vitepress/dist
 .vitepress/cache
 
+# Development-only files (AI instructions, dev notes)
+/AGENTS.md
+/dev-notes/
+
 # Font temporary files
 public/fonts/*.zip
 public/fonts/*-temp/
