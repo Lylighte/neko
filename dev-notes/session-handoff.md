@@ -24,13 +24,14 @@
 - **Phase 18 — 字体抗锯齿优化**: 关闭抗锯齿提升像素字体锐利度 ✅
 - **Phase 19 — 字号对齐 12px 网格**: unitsPerEm 实测驱动，分用途对齐 ✅
 - **Phase 20 — 字体颜色提亮 + Logo 整理**: 正文 0.8→0.9，Logo 切 PNG，favicon 修复 ✅
+- **Phase 21 — 背景图清理**: bg.jpg/header-bg.jpg 替换为 19.jpg/28.jpg 并删除 ✅
 
 ## 待执行
 
 ## 发布计划
 
 - 默认配图保留 `15.jpg`、`44.jpg`
-- `bg.jpg`、`header-bg.jpg` 移除（header-bg.jpg 零引用，hero-bg.jpg 不存在）
+- 已移除: bg.jpg、header-bg.jpg、hero-bg.jpg（零引用或不存在）
 - 发布前需:
   1. 精灵图 → CSS 替换完成
   2. CHANGELOG 转为用户可读版本（含项目来源 + archive 链接）
