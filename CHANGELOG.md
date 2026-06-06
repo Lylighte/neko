@@ -427,3 +427,29 @@
 
 ### 构建验证
 - 构建通过（2.35s）
+
+---
+
+## 20 — 字体颜色柔和提亮 + Logo 资源整理
+
+**Branch:** `template/vitepress`
+
+### 20A — 全站字体颜色提亮
+| 变量 | 之前 | 之后 | 提升 |
+|------|:----:|:----:|:----:|
+| `--pixel-color-text` | `rgba(255,255,255,0.8)` | **`0.9`** | 正文 |
+| `--pixel-color-text-muted` | `0.7` | **`0.8`** | 次要文字 |
+| `--vp-c-text-2` | `0.6` | **`0.7`** | VitePress 辅助文本 |
+| `--pixel-footer-text` | `#ccc` | **`#ddd`** | 页脚正文 |
+| `--pixel-footer-copyright` | `rgb(128)` | **`#999`** | 版权声明 |
+| `--pixel-footer-declaration` | `#999` | **`#aaa`** | 底部注脚 |
+
+### 20B — Logo 资源整理
+- 引入 `public/logo.png`（192×192），替换 SVG 作为主 Logo
+- `index.md`、`HomeHero.vue` 默认引用 `/logo.svg` → `/logo.png`
+- `config.ts` favicon 改为 `type: image/png`, `href: /logo.png`
+- 新增 `public/favicon.ico`（解决浏览器 404）
+- `public/logo.svg` 保留为设计源文件
+
+### 构建验证
+- 构建通过（2.51s）

@@ -23,6 +23,7 @@
 - **Phase 17 — Pixel Eco Logo**: 8×8 砖块 Logo + favicon 配置 ✅
 - **Phase 18 — 字体抗锯齿优化**: 关闭抗锯齿提升像素字体锐利度 ✅
 - **Phase 19 — 字号对齐 12px 网格**: unitsPerEm 实测驱动，分用途对齐 ✅
+- **Phase 20 — 字体颜色提亮 + Logo 整理**: 正文 0.8→0.9，Logo 切 PNG，favicon 修复 ✅
 
 ## 待执行
 
