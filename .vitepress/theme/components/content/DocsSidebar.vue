@@ -6,18 +6,18 @@ import { useRoute } from 'vitepress'
 // 若文档增多，可改为从 themeConfig.sidebar 读取
 const nav = [
   {
-    title: 'Getting Started',
+    title: '入门指南',
     items: [
-      { text: 'Quick Start', link: '/docs/quick-start' },
-      { text: 'Customization', link: '/docs/customization' },
-      { text: 'Deployment', link: '/docs/deployment' },
+      { text: '快速开始', link: '/docs/quick-start' },
+      { text: '自定义', link: '/docs/customization' },
+      { text: '部署', link: '/docs/deployment' },
     ],
   },
   {
-    title: 'Writing Content',
+    title: '内容创作',
     items: [
-      { text: 'News Guide', link: '/docs/news' },
-      { text: 'Component Reference', link: '/docs/components' },
+      { text: '新闻指南', link: '/docs/news' },
+      { text: '组件参考', link: '/docs/components' },
     ],
   },
 ]
@@ -36,7 +36,7 @@ const isActive = (link: string) => {
 
 <template>
   <nav class="docs-sidebar">
-    <div class="sidebar-title">Documentation</div>
+    <div class="sidebar-title">文档</div>
     <template v-for="group in nav" :key="group.title">
       <div class="sidebar-group">
         <div class="sidebar-group-header" @click="toggle(group.title)">

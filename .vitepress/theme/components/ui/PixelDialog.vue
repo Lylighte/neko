@@ -11,11 +11,11 @@ const props = defineProps({
   },
   cancelText: {
     type: String,
-    default: 'Cancel',
+    default: '取消',
   },
   confirmText: {
     type: String,
-    default: 'Confirm',
+    default: '确认',
   },
 })
 const visible = ref(false)

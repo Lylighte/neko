@@ -34,11 +34,11 @@ defineProps<{
         </div>
         <div class="article-author-meta">
           <div v-if="date && !endDate">
-            <span class="meta-label">Published</span>
+            <span class="meta-label">发布于</span>
             <span class="meta-value">{{ date }}</span>
           </div>
           <div v-else-if="date && endDate">
-            <span class="meta-label">Duration</span>
+            <span class="meta-label">持续时间</span>
             <span class="meta-value">{{ date }} ~ {{ endDate }}</span>
           </div>
         </div>

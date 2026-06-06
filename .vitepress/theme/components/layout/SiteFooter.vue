@@ -22,23 +22,20 @@ const iconNames: Record<string, string> = {
 <template>
   <div class="footer-area">
     <div class="footer-description">
-      <p class="footer-name">{{ site.title || 'Your Organization' }}</p>
+      <p class="footer-name">{{ site.title || '我的组织' }}</p>
       <span>{{ site.description || '' }}</span>
       <span id="copyright" v-if="theme.footer?.copyright">
         {{ theme.footer.copyright }}
       </span>
       <span id="copyright" v-else>
-        © {{ new Date().getFullYear() }} - All rights reserved
+        © {{ new Date().getFullYear() }} - 保留所有权利
       </span>
       <span id="declaration">
-        Theme <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> is inspired by
-        <a href="https://github.com/RandomLemon/neco" target="_blank" rel="noopener">neco</a>. Thanks to
-        <span class="highlight-name">int15</span> &amp; <span class="highlight-name">kingcq</span> for their work.
+        主题 <a href="https://github.com" target="_blank" rel="noopener">pixel eco</a> 灵感来源于
+        <a href="https://github.com/RandomLemon/neco" target="_blank" rel="noopener">neco</a>。感谢
+        <span class="highlight-name">int15</span> 与 <span class="highlight-name">kingcq</span> 的贡献。
       </span>
-      <span id="declaration">
-        NOT AN OFFICIAL MINECRAFT ORGANIZATION. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR
-        MICROSOFT.
-      </span>
+      <!-- Minecraft 免责声明已移除 -->
       <!-- ICP备案 — 取消注释并填入备案号即可启用
       <span id="declaration">
         <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">皖ICP备2025XXXXXX号</a>
@@ -48,7 +45,7 @@ const iconNames: Record<string, string> = {
 
     <div class="footer-links">
       <div class="link-block" v-if="theme.socialLinks && theme.socialLinks.length">
-        <p>Links</p>
+        <p>链接</p>
         <a
           class="link-item"
           v-for="link in theme.socialLinks"

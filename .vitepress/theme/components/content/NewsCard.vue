@@ -20,7 +20,7 @@ defineProps({
   },
   buttonText: {
     type: String,
-    default: 'Read More',
+    default: '阅读更多',
   },
 })
 </script>
