@@ -2,6 +2,8 @@
 
 ## 已完成
 
+（截至 Phase 15，完整日志见 CHANGELOG.md）
+
 - **docs 架构重构**: DocsBrowser SPA → 原生 `.md` + DocsSidebar ✅
 - **AGENTS.md**: 约束指令写入 ✅
 - **config.ts**: `srcExclude` 排除项目文件 ✅
@@ -9,10 +11,31 @@
 - **构建验证**: `npx vitepress build` 通过 ✅
 - **README 重写**: 去 Minecraft 化 ✅
 - **config.ts**: title/description 更新 ✅
-- **CHANGELOG**: Phase 8 记录 ✅
-- **dev-notes 清理**: 移除 4 个已完成计划文档 ✅
-- **docs 一致性检查**: 侧边栏链接与文件一一对应 ✅
 - **像素字体实施**: Ark Pixel (标题) + Monocraft (代码) + Unifont (正文) ✅
+- **blog/ → news/** 重命名 ✅
+- **全站换色**: 绿色 `#3c8527` → 红色 `#d84b4b` ✅
+- **CSS 变量重命名**: `--pixel-green*` → `--pixel-brand*` ✅
+- **Footer 重构**: 动态 title/description、鸣谢声明、颜色变量化 ✅
+- **SiteFooter 变量抽取**: hero padding/width/min-width 抽入 vars.css ✅
+- **全站动效增强 (Phase 14)**: NavBar/ScrollToTop 修复、页面过渡、入场动画、平滑滚动 ✅
+- **dev-notes 清理**: 移除 6 个已完成计划文档 ✅
+
+## 进行中 / 待执行
+
+- **Phase 15 — UI 精灵图 → CSS**: 计划已创建 (`dev-notes/ui-sprite-to-css-plan.md`)，待执行
+  - PixelButton、PixelSwitch、PixelInput、`.pixel-border`、Classic 按钮纹理全部 CSS 化
+  - 删除 `public/UI/` 全部 12 张 PNG + `public/background/bgbtn.jpg`
+  - 组件目录重排 (`ui/`、`layout/`、`content/` 子目录)
+
+## 发布计划
+
+- 默认配图保留 `15.jpg`、`44.jpg`
+- `bg.jpg`、`header-bg.jpg` 移除（header-bg.jpg 零引用，hero-bg.jpg 不存在）
+- 发布前需:
+  1. 精灵图 → CSS 替换完成
+  2. CHANGELOG 转为用户可读版本（含项目来源 + archive 链接）
+  3. GitHub release + 当前仓库 archive
+  4. 新仓库继续开发（不保留 git history）
 - **NavBar 字体**: 改为 Ark Pixel，与标题统一 ✅
 - **Design Tokens 计划**: Phase 10 三层令牌架构计划完成 ✅
 - **Phase 10: Design Tokens 实施**: vars.css 三层令牌重构，16 组件变量替换 ✅
